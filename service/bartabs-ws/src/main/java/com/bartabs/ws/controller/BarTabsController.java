@@ -18,6 +18,12 @@ public class BarTabsController {
 		shop.setName(name);
 		shop.setStaffName("staff");
 
+		Shop shop2 = new Shop();
+		shop.setName("John");
+		shop.setStaffName("Goldberg");
+
+		shop.setShop(shop2);
+
 		return shop;
 
 	}

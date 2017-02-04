@@ -4,6 +4,8 @@ public class Shop {
 	private String name;
 	private String staffName;
 
+	private Shop shop;
+
 	public String getName() {
 		return name;
 	}
@@ -18,6 +20,14 @@ public class Shop {
 
 	public void setStaffName(String staffName) {
 		this.staffName = staffName;
+	}
+
+	public Shop getShop() {
+		return shop;
+	}
+
+	public void setShop(Shop shop) {
+		this.shop = shop;
 	}
 
 }
