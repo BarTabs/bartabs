@@ -16,7 +16,7 @@ public class BarTabsController {
 
 		Shop shop = new Shop();
 		shop.setName(name);
-		shop.setStaffName("staff");
+		shop.setStaffName("Test1");
 
 		Shop shop2 = new Shop();
 		shop2.setName("John");
