@@ -22,19 +22,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Bar Tabs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9V-JH-NwJ">
-                                <rect key="frame" x="106" y="72" width="163" height="21"/>
+                                <rect key="frame" x="106" y="28" width="163" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xQc-Ca-PAI">
-                                <rect key="frame" x="16" y="177" width="343" height="30"/>
+                                <rect key="frame" x="16" y="133" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kuk-W2-IQ5">
-                                <rect key="frame" x="16" y="362" width="343" height="30"/>
+                                <rect key="frame" x="16" y="318" width="343" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="BHU-rw-gzh"/>
                                 </constraints>
@@ -45,18 +45,15 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qel-57-AUp">
-                                <rect key="frame" x="16" y="271" width="343" height="30"/>
+                                <rect key="frame" x="16" y="227" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAC-Pf-Yeb">
-                                <rect key="frame" x="16" y="421" width="343" height="33"/>
+                                <rect key="frame" x="16" y="377" width="343" height="33"/>
                                 <fontDescription key="fontDescription" name="PTMono-Bold" family="PT Mono" pointSize="18"/>
                                 <state key="normal" title="Pre Game"/>
-                                <connections>
-                                    <segue destination="SjC-qT-auq" kind="show" id="VBB-g5-Pdn"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -112,9 +109,6 @@
                                 <rect key="frame" x="164" y="431" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="RjC-aw-PbV"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -163,7 +157,4 @@
             <point key="canvasLocation" x="1864.8" y="137.18140929535232"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="RjC-aw-PbV"/>
-    </inferredMetricsTieBreakers>
 </document>

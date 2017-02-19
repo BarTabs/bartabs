@@ -33,8 +33,8 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destViewController : userLoginViewController = segue.destination as! userLoginViewController
         destViewController.userName = userNameField.text!
-    }*/
+    }
 }
