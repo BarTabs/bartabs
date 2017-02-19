@@ -34,7 +34,9 @@ class ViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destViewController : userLoginViewController = segue.destination as! userLoginViewController
-        destViewController.userName = userNameField.text!
+        if(segue.identifier == "userLoginSegue") {
+            let destViewController : userLoginViewController = segue.destination as! userLoginViewController
+            destViewController.userName = userNameField.text!
+        }
     }
 }
