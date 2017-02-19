@@ -11,11 +11,21 @@ import Alamofire
 import SwiftyJSON
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet var userNameField: UITextField!
+    
+    @IBOutlet var passwordField: UITextField!
+    
+    @IBAction func userLogin(_ sender: Any) {
+        self.performSegue(withIdentifier: "userLoginSegue", sender: nil)
+    }
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.view.backgroundColor = UIColor.darkGray
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,6 +33,8 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destViewController : userLoginViewController = segue.destination as! userLoginViewController
+        destViewController.userName = userNameField.text!
+    }*/
 }
-
