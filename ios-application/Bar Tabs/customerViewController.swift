@@ -12,7 +12,8 @@ import SwiftyJSON
 
 class customerViewController: UIViewController {
     
-    let url = "http://138.197.87.137:8080/bartabs-server/authenticate"
+    let url = "http://138.197.87.137:8080/bartabs-server/user/createuser"
+    var result = ""
     
     @IBOutlet var userNameField: UITextField!
     
@@ -33,10 +34,15 @@ class customerViewController: UIViewController {
             "phoneNumber": phoneNumber
         ]
         
+        print(parameters)
+        
         Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default).responseJSON { response in
             if((response.result.value) != nil) {
-                let result: JSON = JSON(response.result.value ?? "success")
-                print(result)
+                let jsonVar: JSON = JSON(response.result.value ?? "success")
+                print(jsonVar)
+                //self.result = jsonVar["username"]
+                //print(self.result)
+                self.performSegue(withIdentifier: "createCustomerSegue", sender: nil)
             } else {
                 print(response.result.value ?? "no response")
             }
@@ -44,7 +50,6 @@ class customerViewController: UIViewController {
         
     }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -55,4 +60,11 @@ class customerViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "createCustomerSegue") {
+            let destViewController: newUserLoginViewController = segue.destination as! newUserLoginViewController
+            destViewController.userName = self.result
+        }
+    }*/
 }

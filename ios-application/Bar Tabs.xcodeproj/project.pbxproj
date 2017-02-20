@@ -13,6 +13,8 @@
 		A030DD821E4FB45D0049539D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A030DD801E4FB45D0049539D /* Main.storyboard */; };
 		A030DD841E4FB45D0049539D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A030DD831E4FB45D0049539D /* Assets.xcassets */; };
 		A030DD871E4FB45D0049539D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A030DD851E4FB45D0049539D /* LaunchScreen.storyboard */; };
+		A09F16561E5A8C05003B2BB0 /* paymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09F16551E5A8C05003B2BB0 /* paymentViewController.swift */; };
+		A09F16581E5A8DBB003B2BB0 /* newUserLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09F16571E5A8DBB003B2BB0 /* newUserLoginViewController.swift */; };
 		A0C14C391E5A0726003555D5 /* userLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C14C381E5A0726003555D5 /* userLoginViewController.swift */; };
 		CA30E256831FA78057A1E448 /* Pods_Bar_Tabs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4F3D1E041A64E6CC99904B5 /* Pods_Bar_Tabs.framework */; };
 /* End PBXBuildFile section */
@@ -27,6 +29,8 @@
 		A030DD831E4FB45D0049539D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A030DD861E4FB45D0049539D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A030DD881E4FB45D0049539D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A09F16551E5A8C05003B2BB0 /* paymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = paymentViewController.swift; sourceTree = "<group>"; };
+		A09F16571E5A8DBB003B2BB0 /* newUserLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newUserLoginViewController.swift; sourceTree = "<group>"; };
 		A0C14C381E5A0726003555D5 /* userLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userLoginViewController.swift; sourceTree = "<group>"; };
 		A4F3D1E041A64E6CC99904B5 /* Pods_Bar_Tabs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bar_Tabs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9B886795B43E4489287E26A /* Pods-Bar Tabs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bar Tabs.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bar Tabs/Pods-Bar Tabs.release.xcconfig"; sourceTree = "<group>"; };
@@ -77,6 +81,8 @@
 				A030DD7E1E4FB45D0049539D /* ViewController.swift */,
 				A0C14C381E5A0726003555D5 /* userLoginViewController.swift */,
 				A009C7901E5A44CF009095E8 /* customerViewController.swift */,
+				A09F16551E5A8C05003B2BB0 /* paymentViewController.swift */,
+				A09F16571E5A8DBB003B2BB0 /* newUserLoginViewController.swift */,
 				A030DD801E4FB45D0049539D /* Main.storyboard */,
 				A030DD831E4FB45D0049539D /* Assets.xcassets */,
 				A030DD851E4FB45D0049539D /* LaunchScreen.storyboard */,
@@ -219,7 +225,9 @@
 			files = (
 				A009C7911E5A44CF009095E8 /* customerViewController.swift in Sources */,
 				A0C14C391E5A0726003555D5 /* userLoginViewController.swift in Sources */,
+				A09F16581E5A8DBB003B2BB0 /* newUserLoginViewController.swift in Sources */,
 				A030DD7F1E4FB45D0049539D /* ViewController.swift in Sources */,
+				A09F16561E5A8C05003B2BB0 /* paymentViewController.swift in Sources */,
 				A030DD7D1E4FB45D0049539D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
