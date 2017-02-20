@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A009C7911E5A44CF009095E8 /* customerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A009C7901E5A44CF009095E8 /* customerViewController.swift */; };
 		A030DD7D1E4FB45D0049539D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A030DD7C1E4FB45D0049539D /* AppDelegate.swift */; };
 		A030DD7F1E4FB45D0049539D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A030DD7E1E4FB45D0049539D /* ViewController.swift */; };
 		A030DD821E4FB45D0049539D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A030DD801E4FB45D0049539D /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		265CA14D6751A56538014C0B /* Pods-Bar Tabs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bar Tabs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bar Tabs/Pods-Bar Tabs.debug.xcconfig"; sourceTree = "<group>"; };
+		A009C7901E5A44CF009095E8 /* customerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customerViewController.swift; sourceTree = "<group>"; };
 		A030DD791E4FB45D0049539D /* Bar Tabs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bar Tabs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A030DD7C1E4FB45D0049539D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A030DD7E1E4FB45D0049539D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				A030DD7C1E4FB45D0049539D /* AppDelegate.swift */,
 				A030DD7E1E4FB45D0049539D /* ViewController.swift */,
 				A0C14C381E5A0726003555D5 /* userLoginViewController.swift */,
+				A009C7901E5A44CF009095E8 /* customerViewController.swift */,
 				A030DD801E4FB45D0049539D /* Main.storyboard */,
 				A030DD831E4FB45D0049539D /* Assets.xcassets */,
 				A030DD851E4FB45D0049539D /* LaunchScreen.storyboard */,
@@ -214,6 +217,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A009C7911E5A44CF009095E8 /* customerViewController.swift in Sources */,
 				A0C14C391E5A0726003555D5 /* userLoginViewController.swift in Sources */,
 				A030DD7F1E4FB45D0049539D /* ViewController.swift in Sources */,
 				A030DD7D1E4FB45D0049539D /* AppDelegate.swift in Sources */,

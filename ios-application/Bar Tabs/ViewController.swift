@@ -12,6 +12,8 @@ import SwiftyJSON
 
 class ViewController: UIViewController {
     
+    let url = "http://138.197.87.137:8080/bartabs-server/authenticate"
+    
     @IBOutlet var userNameField: UITextField!
     
     @IBOutlet var passwordField: UITextField!
