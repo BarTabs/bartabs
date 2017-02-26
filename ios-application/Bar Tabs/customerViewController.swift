@@ -48,7 +48,11 @@ class customerViewController: UIViewController {
                 if((response.result.value) != nil) {
                     let jsonVar: JSON = JSON(response.result.value ?? "success")
                     print(jsonVar)
-                    //self.performSegue(withIdentifier: "createCustomerSegue", sender: nil)
+                    if(jsonVar["status"] == -1) {
+                        self.createAlert(titleText: "Registration Error", messageText: "Error processing user creation")
+                    } else {
+                        self.performSegue(withIdentifier: "createCustomerSegue", sender: nil)
+                    }
                 } else {
                     self.createAlert(titleText: "Error", messageText: "There was a problem creating the account")
                 }
