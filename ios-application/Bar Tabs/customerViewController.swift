@@ -14,6 +14,8 @@ class customerViewController: UIViewController {
     
     let url = "http://138.197.87.137:8080/bartabs-server/user/createuser"
     
+    var userType:Int?
+    
     @IBOutlet var userNameField: UITextField!
     
     @IBOutlet var passwordField: UITextField!
@@ -42,7 +44,7 @@ class customerViewController: UIViewController {
                 "username" : userName,
                 "password" : password,
                 "phoneNumber" : phoneNumber,
-                "userType" : 4
+                "userType" : userType!
             ]
             
             Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default).responseJSON { response in
