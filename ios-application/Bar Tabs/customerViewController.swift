@@ -41,13 +41,13 @@ class customerViewController: UIViewController {
             let parameters : Parameters = [
                 "username" : userName,
                 "password" : password,
-                "phoneNumber" : phoneNumber
+                "phoneNumber" : phoneNumber,
+                "userType" : 4
             ]
             
             Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default).responseJSON { response in
                 if((response.result.value) != nil) {
                     let jsonVar: JSON = JSON(response.result.value ?? "success")
-                    print(jsonVar)
                     if(jsonVar["status"] == -1) {
                         self.createAlert(titleText: "Registration Error", messageText: "Error processing user creation")
                     } else {
