@@ -51,6 +51,9 @@ class customerViewController: UIViewController {
                     if(jsonVar["status"] == -1) {
                         self.createAlert(titleText: "Registration Error", messageText: "Error processing user creation")
                     } else {
+                        UserDefaults.standard.set(userName, forKey: "userName")
+                        UserDefaults.standard.set(String(describing: jsonVar["message"]), forKey: "token")
+                        UserDefaults.standard.synchronize()
                         self.performSegue(withIdentifier: "createCustomerSegue", sender: nil)
                     }
                 } else {
@@ -83,5 +86,5 @@ class customerViewController: UIViewController {
         
     }
     
-    
 }
+
