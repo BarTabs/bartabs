@@ -14,67 +14,74 @@ class ViewController: UIViewController {
     
     let url = "http://138.197.87.137:8080/bartabs-server/authenticate"
     
-    
     @IBOutlet var userNameField: UITextField!
     
     @IBOutlet var passwordField: UITextField!
     
-    @IBAction func userLogin(_ sender: Any) {
+    @IBAction func login(_ sender: Any) {
         
         let userName = userNameField.text!
         let password = passwordField.text!
         
-        UserDefaults.standard.set(userName, forKey: "userName")
-        
-        let parameters: Parameters = [
-            "username": userName,
-            "password": password
-        ]
-        
-        
-        Alamofire.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default).responseJSON { response in
-            if((response.result.value) != nil) {
-                let jsonVar : JSON = JSON(response.result.value ?? "success")
-                print(jsonVar)
-                self.performSegue(withIdentifier: "userLoginSegue", sender: nil)
-                UserDefaults.standard.set(String(describing: jsonVar["data"]), forKey: "token")
-            } else {
-                print(response.result.value ?? "no response")
+        if (userName == "" && password == "") {
+            createAlert(titleText: "Login Error", messageText: "Username and password are required.")
+        } else if(userName == "" || password == "") {
+            createAlert(titleText: "Login Error", messageText: "Username and/or password is required.")
+        } else {
+            
+            let parameters : Parameters = [
+                "username" : userName,
+                "password" : password
+            ]
+            
+            Alamofire.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default).responseJSON { response in
+                if((response.result.value) != nil) {
+                    let jsonVar : JSON = JSON(response.result.value ?? "success")
+                    if(jsonVar["status"] == 0) {
+                        UserDefaults.standard.set(userName, forKey: "userName")
+                        UserDefaults.standard.set(String(describing: jsonVar["message"]), forKey: "token")
+                        UserDefaults.standard.synchronize()
+                        self.performSegue(withIdentifier: "userSegue", sender: nil)
+                    } else if(jsonVar["status"] == -1) {
+                        self.createAlert(titleText: "Login Error", messageText: "Username and/or Password incorrect")
+                    } else {
+                        self.createAlert(titleText: "Error", messageText: "Else error")
+                    }
+                } else {
+                    self.createAlert(titleText: "Login Error", messageText: "No response from server")
+                }
             }
         }
-        
     }
-    
-    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let userName = UserDefaults.standard.object(forKey: "userName")
-        let token = UserDefaults.standard.object(forKey: "token")
-        //UserDefaults.standard.removeObject(forKey: "userName")
-        //UserDefaults.standard.removeObject(forKey: "token")
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let token = UserDefaults.standard.object(forKey: "token")
-        let userName = UserDefaults.standard.object(forKey: "userName")
-        if(token != nil) {
-            self.performSegue(withIdentifier: "userLoginSegue", sender: nil)
+        //let usernameStored = UserDefaults.standard.string(forKey: "userName")
+        let tokenStored = UserDefaults.standard.object(forKey: "token")
+        
+        if(tokenStored != nil) {
+            performSegue(withIdentifier: "userSegue", sender: nil)
         }
     }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "userLoginSegue") {
-            let userName = UserDefaults.standard.object(forKey: "userName")
-            let destViewController : userLoginViewController = segue.destination as! userLoginViewController
-            destViewController.userName = String(describing: userName!)
-        }
+    
+    func createAlert(titleText: String, messageText: String) {
+        
+        let alert = UIAlertController(title: titleText, message: messageText, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
+        
     }
+    
 }

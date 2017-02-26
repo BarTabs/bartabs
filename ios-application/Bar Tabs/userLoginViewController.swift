@@ -9,33 +9,38 @@
 import UIKit
 
 class userLoginViewController: UIViewController {
-
-    @IBOutlet var userNameLabel: UILabel!
     
-    var userName = String()
+    @IBAction func logout(_ sender: Any) {
+        UserDefaults.standard.set(false, forKey: "userLoggedIn")
+        UserDefaults.standard.removeObject(forKey: "userName")
+        UserDefaults.standard.removeObject(forKey: "token")
+        UserDefaults.standard.synchronize()
+        performSegue(withIdentifier: "loginSegue", sender: nil)
+    }
+    
+    @IBOutlet var welcomeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
-        userNameLabel.text = userName
+        // Do any additional setup after loading the view.
+        if let userName = UserDefaults.standard.string(forKey: "userName") {
+            welcomeLabel.text = "Welcome \(userName)!"
+        }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let tokenStored = UserDefaults.standard.object(forKey: "token")
+        if(tokenStored == nil) {
+            performSegue(withIdentifier: "loginSegue", sender: self)
+        }
     }
-    */
-
+    
+    
 }
