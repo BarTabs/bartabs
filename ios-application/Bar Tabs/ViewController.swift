@@ -66,7 +66,6 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        //let usernameStored = UserDefaults.standard.string(forKey: "userName")
         let tokenStored = UserDefaults.standard.object(forKey: "token")
         
         if(tokenStored != nil) {
@@ -74,6 +73,7 @@ class ViewController: UIViewController {
         }
     }
     
+    //Create an alert function that is used for UIAlerts
     func createAlert(titleText: String, messageText: String) {
         
         let alert = UIAlertController(title: titleText, message: messageText, preferredStyle: .alert)

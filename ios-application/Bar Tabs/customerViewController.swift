@@ -78,6 +78,7 @@ class customerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //Create an alert function that is used for UIAlerts
     func createAlert(titleText: String, messageText: String) {
         
         let alert = UIAlertController(title: titleText, message: messageText, preferredStyle: .alert)
