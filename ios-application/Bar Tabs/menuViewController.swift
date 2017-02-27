@@ -12,9 +12,7 @@ import SwiftyJSON
 
 class menuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-//    var menu: NSDictionary = NSDictionary()
     var menu : JSON?
-    //var menu : NSDictionary = NSDictionary()
 
     let url = "http://138.197.87.137:8080/bartabs-server/test"
     
@@ -40,24 +38,7 @@ class menuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         Alamofire.request(url, method: .get, encoding: URLEncoding.default, headers: headers).responseJSON { response in
             if((response.result.value) != nil) {
-                let jsonVar : JSON = JSON(response.result.value ?? "success")
-                self.menu = jsonVar
-//                self.menu = data["name"]
-//                print(self.menu)
-                
-//                self.menu = NSDictionary(contentsOfFile: String(describing: jsonVar["data"]))!
-//                self.menu = jsonVar["data"]
-//                print(self.menu)
-                
-                //print(self.menu?[0]["name"])
-                
-//                let name = jsonVar["data"][0]["name"]
-//                print(name)
-                //reponseArray = jsonVar as! Array
-                //let name = String(describing: jsonVar["data"][0]["name"])
-                //print(jsonVar["data"])
-                //print(jsonVar["data"][0]["name"])
-                //self.TableData.append(name)
+                self.menu = JSON(response.result.value ?? "success")
                 self.tableView.reloadData()
             } else {
                 self.createAlert(titleText: "Data Error", messageText: "There was a problem receiving the data")
@@ -73,18 +54,20 @@ class menuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return menu.count
 //        return self.menu.count
-        return 5
+        return (self.menu?.count) ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
-        let category = self.menu?["data"][indexPath.row]["name"] as AnyObject? as? String ?? ""
-        cell.textLabel?.text = category
-//        cell.imageView?.image = UIImage(named: object["image"]!)
-//        cell.otherLabel?.text =  object["otherProperty"]!
-        
-        return cell
+
+        if (self.menu != nil) {
+            let jsonVar : JSON = self.menu!
+            print(jsonVar["data"][indexPath.row]["name"])
+            
+            let category = jsonVar["data"][indexPath.row]["name"].string
+            cell.textLabel?.text = category
+        }
+         return cell
     }
     
     func createAlert(titleText: String, messageText: String) {
