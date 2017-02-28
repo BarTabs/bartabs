@@ -64,6 +64,7 @@ class menuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let category = menu[indexPath.row]["name"]
+        cell.textLabel?.textAlignment = .center
         cell.textLabel?.text = category as? String
         
         return cell
