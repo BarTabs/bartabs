@@ -17,7 +17,8 @@ class menuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     let url = "http://138.197.87.137:8080/bartabs-server/test"
     
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var tableView: UITableView!
+    
 
     
     
