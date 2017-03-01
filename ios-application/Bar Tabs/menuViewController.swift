@@ -11,41 +11,40 @@ import Alamofire
 import SwiftyJSON
 
 class menuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
-    var menu = [AnyObject]()
     
-    let url = "http://138.197.87.137:8080/bartabs-server/test"
+    var menu : JSON?
+    
+    let url = "http://138.197.87.137:8080/bartabs-server/menu/getmenu"
     
     
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
-
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-        let token = UserDefaults.standard.string(forKey: "token")!
-        
         tableView.delegate = self
         tableView.dataSource = self
         
-        //Create Header token
+        // Do any additional setup after loading the view.
+        let token = UserDefaults.standard.string(forKey: "token")!
+        
         let headers : HTTPHeaders = [
             "Authorization" : token
         ]
         
+        let parameters: Parameters = [
+            "barID" : 4
+        ]
         
-        Alamofire.request(url, method: .get, headers: headers).responseJSON { response in
-            let result = response.result
-            if let data = result.value as? Dictionary<String, AnyObject> {
-                if let name = data["data"] {
-                    self.menu = name as! [AnyObject]
-                    self.tableView.reloadData()
-                }
+        
+        Alamofire.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
+            if((response.result.value) != nil) {
+                self.menu = JSON(response.result.value ?? "success")
+                self.tableView.reloadData()
             } else {
-                self.createAlert(titleText: "Table Load Error", messageText: "Error loading the table data")
+                self.createAlert(titleText: "Data Error", messageText: "There was a problem receiving the data")
             }
         }
     }
@@ -55,23 +54,31 @@ class menuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Dispose of any resources that can be recreated.
     }
     
-    
-    //Create table View function for the number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.menu.count
+        //        return menu.count
+        //        return self.menu.count
+        return (self.menu?.count) ?? 0
     }
     
-    //Create the actual table view itself
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let category = menu[indexPath.row]["name"]
-        cell.textLabel?.textAlignment = .center
-        cell.textLabel?.text = category as? String
         
+        if (self.menu != nil) {
+            
+            let jsonVar : JSON = self.menu!
+//            print("jsonVar: \(jsonVar["data"]["categories"][0]["name"])\n")
+            let categories = jsonVar["data"]["categories"][indexPath.row]["name"].string
+            print("Categories: \(categories)\n")
+//            let category = categories[indexPath.row]["name"].string
+//            print("Category: \(category)\n")
+            
+//            let category = jsonVar["data"][indexPath.row]["name"].string
+            cell.textLabel?.textAlignment = .center
+            cell.textLabel?.text = categories
+        }
         return cell
     }
     
-    //Create an alert function that is used for UIAlerts
     func createAlert(titleText: String, messageText: String) {
         
         let alert = UIAlertController(title: titleText, message: messageText, preferredStyle: .alert)
@@ -81,4 +88,6 @@ class menuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.present(alert, animated: true, completion: nil)
         
     }
+    
+    
 }
