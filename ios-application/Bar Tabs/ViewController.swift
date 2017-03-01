@@ -19,7 +19,6 @@ class ViewController: UIViewController {
     @IBOutlet var passwordField: UITextField!
     
     @IBAction func login(_ sender: Any) {
-        
         let userName = userNameField.text!
         let password = passwordField.text!
         

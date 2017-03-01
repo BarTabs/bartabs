@@ -47,6 +47,7 @@ class menuViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 self.createAlert(titleText: "Data Error", messageText: "There was a problem receiving the data")
             }
         }
+//        self.tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -55,8 +56,7 @@ class menuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //        return menu.count
-        //        return self.menu.count
+        print(self.menu?.count)
         return (self.menu?.count) ?? 0
     }
     
@@ -64,20 +64,23 @@ class menuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         if (self.menu != nil) {
-            
+        
             let jsonVar : JSON = self.menu!
-//            print("jsonVar: \(jsonVar["data"]["categories"][0]["name"])\n")
-            let categories = jsonVar["data"]["categories"][indexPath.row]["name"].string
-            print("Categories: \(categories)\n")
-//            let category = categories[indexPath.row]["name"].string
-//            print("Category: \(category)\n")
-            
+            print(jsonVar)
+            let categories = jsonVar["data"][indexPath.row].string
+            print("Categories: \(categories)")
 //            let category = jsonVar["data"][indexPath.row]["name"].string
             cell.textLabel?.textAlignment = .center
             cell.textLabel?.text = categories
         }
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "tableSegue", sender: nil)
+    }
+    
+    
     
     func createAlert(titleText: String, messageText: String) {
         
