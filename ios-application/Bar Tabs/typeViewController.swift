@@ -1,8 +1,8 @@
 //
-//  menuViewController.swift
+//  typeViewController.swift
 //  Bar Tabs
 //
-//  Created by Dexstrum on 2/26/17.
+//  Created by Dexstrum on 3/2/17.
 //  Copyright © 2017 muhlenberg. All rights reserved.
 //
 
@@ -10,25 +10,24 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class menuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class typeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var menu : JSON?
-    
     let url = "http://138.197.87.137:8080/bartabs-server/menu/getmenu"
-    
+    var category = ""
+    var type = ""
     
     @IBOutlet var tableView: UITableView!
     
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view.
         
         tableView.delegate = self
         tableView.dataSource = self
         
-        // Do any additional setup after loading the view.
         let token = UserDefaults.standard.string(forKey: "token")!
         
         let headers : HTTPHeaders = [
@@ -36,7 +35,10 @@ class menuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         ]
         
         let parameters: Parameters = [
-            "barID" : 4
+            "barID" : 4,
+            "category" : category,
+            "type" : type
+            
         ]
         
         
@@ -49,6 +51,7 @@ class menuViewController: UIViewController, UITableViewDataSource, UITableViewDe
             }
         }
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -63,26 +66,13 @@ class menuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         if (self.menu != nil) {
-        
             let jsonVar : JSON = self.menu!
-            let categories = jsonVar["data"][indexPath.row].string
+            let categories = jsonVar["data"]["menuItems"][indexPath.row]["name"].string
             cell.textLabel?.textAlignment = .center
             cell.textLabel?.text = categories
         }
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let jsonVar : JSON = self.menu!
-        let categories = jsonVar["data"][indexPath.row].string
-        performSegue(withIdentifier: "categorySegue", sender: categories)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destSeg = segue.destination as! categoryViewController
-        destSeg.category = sender as! String
-    }
-    
     
     
     func createAlert(titleText: String, messageText: String) {

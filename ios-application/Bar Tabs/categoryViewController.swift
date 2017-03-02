@@ -1,8 +1,8 @@
 //
-//  menuViewController.swift
+//  drinksViewController.swift
 //  Bar Tabs
 //
-//  Created by Dexstrum on 2/26/17.
+//  Created by Dexstrum on 3/2/17.
 //  Copyright © 2017 muhlenberg. All rights reserved.
 //
 
@@ -10,25 +10,22 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class menuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class categoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var menu : JSON?
-    
     let url = "http://138.197.87.137:8080/bartabs-server/menu/getmenu"
-    
+    var category = ""
     
     @IBOutlet var tableView: UITableView!
     
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view.
         
         tableView.delegate = self
         tableView.dataSource = self
         
-        // Do any additional setup after loading the view.
         let token = UserDefaults.standard.string(forKey: "token")!
         
         let headers : HTTPHeaders = [
@@ -36,7 +33,9 @@ class menuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         ]
         
         let parameters: Parameters = [
-            "barID" : 4
+            "barID" : 4,
+            "category" : category
+            
         ]
         
         
@@ -49,19 +48,20 @@ class menuViewController: UIViewController, UITableViewDataSource, UITableViewDe
             }
         }
     }
-    
+
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (self.menu?.count) ?? 0
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
+    
         if (self.menu != nil) {
         
             let jsonVar : JSON = self.menu!
@@ -71,19 +71,19 @@ class menuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let jsonVar : JSON = self.menu!
         let categories = jsonVar["data"][indexPath.row].string
-        performSegue(withIdentifier: "categorySegue", sender: categories)
+        performSegue(withIdentifier: "typeSegue", sender: categories)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destSeg = segue.destination as! categoryViewController
-        destSeg.category = sender as! String
+        let destSeg = segue.destination as! typeViewController
+        destSeg.type = sender as! String
+        destSeg.category = category
     }
-    
-    
+
     
     func createAlert(titleText: String, messageText: String) {
         
@@ -94,6 +94,6 @@ class menuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.present(alert, animated: true, completion: nil)
         
     }
-    
-    
+
+
 }
