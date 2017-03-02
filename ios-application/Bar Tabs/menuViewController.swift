@@ -20,8 +20,6 @@ class menuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet var tableView: UITableView!
     
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,7 +61,6 @@ class menuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         if (self.menu != nil) {
-        
             let jsonVar : JSON = self.menu!
             let categories = jsonVar["data"][indexPath.row].string
             cell.textLabel?.textAlignment = .center
@@ -79,8 +76,10 @@ class menuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destSeg = segue.destination as! categoryViewController
-        destSeg.category = sender as! String
+        if segue.identifier == "categorySegue" {
+            let destSeg = segue.destination as! categoryViewController
+            destSeg.category = sender as! String
+        }
     }
     
     

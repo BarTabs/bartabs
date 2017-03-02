@@ -79,9 +79,11 @@ class categoryViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destSeg = segue.destination as! typeViewController
-        destSeg.type = sender as! String
-        destSeg.category = category
+        if segue.identifier == "typeSegue" {
+            let destSeg = segue.destination as! typeViewController
+            destSeg.type = sender as! String
+            destSeg.category = category
+        }
     }
 
     

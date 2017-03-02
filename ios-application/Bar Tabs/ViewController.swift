@@ -38,7 +38,7 @@ class ViewController: UIViewController {
                     let jsonVar : JSON = JSON(response.result.value ?? "success")
                     if(jsonVar["status"] == 0) {
                         UserDefaults.standard.set(userName, forKey: "userName")
-                        UserDefaults.standard.set(String(describing: jsonVar["message"]), forKey: "token")
+                        UserDefaults.standard.set(String(describing: jsonVar["data"]), forKey: "token")
                         UserDefaults.standard.synchronize()
                         self.performSegue(withIdentifier: "userSegue", sender: nil)
                     } else if(jsonVar["status"] == -1) {
