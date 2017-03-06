@@ -13,6 +13,9 @@ import SwiftyJSON
 class customerViewController: UIViewController {
     
     let url = "http://138.197.87.137:8080/bartabs-server/user/createuser"
+    let container: UIView = UIView()
+    let loadingView: UIView = UIView()
+    let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
     var userType:Int?
     
@@ -38,6 +41,8 @@ class customerViewController: UIViewController {
         } else if(password != confirmPassword) {
             createAlert(titleText: "Registration Error", messageText: "Passwords do not match")
         } else {
+            
+            showActivityIndicatory(uiView: self.view)
             let phoneNumber = Int(phoneNumberField.text!)!
             
             let parameters : Parameters = [
@@ -51,14 +56,17 @@ class customerViewController: UIViewController {
                 if((response.result.value) != nil) {
                     let jsonVar: JSON = JSON(response.result.value ?? "success")
                     if(jsonVar["status"] == -1) {
+                        self.hideActivityIndicator(uiView: self.view)
                         self.createAlert(titleText: "Registration Error", messageText: "Error processing user creation")
                     } else {
                         UserDefaults.standard.set(userName, forKey: "userName")
                         UserDefaults.standard.set(String(describing: jsonVar["message"]), forKey: "token")
                         UserDefaults.standard.synchronize()
+                        self.hideActivityIndicator(uiView: self.view)
                         self.performSegue(withIdentifier: "createCustomerSegue", sender: nil)
                     }
                 } else {
+                    self.hideActivityIndicator(uiView: self.view)
                     self.createAlert(titleText: "Error", messageText: "There was a problem creating the account")
                 }
             }
@@ -88,6 +96,41 @@ class customerViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
         
     }
+    
+    //Create func for activity indicator to display on screen
+    func showActivityIndicatory(uiView: UIView) {
+        container.frame = uiView.frame
+        container.center = uiView.center
+        container.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.5)
+        
+        loadingView.frame = CGRectMake(0, 0, 80, 80)
+        loadingView.center = uiView.center
+        loadingView.backgroundColor = UIColor(red:0.27, green:0.27, blue:0.27, alpha:1.0)
+        loadingView.clipsToBounds = true
+        loadingView.layer.cornerRadius = 10
+        
+        activityIndicator.frame = CGRectMake(0.0, 0.0, 40.0, 40.0);
+        activityIndicator.activityIndicatorViewStyle =
+            UIActivityIndicatorViewStyle.whiteLarge
+        activityIndicator.center = CGPoint(x:loadingView.frame.size.width / 2,
+                                           y:loadingView.frame.size.height / 2);
+        loadingView.addSubview(activityIndicator)
+        container.addSubview(loadingView)
+        uiView.addSubview(container)
+        activityIndicator.startAnimating()
+    }
+    
+    //Create func to hide the activity indicator
+    func hideActivityIndicator(uiView: UIView) {
+        activityIndicator.stopAnimating()
+        container.removeFromSuperview()
+    }
+    
+    //Create func for rectangular graphic container for activity indicator
+    func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
+        return CGRect(x: x, y: y, width: width, height: height)
+    }
+
     
 }
 

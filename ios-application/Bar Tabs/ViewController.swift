@@ -13,6 +13,9 @@ import SwiftyJSON
 class ViewController: UIViewController {
     
     let url = "http://138.197.87.137:8080/bartabs-server/authenticate"
+    let container: UIView = UIView()
+    let loadingView: UIView = UIView()
+    let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
     @IBOutlet var userNameField: UITextField!
     
@@ -27,6 +30,7 @@ class ViewController: UIViewController {
         } else if(userName == "" || password == "") {
             createAlert(titleText: "Login Error", messageText: "Username and/or password is required.")
         } else {
+            showActivityIndicatory(uiView: self.view)
             
             let parameters : Parameters = [
                 "username" : userName,
@@ -40,13 +44,17 @@ class ViewController: UIViewController {
                         UserDefaults.standard.set(userName, forKey: "userName")
                         UserDefaults.standard.set(String(describing: jsonVar["data"]), forKey: "token")
                         UserDefaults.standard.synchronize()
+                        self.hideActivityIndicator(uiView: self.view)
                         self.performSegue(withIdentifier: "userSegue", sender: nil)
                     } else if(jsonVar["status"] == -1) {
+                        self.hideActivityIndicator(uiView: self.view)
                         self.createAlert(titleText: "Login Error", messageText: "Username and/or Password incorrect")
                     } else {
+                        self.hideActivityIndicator(uiView: self.view)
                         self.createAlert(titleText: "Error", messageText: "Else error")
                     }
                 } else {
+                    self.hideActivityIndicator(uiView: self.view)
                     self.createAlert(titleText: "Login Error", messageText: "No response from server")
                 }
             }
@@ -83,4 +91,37 @@ class ViewController: UIViewController {
         
     }
     
+    //Create func for activity indicator to display on screen
+    func showActivityIndicatory(uiView: UIView) {
+        container.frame = uiView.frame
+        container.center = uiView.center
+        container.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.5)
+        
+        loadingView.frame = CGRectMake(0, 0, 80, 80)
+        loadingView.center = uiView.center
+        loadingView.backgroundColor = UIColor(red:0.27, green:0.27, blue:0.27, alpha:1.0)
+        loadingView.clipsToBounds = true
+        loadingView.layer.cornerRadius = 10
+        
+        activityIndicator.frame = CGRectMake(0.0, 0.0, 40.0, 40.0);
+        activityIndicator.activityIndicatorViewStyle =
+            UIActivityIndicatorViewStyle.whiteLarge
+        activityIndicator.center = CGPoint(x:loadingView.frame.size.width / 2,
+                                y:loadingView.frame.size.height / 2);
+        loadingView.addSubview(activityIndicator)
+        container.addSubview(loadingView)
+        uiView.addSubview(container)
+        activityIndicator.startAnimating()
+    }
+    
+    //Create func to hide the activity indicator
+    func hideActivityIndicator(uiView: UIView) {
+        activityIndicator.stopAnimating()
+        container.removeFromSuperview()
+    }
+    
+    //Create func for rectangular graphic container for activity indicator
+    func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
+        return CGRect(x: x, y: y, width: width, height: height)
+    }
 }
