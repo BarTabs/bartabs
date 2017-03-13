@@ -25,6 +25,7 @@ class categoryViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        print("Category" + category)
         
         showActivityIndicatory(uiView: self.view)
         tableView.delegate = self

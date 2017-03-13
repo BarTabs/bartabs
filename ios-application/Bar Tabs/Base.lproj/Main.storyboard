@@ -224,12 +224,13 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Home" id="Bld-lg-RuO">
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="c1o-Ry-Ggd"/>
+                                    <barButtonItem title="Back" id="KOV-kB-hIl">
                                         <connections>
-                                            <segue destination="AXg-zF-Ywz" kind="presentation" id="Yi2-Tz-0qW"/>
+                                            <segue destination="dte-xl-XmK" kind="presentation" identifier="backSegue" id="eDG-Xu-JWc"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="c1o-Ry-Ggd"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="BHk-hD-7h5"/>
                                     <barButtonItem title="Pay" id="84x-Fy-CCl"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="GKd-DE-ZrA"/>
                                     <barButtonItem title="Bars" id="Kxi-8i-450"/>
@@ -299,12 +300,13 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Home" id="yn0-Oa-Kfk">
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Wjh-yC-glF"/>
+                                    <barButtonItem title="Back" id="frJ-Tx-uXG">
                                         <connections>
-                                            <segue destination="AXg-zF-Ywz" kind="presentation" id="lGA-0G-zwQ"/>
+                                            <segue destination="7JQ-dW-AbQ" kind="presentation" identifier="backSegue" id="BBt-A7-tkK"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Wjh-yC-glF"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="8Ue-I2-3mv"/>
                                     <barButtonItem title="Pay" id="Ged-uN-gC1"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Etg-O4-L0D"/>
                                     <barButtonItem title="Bars" id="6FK-NY-Tun"/>
@@ -497,8 +499,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Yi2-Tz-0qW"/>
-        <segue reference="pod-D9-d4s"/>
+        <segue reference="eDG-Xu-JWc"/>
+        <segue reference="BBt-A7-tkK"/>
         <segue reference="50c-fm-4hi"/>
+        <segue reference="o3G-cG-EH0"/>
+        <segue reference="pod-D9-d4s"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -27,6 +27,9 @@ class typeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        print(category)
+        print(type)
+        
         showActivityIndicatory(uiView: self.view)
         
         tableView.delegate = self
@@ -77,6 +80,15 @@ class typeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             cell.textLabel?.text = categories
         }
         return cell
+    }
+    
+    //Prepare for segue back
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "backSegue" {
+            let destSeg = segue.destination as! categoryViewController
+            print(category)
+            destSeg.category = category
+        }
     }
     
     //Create alert function
