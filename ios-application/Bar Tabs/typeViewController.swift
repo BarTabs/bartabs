@@ -22,13 +22,11 @@ class typeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBOutlet var tableView: UITableView!
     
+    @IBOutlet var barName: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        print(category)
-        print(type)
         
         showActivityIndicatory(uiView: self.view)
         
@@ -52,6 +50,7 @@ class typeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             if((response.result.value) != nil) {
                 self.menu = JSON(response.result.value ?? "success")
                 self.hideActivityIndicator(uiView: self.view)
+                self.barName.text = "Amnesia"
                 self.tableView.reloadData()
             } else {
                 self.hideActivityIndicator(uiView: self.view)
@@ -75,6 +74,7 @@ class typeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         if (self.menu != nil) {
             let jsonVar : JSON = self.menu!
+            print(jsonVar)
             let categories = jsonVar["data"]["menuItems"][indexPath.row]["name"].string
             cell.textLabel?.textAlignment = .center
             cell.textLabel?.text = categories
@@ -86,7 +86,7 @@ class typeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "backSegue" {
             let destSeg = segue.destination as! categoryViewController
-            print(category)
+//            print(category)
             destSeg.category = category
         }
     }

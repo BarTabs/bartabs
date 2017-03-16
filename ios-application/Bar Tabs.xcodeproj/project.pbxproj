@@ -10,6 +10,7 @@
 		7EED520D1E637C6700669184 /* userTypeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EED520C1E637C6700669184 /* userTypeSelectionViewController.swift */; };
 		A009C7911E5A44CF009095E8 /* customerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A009C7901E5A44CF009095E8 /* customerViewController.swift */; };
 		A0117A3C1E636C3B00A331CF /* menuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0117A3B1E636C3B00A331CF /* menuViewController.swift */; };
+		A011B5F01E7724AC00446119 /* addMenuItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A011B5EF1E7724AC00446119 /* addMenuItemViewController.swift */; };
 		A030DD7D1E4FB45D0049539D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A030DD7C1E4FB45D0049539D /* AppDelegate.swift */; };
 		A030DD7F1E4FB45D0049539D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A030DD7E1E4FB45D0049539D /* ViewController.swift */; };
 		A030DD821E4FB45D0049539D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A030DD801E4FB45D0049539D /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 		A0C14C391E5A0726003555D5 /* userLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C14C381E5A0726003555D5 /* userLoginViewController.swift */; };
 		A0C813641E68AF1800602023 /* categoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C813631E68AF1800602023 /* categoryViewController.swift */; };
 		A0C813661E68B3DE00602023 /* typeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C813651E68B3DE00602023 /* typeViewController.swift */; };
+		A0D75AD91E79AFEF004F81E0 /* itemAddedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D75AD81E79AFEF004F81E0 /* itemAddedViewController.swift */; };
 		CA30E256831FA78057A1E448 /* Pods_Bar_Tabs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4F3D1E041A64E6CC99904B5 /* Pods_Bar_Tabs.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +29,7 @@
 		7EED520C1E637C6700669184 /* userTypeSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userTypeSelectionViewController.swift; sourceTree = "<group>"; };
 		A009C7901E5A44CF009095E8 /* customerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customerViewController.swift; sourceTree = "<group>"; };
 		A0117A3B1E636C3B00A331CF /* menuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuViewController.swift; sourceTree = "<group>"; };
+		A011B5EF1E7724AC00446119 /* addMenuItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addMenuItemViewController.swift; sourceTree = "<group>"; };
 		A030DD791E4FB45D0049539D /* Bar Tabs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bar Tabs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A030DD7C1E4FB45D0049539D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A030DD7E1E4FB45D0049539D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,6 +41,7 @@
 		A0C14C381E5A0726003555D5 /* userLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userLoginViewController.swift; sourceTree = "<group>"; };
 		A0C813631E68AF1800602023 /* categoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = categoryViewController.swift; sourceTree = "<group>"; };
 		A0C813651E68B3DE00602023 /* typeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = typeViewController.swift; sourceTree = "<group>"; };
+		A0D75AD81E79AFEF004F81E0 /* itemAddedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = itemAddedViewController.swift; sourceTree = "<group>"; };
 		A4F3D1E041A64E6CC99904B5 /* Pods_Bar_Tabs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bar_Tabs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9B886795B43E4489287E26A /* Pods-Bar Tabs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bar Tabs.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bar Tabs/Pods-Bar Tabs.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,6 +96,8 @@
 				A0117A3B1E636C3B00A331CF /* menuViewController.swift */,
 				A0C813631E68AF1800602023 /* categoryViewController.swift */,
 				A0C813651E68B3DE00602023 /* typeViewController.swift */,
+				A011B5EF1E7724AC00446119 /* addMenuItemViewController.swift */,
+				A0D75AD81E79AFEF004F81E0 /* itemAddedViewController.swift */,
 				A030DD801E4FB45D0049539D /* Main.storyboard */,
 				A030DD831E4FB45D0049539D /* Assets.xcassets */,
 				A030DD851E4FB45D0049539D /* LaunchScreen.storyboard */,
@@ -239,7 +245,9 @@
 				7EED520D1E637C6700669184 /* userTypeSelectionViewController.swift in Sources */,
 				A09F16561E5A8C05003B2BB0 /* paymentViewController.swift in Sources */,
 				A030DD7D1E4FB45D0049539D /* AppDelegate.swift in Sources */,
+				A0D75AD91E79AFEF004F81E0 /* itemAddedViewController.swift in Sources */,
 				A0C813641E68AF1800602023 /* categoryViewController.swift in Sources */,
+				A011B5F01E7724AC00446119 /* addMenuItemViewController.swift in Sources */,
 				A0C813661E68B3DE00602023 /* typeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

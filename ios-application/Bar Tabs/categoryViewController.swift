@@ -21,11 +21,11 @@ class categoryViewController: UIViewController, UITableViewDataSource, UITableVi
     
     @IBOutlet var tableView: UITableView!
     
+    @IBOutlet var barName: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        print("Category" + category)
         
         showActivityIndicatory(uiView: self.view)
         tableView.delegate = self
@@ -48,6 +48,7 @@ class categoryViewController: UIViewController, UITableViewDataSource, UITableVi
             if((response.result.value) != nil) {
                 self.menu = JSON(response.result.value ?? "success")
                 self.hideActivityIndicator(uiView: self.view)
+                self.barName.text = "Amnesia"
                 self.tableView.reloadData()
             } else {
                 self.hideActivityIndicator(uiView: self.view)

@@ -71,8 +71,6 @@ class customerViewController: UIViewController {
                 }
             }
         }
-        
-        
     }
     
     override func viewDidLoad() {

@@ -1,8 +1,8 @@
 //
-//  menuViewController.swift
+//  addMenuItemViewController.swift
 //  Bar Tabs
 //
-//  Created by Dexstrum on 2/26/17.
+//  Created by Dexstrum on 3/13/17.
 //  Copyright © 2017 muhlenberg. All rights reserved.
 //
 
@@ -10,87 +10,84 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class menuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class addMenuItemViewController: UIViewController {
     
-    var menu : JSON?
-    var bar = ""
-    let url = "http://138.197.87.137:8080/bartabs-server/menu/getmenu"
+    let url = "http://138.197.87.137:8080/bartabs-server/menu/createmenuitem"
     let container: UIView = UIView()
     let loadingView: UIView = UIView()
     let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
-    @IBOutlet var barName: UILabel!
     
+    @IBOutlet var itemName: UITextField!
     
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet var itemDesc: UITextField!
+
+    @IBOutlet var itemType: UITextField!
     
+    @IBOutlet var itemCategory: UITextField!
+    
+    @IBOutlet var itemPrice: UITextField!
+    
+    @IBAction func addItem(_ sender: Any) {
+        
+        
+        let name = itemName.text
+        let desc = itemDesc.text
+        let type = itemType.text
+        let cat  = itemCategory.text
+        let price = itemPrice.text
+        
+        if(name == "" || desc == "" || type == "" || cat == "" || price == "") {
+            self.createAlert(titleText: "Error", messageText: "All fields are required")
+        } else {
+            showActivityIndicatory(uiView: self.view)
+            let token = UserDefaults.standard.string(forKey: "token")!
+            let headers : HTTPHeaders = [
+                "Authorization" : token
+            ]
+            
+            let parameters : Parameters = [
+                "name" : name!,
+                "description" : desc!,
+                "type" : type!,
+                "category" : cat!,
+                "price" : price!,
+                "menuID" : 1
+            ]
+            
+            Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
+                if((response.result.value) != nil) {
+                    self.hideActivityIndicator(uiView: self.view)
+                    self.performSegue(withIdentifier: "addItemSegue", sender: self)
+                } else {
+                    self.hideActivityIndicator(uiView: self.view)
+                    self.createAlert(titleText: "Data Error", messageText: "There was a problem receiving the data")
+                }
+            }
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        showActivityIndicatory(uiView: self.view)
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-        
+
         // Do any additional setup after loading the view.
-        let token = UserDefaults.standard.string(forKey: "token")!
-        
-        let headers : HTTPHeaders = [
-            "Authorization" : token
-        ]
-        
-        let parameters: Parameters = [
-            "barID" : 4
-        ]
-        
-        
-        Alamofire.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
-            if((response.result.value) != nil) {
-                self.menu = JSON(response.result.value ?? "success")
-                self.hideActivityIndicator(uiView: self.view)
-                self.barName.text = "Amnesia"
-                self.tableView.reloadData()
-            } else {
-                self.hideActivityIndicator(uiView: self.view)
-                self.createAlert(titleText: "Data Error", messageText: "There was a problem receiving the data")
-            }
-        }
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (self.menu?.count) ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
-        if (self.menu != nil) {
-            let jsonVar : JSON = self.menu!
-            let categories = jsonVar["data"][indexPath.row].string
-            cell.textLabel?.textAlignment = .center
-            cell.textLabel?.text = categories
-        }
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let jsonVar : JSON = self.menu!
-        let categories = jsonVar["data"][indexPath.row].string
-        performSegue(withIdentifier: "categorySegue", sender: categories)
-    }
-    
+    //Create Segue function
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "categorySegue" {
-            let destSeg = segue.destination as! categoryViewController
-            destSeg.category = sender as! String
+        if(segue.identifier == "addItemSegue") {
+            let name = itemName.text
+            let destView = segue.destination as! itemAddedViewController
+            destView.name = name!
         }
     }
-    
+
     
     //Create an alert function that is used for UIAlerts
     func createAlert(titleText: String, messageText: String) {
@@ -102,7 +99,6 @@ class menuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.present(alert, animated: true, completion: nil)
         
     }
-    
     
     //Create func for activity indicator to display on screen
     func showActivityIndicatory(uiView: UIView) {
@@ -137,7 +133,4 @@ class menuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
         return CGRect(x: x, y: y, width: width, height: height)
     }
-
-    
-    
 }
