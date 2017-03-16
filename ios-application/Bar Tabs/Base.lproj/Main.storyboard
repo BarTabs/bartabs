@@ -133,7 +133,7 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="rYE-wK-Yfe"/>
-                                    <barButtonItem title="Menu +" id="4dh-dm-EEn">
+                                    <barButtonItem title="Menu+" id="4dh-dm-EEn">
                                         <connections>
                                             <segue destination="MAK-C9-MUE" kind="presentation" id="SDs-Ko-uNt"/>
                                         </connections>
@@ -651,10 +651,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="BBt-A7-tkK"/>
-        <segue reference="eDG-Xu-JWc"/>
-        <segue reference="Kd0-YU-bOQ"/>
-        <segue reference="Yjh-Qt-er7"/>
         <segue reference="pod-D9-d4s"/>
+        <segue reference="Yjh-Qt-er7"/>
+        <segue reference="o3G-cG-EH0"/>
+        <segue reference="Fbk-bk-TjI"/>
+        <segue reference="BBt-A7-tkK"/>
     </inferredMetricsTieBreakers>
 </document>
