@@ -27,6 +27,8 @@ class menuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        self.view.backgroundColor = UIColorFromRGB(rgbValue: 0x434343)
         showActivityIndicatory(uiView: self.view)
         
         tableView.delegate = self
@@ -138,6 +140,13 @@ class menuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return CGRect(x: x, y: y, width: width, height: height)
     }
 
-    
+    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
     
 }

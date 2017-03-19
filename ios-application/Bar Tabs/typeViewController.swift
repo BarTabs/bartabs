@@ -19,6 +19,11 @@ class typeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     let container: UIView = UIView()
     let loadingView: UIView = UIView()
     let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+//    let manager: Manager = {
+//        let configuration = NSURL = NSURLSessionConfiguration.defaultSessionConfiguration()
+//        configuration.URLCache = nil
+//        return Manager(configuration: configuration)
+//    }()
     
     @IBOutlet var tableView: UITableView!
     
@@ -27,7 +32,6 @@ class typeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
         showActivityIndicatory(uiView: self.view)
         
         tableView.delegate = self
@@ -45,6 +49,7 @@ class typeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             "type" : type
         ]
         
+        URLCache.shared.removeAllCachedResponses()
         
         Alamofire.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
             if((response.result.value) != nil) {
@@ -66,7 +71,8 @@ class typeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (self.menu?.count) ?? 0
+        let count = (self.menu?["data"]["menuItems"].count) ?? 0
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -74,7 +80,6 @@ class typeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         if (self.menu != nil) {
             let jsonVar : JSON = self.menu!
-            print(jsonVar)
             let categories = jsonVar["data"]["menuItems"][indexPath.row]["name"].string
             cell.textLabel?.textAlignment = .center
             cell.textLabel?.text = categories
@@ -82,11 +87,18 @@ class typeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell
     }
     
-    //Prepare for segue back
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let jsonVar : JSON = self.menu!
+        let item = jsonVar["data"]["menuItems"][indexPath.row]
+        performSegue(withIdentifier: "orderSegue", sender: item)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "backSegue" {
+        if segue.identifier == "orderSegue" {
+            let destSeg = segue.destination as! orderViewController
+            destSeg.item = sender as? JSON
+        } else if segue.identifier == "backSegue" {
             let destSeg = segue.destination as! categoryViewController
-//            print(category)
             destSeg.category = category
         }
     }

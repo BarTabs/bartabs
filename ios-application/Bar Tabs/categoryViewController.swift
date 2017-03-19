@@ -22,11 +22,12 @@ class categoryViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet var tableView: UITableView!
     
     @IBOutlet var barName: UILabel!
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
         showActivityIndicatory(uiView: self.view)
         tableView.delegate = self
         tableView.dataSource = self

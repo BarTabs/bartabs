@@ -12,7 +12,9 @@ class userLoginViewController: UIViewController {
     
     @IBAction func logout(_ sender: Any) {
         UserDefaults.standard.set(false, forKey: "userLoggedIn")
-        UserDefaults.standard.removeObject(forKey: "userName")
+        UserDefaults.standard.removeObject(forKey: "username")
+        UserDefaults.standard.removeObject(forKey: "userType")
+        UserDefaults.standard.removeObject(forKey: "firstName")
         UserDefaults.standard.removeObject(forKey: "token")
         UserDefaults.standard.synchronize()
         performSegue(withIdentifier: "loginSegue", sender: nil)
@@ -27,8 +29,12 @@ class userLoginViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        if let userName = UserDefaults.standard.string(forKey: "userName") {
-            welcomeLabel.text = "Welcome \(userName)!"
+        if let firstName = UserDefaults.standard.string(forKey: "firstName") {
+            if (firstName != "null" && !firstName.isEmpty) {
+                welcomeLabel.text = "Welcome \(firstName)!"
+            } else if let username = UserDefaults.standard.string(forKey: "username") {
+                welcomeLabel.text = "Welcome \(username)!"
+            }
         }
     }
     

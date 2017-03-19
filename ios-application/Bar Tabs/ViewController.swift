@@ -41,8 +41,11 @@ class ViewController: UIViewController {
                 if((response.result.value) != nil) {
                     let jsonVar : JSON = JSON(response.result.value ?? "success")
                     if(jsonVar["status"] == 0) {
-                        UserDefaults.standard.set(userName, forKey: "userName")
-                        UserDefaults.standard.set(String(describing: jsonVar["data"]), forKey: "token")
+                        UserDefaults.standard.set(jsonVar["data"]["objectID"].int64 ?? -1, forKey: "userID")
+                        UserDefaults.standard.set(String(describing: jsonVar["data"]["token"]), forKey: "token")
+                        UserDefaults.standard.set(String(describing: jsonVar["data"]["firstName"]), forKey: "firstName")
+                        UserDefaults.standard.set(String(describing: jsonVar["data"]["username"]), forKey: "username")
+                        UserDefaults.standard.set(jsonVar["data"]["userType"].int ?? -1, forKey: "userType")
                         UserDefaults.standard.synchronize()
                         self.hideActivityIndicator(uiView: self.view)
                         self.performSegue(withIdentifier: "userSegue", sender: nil)
@@ -74,7 +77,7 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         let tokenStored = UserDefaults.standard.object(forKey: "token")
-        
+
         if(tokenStored != nil) {
             performSegue(withIdentifier: "userSegue", sender: nil)
         }
