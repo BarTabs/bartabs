@@ -27,11 +27,11 @@ class typeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBOutlet var tableView: UITableView!
     
-    @IBOutlet var barName: UILabel!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        
+        self.navigationItem.title = type
         showActivityIndicatory(uiView: self.view)
         
         tableView.delegate = self
@@ -55,7 +55,6 @@ class typeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             if((response.result.value) != nil) {
                 self.menu = JSON(response.result.value ?? "success")
                 self.hideActivityIndicator(uiView: self.view)
-                self.barName.text = "Amnesia"
                 self.tableView.reloadData()
             } else {
                 self.hideActivityIndicator(uiView: self.view)

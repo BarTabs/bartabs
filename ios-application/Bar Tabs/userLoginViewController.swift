@@ -20,7 +20,6 @@ class userLoginViewController: UIViewController {
         performSegue(withIdentifier: "loginSegue", sender: nil)
     }
     
-    var addMenuItem: UIBarButtonItem!
     var condition: Bool = false
     
     @IBOutlet var welcomeLabel: UILabel!

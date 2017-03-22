@@ -41,7 +41,6 @@ class customerViewController: UIViewController {
         } else if(password != confirmPassword) {
             createAlert(titleText: "Registration Error", messageText: "Passwords do not match")
         } else {
-            
             showActivityIndicatory(uiView: self.view)
             let phoneNumber = Int(phoneNumberField.text!)!
             
@@ -59,11 +58,14 @@ class customerViewController: UIViewController {
                         self.hideActivityIndicator(uiView: self.view)
                         self.createAlert(titleText: "Registration Error", messageText: "Error processing user creation")
                     } else {
-                        UserDefaults.standard.set(userName, forKey: "userName")
-                        UserDefaults.standard.set(String(describing: jsonVar["message"]), forKey: "token")
+                        UserDefaults.standard.set(jsonVar["data"]["objectID"].int64 ?? -1, forKey: "userID")
+                        UserDefaults.standard.set(String(describing: jsonVar["data"]["token"]), forKey: "token")
+                        UserDefaults.standard.set(String(describing: jsonVar["data"]["firstName"]), forKey: "firstName")
+                        UserDefaults.standard.set(String(describing: jsonVar["data"]["username"]), forKey: "username")
+                        UserDefaults.standard.set(jsonVar["data"]["userType"].int ?? -1, forKey: "userType")
                         UserDefaults.standard.synchronize()
                         self.hideActivityIndicator(uiView: self.view)
-                        self.performSegue(withIdentifier: "createCustomerSegue", sender: nil)
+                        self.performSegue(withIdentifier: "welcomeSegue", sender: nil)
                     }
                 } else {
                     self.hideActivityIndicator(uiView: self.view)
@@ -128,7 +130,5 @@ class customerViewController: UIViewController {
     func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
         return CGRect(x: x, y: y, width: width, height: height)
     }
-
     
 }
-

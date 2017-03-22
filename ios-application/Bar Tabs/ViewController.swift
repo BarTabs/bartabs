@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     @IBOutlet var passwordField: UITextField!
     
     @IBAction func login(_ sender: Any) {
+    
         let userName = userNameField.text!
         let password = passwordField.text!
         
@@ -68,6 +69,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationItem.setHidesBackButton(true, animated:true);
     }
     
     override func didReceiveMemoryWarning() {
