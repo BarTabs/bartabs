@@ -32,10 +32,6 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
         
         tableCutomize()
-        
-        
-        self.navigationItem.title = "Hello"
-//        self.view.backgroundColor = UIColor(red: 0.9608, green: 0.9608, blue: 0.8627, alpha: 1.0)
         self.tableView.reloadData()
         
     }
