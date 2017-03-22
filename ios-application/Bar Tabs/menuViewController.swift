@@ -19,16 +19,13 @@ class menuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     let loadingView: UIView = UIView()
     let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
-    @IBOutlet var barName: UILabel!
-    
     
     @IBOutlet var tableView: UITableView!
     
+    @IBOutlet var barName: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        self.view.backgroundColor = UIColorFromRGB(rgbValue: 0x434343)
         showActivityIndicatory(uiView: self.view)
         
         tableView.delegate = self

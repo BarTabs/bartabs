@@ -9,34 +9,37 @@
 import UIKit
 import SwiftyJSON
 
-class orderViewController: UIViewController {
+class orderViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet var itemName: UILabel!
     var item : JSON?
     var items = [JSON]()
-
+    
+    @IBOutlet var tableView: UITableView!
+    
+    @IBOutlet var totalPrice: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let temp = UserDefaults.standard.object(forKey: "items")
-        print(temp ?? "Nil")
-        if (temp != nil) {
-            items = UserDefaults.standard.object(forKey: "items") as! [JSON];
-            items.append(item! as JSON)
-            UserDefaults.standard.set(items, forKey: "items")
-//            UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: items), forKey: "items")
-            UserDefaults.standard.synchronize()
-        } else {
-            itemName.text = item?["name"].string ?? ""
-            items.append(item! as JSON)
-            UserDefaults.standard.set(items, forKey: "items")
-//            UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: items), forKey: "items")
-            UserDefaults.standard.synchronize()
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        items.append(item!)
+        
+        if let price = item?["price"] {
+            totalPrice.text = "Total: $\(price)0"
         }
         
-         print(items)
+        tableCutomize()
+        
+        
+        self.navigationItem.title = "Hello"
+//        self.view.backgroundColor = UIColor(red: 0.9608, green: 0.9608, blue: 0.8627, alpha: 1.0)
+        self.tableView.reloadData()
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -50,5 +53,23 @@ class orderViewController: UIViewController {
         }
     }
     
-
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let count = items.count
+        return count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        let jsonVar : [JSON] = items
+        let name = jsonVar[indexPath.row]["name"].string
+        cell.textLabel?.textAlignment = .center
+        cell.textLabel?.text = name
+        return cell
+    }
+    
+    func tableCutomize() {
+        self.tableView.separatorStyle = .none
+        self.tableView.backgroundColor = UIColor(red: 0.9608, green: 0.9608, blue: 0.8627, alpha: 1.0)
+    }
 }
