@@ -32,30 +32,7 @@ class typeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.delegate = self
         tableView.dataSource = self
         
-        let token = UserDefaults.standard.string(forKey: "token")!
-        
-        let headers : HTTPHeaders = [
-            "Authorization" : token
-        ]
-        
-        let parameters: Parameters = [
-            "barID" : 4,
-            "category" : category,
-            "type" : type
-        ]
-        
-        URLCache.shared.removeAllCachedResponses()
-        
-        Alamofire.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
-            if((response.result.value) != nil) {
-                self.menu = JSON(response.result.value ?? "success")
-                self.hideActivityIndicator(uiView: self.view)
-                self.tableView.reloadData()
-            } else {
-                self.hideActivityIndicator(uiView: self.view)
-                self.createAlert(titleText: "Data Error", messageText: "There was a problem receiving the data")
-            }
-        }
+        fetchData()
     }
     
     
@@ -105,32 +82,9 @@ class typeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if (editingStyle == UITableViewCellEditingStyle.delete) {
             
             showActivityIndicatory(uiView: self.view)
-            
-            let url = "http://138.197.87.137:8080/bartabs-server/menu/deletemenuitem"
-            let token = UserDefaults.standard.string(forKey: "token")!
             let jsonVar : JSON = self.menu!
-            let objectID = jsonVar["data"]["menuItems"][indexPath.row]["objectID"].int64!
-            let count = self.menu?["data"]["menuItems"].count
-            
-            let headers : HTTPHeaders = [
-                "Authorization" : token
-            ]
-            
-            let parameters: Parameters = [
-                "objectID" : objectID
-            ]
-            
-            
-            Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
-                if((response.result.value) != nil) {
-                    self.menu = JSON(response.result.value ?? "success")
-                    self.hideActivityIndicator(uiView: self.view)
-                    self.tableView.reloadData()
-                } else {
-                    self.hideActivityIndicator(uiView: self.view)
-                    self.createAlert(titleText: "Data Error", messageText: "There was a problem removing the item")
-                }
-            }
+            let objectID = jsonVar["data"]["menuItems"][indexPath.row]["objectID"].int64Value
+            deleteRecord(objectID: objectID)
         }
     }
     
@@ -177,6 +131,59 @@ class typeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     //Create func for rectangular graphic container for activity indicator
     func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
         return CGRect(x: x, y: y, width: width, height: height)
+    }
+    
+    func fetchData() {
+        URLCache.shared.removeAllCachedResponses()
+
+        let token = UserDefaults.standard.string(forKey: "token")!
+        
+        let headers : HTTPHeaders = [
+            "Authorization" : token
+        ]
+        
+        let parameters: Parameters = [
+            "barID" : 4,
+            "category" : category,
+            "type" : type
+        ]
+
+        Alamofire.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
+            if((response.result.value) != nil) {
+                self.menu = JSON(response.result.value ?? "success")
+                self.hideActivityIndicator(uiView: self.view)
+                self.tableView.reloadData()
+            } else {
+                self.hideActivityIndicator(uiView: self.view)
+                self.createAlert(titleText: "Data Error", messageText: "There was a problem receiving the data")
+            }
+        }
+    }
+    
+    func deleteRecord(objectID: Int64) {
+        let url = "http://138.197.87.137:8080/bartabs-server/menu/deletemenuitem"
+        let token = UserDefaults.standard.string(forKey: "token")!
+
+        let headers : HTTPHeaders = [
+            "Authorization" : token
+        ]
+        
+        let parameters: Parameters = [
+            "objectID" : objectID
+        ]
+        
+        
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
+            if((response.result.value) != nil) {
+                self.menu = JSON(response.result.value ?? "success")
+                self.hideActivityIndicator(uiView: self.view)
+                self.fetchData()
+            } else {
+                self.hideActivityIndicator(uiView: self.view)
+                self.createAlert(titleText: "Data Error", messageText: "There was a problem removing the item")
+            }
+        }
+
     }
     
 }
