@@ -77,7 +77,6 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.3725, green: 0.3647, blue: 0.3725, alpha: 1.0)
         self.navigationController?.navigationBar.isHidden = true
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
         self.navigationItem.setHidesBackButton(true, animated:true)
@@ -99,6 +98,7 @@ class ViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.black]
         self.navigationController?.navigationBar.isHidden = false
     }
     
