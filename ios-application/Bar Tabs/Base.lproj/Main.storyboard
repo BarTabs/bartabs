@@ -205,7 +205,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="u95-Q3-IE5">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" id="ZMM-gm-a7a">
+                        <barButtonItem key="leftBarButtonItem" style="done" id="ZMM-gm-a7a">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tdc-hO-KNt">
                                 <rect key="frame" x="16" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -220,7 +220,7 @@
                                 <segue destination="aCf-Ds-QWe" kind="show" id="FwP-IY-zzL"/>
                             </connections>
                         </button>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="XDY-Wi-535">
+                        <barButtonItem key="rightBarButtonItem" style="done" id="XDY-Wi-535">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zb0-JT-uUX">
                                 <rect key="frame" x="276" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -423,7 +423,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="7fX-cC-M76">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="SYh-uu-KK2">
+                        <barButtonItem key="rightBarButtonItem" style="done" id="SYh-uu-KK2">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="neh-1V-8fb">
                                 <rect key="frame" x="276" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -471,7 +471,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="Ix0-VY-mWQ">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="zkT-aE-LeZ">
+                        <barButtonItem key="rightBarButtonItem" style="done" id="zkT-aE-LeZ">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dyl-7x-wKh">
                                 <rect key="frame" x="276" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -538,7 +538,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="tRi-5B-FoM">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="lE7-xR-fa9">
+                        <barButtonItem key="rightBarButtonItem" style="done" id="lE7-xR-fa9">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="76M-At-R8Z">
                                 <rect key="frame" x="276" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
