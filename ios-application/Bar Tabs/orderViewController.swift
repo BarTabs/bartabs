@@ -24,7 +24,6 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     @IBOutlet var totalPrice: UILabel!
     
-    
     @IBAction func pay(_ sender: Any) {
 
         showActivityIndicatory(uiView: self.view)

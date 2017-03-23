@@ -30,7 +30,6 @@ class addMenuItemViewController: UIViewController {
     
     @IBAction func addItem(_ sender: Any) {
         
-        
         let name = itemName.text
         let desc = itemDesc.text
         let type = itemType.text
@@ -70,7 +69,7 @@ class addMenuItemViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationItem.title = "Add Menu Item"
         // Do any additional setup after loading the view.
     }
 

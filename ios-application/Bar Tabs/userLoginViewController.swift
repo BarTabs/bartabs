@@ -20,13 +20,20 @@ class userLoginViewController: UIViewController {
         performSegue(withIdentifier: "loginSegue", sender: nil)
     }
     
-    var addMenuItem: UIBarButtonItem!
     var condition: Bool = false
     
     @IBOutlet var welcomeLabel: UILabel!
     
+    @IBOutlet var addMenuItem: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let type = UserDefaults.standard.integer(forKey: "userType")
+        if(type == 4) {
+            addMenuItem.isHidden = true
+        } else {
+            addMenuItem.isHidden = false
+        }
         
         // Do any additional setup after loading the view.
         if let firstName = UserDefaults.standard.string(forKey: "firstName") {

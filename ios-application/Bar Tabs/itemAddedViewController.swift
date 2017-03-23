@@ -11,10 +11,6 @@ import UIKit
 class itemAddedViewController: UIViewController {
     
     var name = ""
-    var desc = ""
-    var type = ""
-    var cat  = ""
-    var price = ""
 
     @IBOutlet var menuItem: UILabel!
     
@@ -24,6 +20,10 @@ class itemAddedViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         menuItem.text = "\(name) has been added"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationItem.setHidesBackButton(true, animated:true);
     }
 
     override func didReceiveMemoryWarning() {
