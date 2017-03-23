@@ -56,7 +56,7 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
         menuItem.type = item?["type"].string ?? ""
         
         _clientOrder.orderItems.append(menuItem)
-        totalLabel.text = "Total: " + String(format:"%.02f", self.clientOrder.getTotal())
+        totalLabel.text = String(format:"%.02f", self.clientOrder.getTotal())
         
         tableCutomize()
         self.tableView.reloadData()
