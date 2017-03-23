@@ -21,6 +21,7 @@
 		A030DD871E4FB45D0049539D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A030DD851E4FB45D0049539D /* LaunchScreen.storyboard */; };
 		A089A60C1E7DB64F00B07628 /* orderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A089A60B1E7DB64F00B07628 /* orderViewController.swift */; };
 		A09F16561E5A8C05003B2BB0 /* paymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09F16551E5A8C05003B2BB0 /* paymentViewController.swift */; };
+		A0BF42D31E8476390046E2EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A0BF42D21E8476390046E2EC /* GoogleService-Info.plist */; };
 		A0C14C391E5A0726003555D5 /* userLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C14C381E5A0726003555D5 /* userLoginViewController.swift */; };
 		A0C813641E68AF1800602023 /* categoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C813631E68AF1800602023 /* categoryViewController.swift */; };
 		A0C813661E68B3DE00602023 /* typeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C813651E68B3DE00602023 /* typeViewController.swift */; };
@@ -46,6 +47,7 @@
 		A030DD881E4FB45D0049539D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A089A60B1E7DB64F00B07628 /* orderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = orderViewController.swift; sourceTree = "<group>"; };
 		A09F16551E5A8C05003B2BB0 /* paymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = paymentViewController.swift; sourceTree = "<group>"; };
+		A0BF42D21E8476390046E2EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A0C14C381E5A0726003555D5 /* userLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userLoginViewController.swift; sourceTree = "<group>"; };
 		A0C813631E68AF1800602023 /* categoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = categoryViewController.swift; sourceTree = "<group>"; };
 		A0C813651E68B3DE00602023 /* typeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = typeViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				A030DD831E4FB45D0049539D /* Assets.xcassets */,
 				A030DD851E4FB45D0049539D /* LaunchScreen.storyboard */,
 				A030DD881E4FB45D0049539D /* Info.plist */,
+				A0BF42D21E8476390046E2EC /* GoogleService-Info.plist */,
 			);
 			path = "Bar Tabs";
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A030DD871E4FB45D0049539D /* LaunchScreen.storyboard in Resources */,
+				A0BF42D31E8476390046E2EC /* GoogleService-Info.plist in Resources */,
 				A030DD841E4FB45D0049539D /* Assets.xcassets in Resources */,
 				A030DD821E4FB45D0049539D /* Main.storyboard in Resources */,
 			);
