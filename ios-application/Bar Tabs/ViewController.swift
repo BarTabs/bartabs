@@ -19,7 +19,11 @@ class ViewController: UIViewController {
     
     @IBOutlet var userNameField: UITextField!
     
+    @IBOutlet var loginButton: UIButton!
+    
     @IBOutlet var passwordField: UITextField!
+    
+    @IBOutlet var pregame: UIButton!
     
     @IBAction func login(_ sender: Any) {
     
@@ -72,7 +76,21 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationItem.setHidesBackButton(true, animated:true);
+        super.viewWillAppear(animated)
+//        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.3725, green: 0.3647, blue: 0.3725, alpha: 1.0)
+        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
+        self.navigationItem.setHidesBackButton(true, animated:true)
+        loginButton.layer.cornerRadius = 5
+        loginButton.layer.borderWidth = 1
+        loginButton.layer.borderColor = UIColor(red: 0, green: 0.4941, blue: 0.9647, alpha: 1.0).cgColor
+        
+        pregame.tintColor = UIColor.red
+        pregame.layer.cornerRadius = 5
+        pregame.layer.borderColor = UIColor.red.cgColor
+        pregame.layer.borderWidth = 1
+        
+        self.view.backgroundColor = UIColor(red: 0.3725, green: 0.3647, blue: 0.3725, alpha: 1.0)
     }
     
     override func didReceiveMemoryWarning() {
