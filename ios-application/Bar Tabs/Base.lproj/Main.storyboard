@@ -542,7 +542,6 @@
                                 </state>
                                 <connections>
                                     <action selector="pay:" destination="zqw-FT-gEI" eventType="touchUpInside" id="IEp-2h-tXn"/>
-                                    <segue destination="1Kr-Ov-PZh" kind="show" identifier="paySegue" id="BfH-tY-j5s"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -563,6 +562,7 @@
                     <connections>
                         <outlet property="tableView" destination="lFQ-6U-5bA" id="Q9y-bR-ONZ"/>
                         <outlet property="totalPrice" destination="yvf-9Y-aa4" id="gEZ-Q2-sGy"/>
+                        <segue destination="1Kr-Ov-PZh" kind="show" identifier="paySegue" id="n5w-wW-2rk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0uL-PC-rbG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -601,7 +601,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NRb-vL-Pat" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="a4O-PH-Cd4">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="a4O-PH-Cd4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -616,8 +616,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="bav-hc-kMO"/>
-        <segue reference="1Mg-bi-6hh"/>
         <segue reference="3gg-Ni-fkD"/>
         <segue reference="bav-hc-kMO"/>
     </inferredMetricsTieBreakers>

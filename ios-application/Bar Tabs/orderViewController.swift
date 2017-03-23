@@ -57,7 +57,7 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         _clientOrder.orderItems.append(menuItem)
         
-//        tableCutomize()
+        tableCutomize()
         self.tableView.reloadData()
         
     }
