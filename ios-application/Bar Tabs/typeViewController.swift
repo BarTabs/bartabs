@@ -102,6 +102,43 @@ class typeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            
+            showActivityIndicatory(uiView: self.view)
+            
+            let url = "http://138.197.87.137:8080/bartabs-server/menu/deletemenuitem"
+            let token = UserDefaults.standard.string(forKey: "token")!
+            let jsonVar : JSON = self.menu!
+            let objectID = jsonVar["data"]["menuItems"][indexPath.row]["objectID"].int64!
+            print(objectID)
+            
+            let headers : HTTPHeaders = [
+                "Authorization" : token
+            ]
+            
+            let parameters: Parameters = [
+                "objectID" : objectID
+            ]
+            
+            
+            Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
+                if((response.result.value) != nil) {
+                    self.menu = JSON(response.result.value ?? "success")
+                    self.hideActivityIndicator(uiView: self.view)
+                    self.tableView.reloadData()
+                } else {
+                    self.hideActivityIndicator(uiView: self.view)
+                    self.createAlert(titleText: "Data Error", messageText: "There was a problem removing the item")
+                }
+            }
+        }
+    }
+    
     //Create alert function
     func createAlert(titleText: String, messageText: String) {
         
