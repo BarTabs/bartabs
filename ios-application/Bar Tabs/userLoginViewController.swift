@@ -28,6 +28,7 @@ class userLoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let type = UserDefaults.standard.integer(forKey: "userType")
         if(type == 4) {
             addMenuItem.isHidden = true
@@ -52,11 +53,10 @@ class userLoginViewController: UIViewController {
     
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         let tokenStored = UserDefaults.standard.object(forKey: "token")
         if(tokenStored == nil) {
             performSegue(withIdentifier: "loginSegue", sender: self)
         }
     }
-    
-    
 }

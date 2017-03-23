@@ -8,7 +8,7 @@
 
 import UIKit
 import UserNotifications
-
+import SwiftyJSON
 import Firebase
 import FirebaseInstanceID
 import FirebaseMessaging
@@ -72,6 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Print full message.
         print(userInfo)
+        
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
@@ -144,6 +145,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("Disconnected from FCM.")
     }
     // [END disconnect_from_fcm]
+    
+    //Create an alert function that is used for UIAlerts
+    func createAlert(titleText: String, messageText: String) {
+        
+        let alert = UIAlertController(title: titleText, message: messageText, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
+        }))
+        self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+        
+    }
 }
 
 // [START ios_10_message_handling]
@@ -154,12 +166,16 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
         let userInfo = notification.request.content.userInfo
+        
+        print(userInfo)
+        
         // Print message ID.
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
-        
+    
         // Print full message.
         print(userInfo)
         
@@ -170,12 +186,14 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
+        
         let userInfo = response.notification.request.content.userInfo
+        
         // Print message ID.
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
-        
+    
         // Print full message.
         print(userInfo)
         
@@ -187,7 +205,11 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
 extension AppDelegate : FIRMessagingDelegate {
     // Receive data message on iOS 10 devices while app is in the foreground.
     func applicationReceivedRemoteMessage(_ remoteMessage: FIRMessagingRemoteMessage) {
-        print(remoteMessage.appData)
+        
+        //Used to load an alert message if the app is running in the foreground.
+        let remoteMessage : JSON = JSON(remoteMessage.appData)
+        createAlert(titleText: "BarTabs", messageText: String(describing: remoteMessage["notification"]["body"]))
+        
     }
 }
 // [END ios_10_data_message_handling]
