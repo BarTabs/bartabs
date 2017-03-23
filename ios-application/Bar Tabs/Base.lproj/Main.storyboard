@@ -561,7 +561,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="lFQ-6U-5bA" id="Q9y-bR-ONZ"/>
-                        <outlet property="totalPrice" destination="yvf-9Y-aa4" id="gEZ-Q2-sGy"/>
+                        <outlet property="totalLabel" destination="yvf-9Y-aa4" id="boM-3A-bjX"/>
                         <segue destination="1Kr-Ov-PZh" kind="show" identifier="paySegue" id="n5w-wW-2rk"/>
                     </connections>
                 </viewController>

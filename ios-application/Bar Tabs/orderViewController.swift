@@ -14,12 +14,11 @@ var _clientOrder = ClientOrder()
 
 class orderViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    
-    @IBOutlet var totalLabel: UILabel!
-    
     @IBAction func orderButton(_ sender: Any) {
         placeOrder()
     }
+    
+    @IBOutlet var totalLabel: UILabel!
     
     var clientOrder: ClientOrder {
         return _clientOrder
@@ -57,7 +56,7 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
         menuItem.type = item?["type"].string ?? ""
         
         _clientOrder.orderItems.append(menuItem)
-//        totalLabel.text = "Total: " + _clientOrder.getTotal()
+        totalLabel.text = "Total: " + String(format:"%.02f", self.clientOrder.getTotal())
         
         tableCutomize()
         self.tableView.reloadData()
