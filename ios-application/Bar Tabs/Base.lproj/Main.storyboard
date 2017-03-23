@@ -294,7 +294,6 @@
                                 <state key="normal" title="Add Item"/>
                                 <connections>
                                     <action selector="addItem:" destination="0II-OC-moI" eventType="touchUpInside" id="8y6-Xg-vrB"/>
-                                    <segue destination="sAQ-X1-eKg" kind="show" identifier="addItemSegue" id="k7q-g4-vim"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -307,6 +306,7 @@
                         <outlet property="itemName" destination="5Bu-vf-hRy" id="yBm-nX-10G"/>
                         <outlet property="itemPrice" destination="WLo-3o-aFd" id="eJs-cK-x54"/>
                         <outlet property="itemType" destination="ZyD-32-doX" id="z4I-VO-yhk"/>
+                        <segue destination="sAQ-X1-eKg" kind="show" identifier="addItemSegue" id="knp-jt-bUb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KZh-fr-xm9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -337,7 +337,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Home"/>
                                 <connections>
-                                    <segue destination="Qte-pK-Dsy" kind="show" id="8Nl-E2-8tx"/>
+                                    <segue destination="Qte-pK-Dsy" kind="show" id="Pmd-40-zWc"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -584,7 +584,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="bav-hc-kMO"/>
         <segue reference="1Mg-bi-6hh"/>
+        <segue reference="EcU-5c-xCT"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -115,7 +115,7 @@ class typeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let token = UserDefaults.standard.string(forKey: "token")!
             let jsonVar : JSON = self.menu!
             let objectID = jsonVar["data"]["menuItems"][indexPath.row]["objectID"].int64!
-            print(objectID)
+            let count = self.menu?["data"]["menuItems"].count
             
             let headers : HTTPHeaders = [
                 "Authorization" : token
