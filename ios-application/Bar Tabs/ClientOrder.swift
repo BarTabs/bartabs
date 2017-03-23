@@ -97,4 +97,15 @@ struct ClientOrder {
         self.completedDateDisplay = nil
         self.orderItems = [ClientMenuItem]()
     }
+    
+    func getTotal() -> Double {
+        var total = 0.0
+        
+        for clientMenuItem in self.orderItems {
+            total += clientMenuItem.price!
+        }
+        
+        return total
+
+    }
 }

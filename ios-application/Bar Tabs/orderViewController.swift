@@ -15,7 +15,8 @@ var _clientOrder = ClientOrder()
 class orderViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
-    @IBOutlet var itemName: UILabel!
+    @IBOutlet var totalLabel: UILabel!
+    
     @IBAction func orderButton(_ sender: Any) {
         placeOrder()
     }
@@ -56,6 +57,7 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
         menuItem.type = item?["type"].string ?? ""
         
         _clientOrder.orderItems.append(menuItem)
+//        totalLabel.text = "Total: " + _clientOrder.getTotal()
         
         tableCutomize()
         self.tableView.reloadData()
@@ -154,9 +156,9 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         URLCache.shared.removeAllCachedResponses()
         
-        print(clientOrder.dictionaryRepresentation)
         Alamofire.request(url, method: .post, parameters: clientOrder.dictionaryRepresentation, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             if((response.result.value) != nil) {
+                self.clearOrderItems()
                 self.hideActivityIndicator(uiView: self.view)
                 self.performSegue(withIdentifier: "paySegue", sender: nil)
             } else {
@@ -164,6 +166,11 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
                 self.createAlert(titleText: "Order Error", messageText: "Order could not be placed")
             }
         }
+    }
+    
+    func clearOrderItems() {
+        _clientOrder.orderItems.removeAll()
+        self.tableView.reloadData()
     }
     
 }
