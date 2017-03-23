@@ -10,6 +10,8 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
+var _clientOrder = ClientOrder()
+
 class orderViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
@@ -18,8 +20,9 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
         placeOrder()
     }
     
-    var clientOrder = ClientOrder()
-    
+    var clientOrder: ClientOrder {
+        return _clientOrder
+    }
     var item : JSON?
     var items = [JSON]()
     
@@ -52,9 +55,9 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
         menuItem.category = item?["category"].string ?? ""
         menuItem.type = item?["type"].string ?? ""
         
-        clientOrder.orderItems.append(menuItem)
+        _clientOrder.orderItems.append(menuItem)
         
-        tableCutomize()
+//        tableCutomize()
         self.tableView.reloadData()
         
     }
@@ -139,8 +142,8 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func placeOrder() {
         let userID = UserDefaults.standard.string(forKey: "userID")!
-        clientOrder.orderedBy = Int64(userID)
-        clientOrder.barID = 4
+        _clientOrder.orderedBy = Int64(userID)
+        _clientOrder.barID = 4
         
         showActivityIndicatory(uiView: self.view)
         let token = UserDefaults.standard.string(forKey: "token")!
