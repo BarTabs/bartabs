@@ -12,44 +12,29 @@ import SwiftyJSON
 
 class orderViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    
+    @IBOutlet var itemName: UILabel!
+    @IBAction func orderButton(_ sender: Any) {
+        placeOrder()
+    }
+    
+    var clientOrder = ClientOrder()
+    
     var item : JSON?
     var items = [JSON]()
+    
     let url = "http://138.197.87.137:8080/bartabs-server/order/placeorder"
     let container: UIView = UIView()
     let loadingView: UIView = UIView()
     let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
-
+    
     
     @IBOutlet var tableView: UITableView!
     
     @IBOutlet var totalPrice: UILabel!
     
     @IBAction func pay(_ sender: Any) {
-
-        showActivityIndicatory(uiView: self.view)
-        let token = UserDefaults.standard.string(forKey: "token")!
-        let userID = UserDefaults.standard.string(forKey: "userID")!
-        
-        let headers : HTTPHeaders = [
-            "Authorization" : token
-        ]
-        
-        let parameters: Parameters = [
-            "orderedBy" : userID,
-            "barID" : 4
-        ]
-        
-        URLCache.shared.removeAllCachedResponses()
-        
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
-            if((response.result.value) != nil) {
-                self.hideActivityIndicator(uiView: self.view)
-                self.performSegue(withIdentifier: "paySegue", sender: nil)
-            } else {
-                self.hideActivityIndicator(uiView: self.view)
-                self.createAlert(titleText: "Order Error", messageText: "Order could not be placed")
-            }
-        }
+        placeOrder()
     }
     
     override func viewDidLoad() {
@@ -58,11 +43,16 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
         tableView.delegate = self
         tableView.dataSource = self
         
-        items.append(item!)
+        var menuItem = ClientMenuItem()
+        menuItem.objectID = item?["objectID"].int64Value
+        menuItem.menuID = item?["menuID"].int64Value
+        menuItem.name = item?["name"].string ?? ""
+        menuItem.description = item?["description"].string ?? ""
+        menuItem.price = item?["price"].doubleValue
+        menuItem.category = item?["category"].string ?? ""
+        menuItem.type = item?["type"].string ?? ""
         
-        if let price = item?["price"] {
-            totalPrice.text = "Total: $\(price)0"
-        }
+        clientOrder.orderItems.append(menuItem)
         
         tableCutomize()
         self.tableView.reloadData()
@@ -83,15 +73,15 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let count = items.count
+        let count = clientOrder.orderItems.count
         return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        let jsonVar : [JSON] = items
-        let name = jsonVar[indexPath.row]["name"].string
+        let menuItem : ClientMenuItem = clientOrder.orderItems[indexPath.row]
+        let name = menuItem.name
         cell.textLabel?.textAlignment = .center
         cell.textLabel?.text = name
         return cell
@@ -146,5 +136,31 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
     func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
         return CGRect(x: x, y: y, width: width, height: height)
     }
-
+    
+    func placeOrder() {
+        let userID = UserDefaults.standard.string(forKey: "userID")!
+        clientOrder.orderedBy = Int64(userID)
+        clientOrder.barID = 4
+        
+        showActivityIndicatory(uiView: self.view)
+        let token = UserDefaults.standard.string(forKey: "token")!
+        
+        let headers : HTTPHeaders = [
+            "Authorization" : token
+        ]
+        
+        URLCache.shared.removeAllCachedResponses()
+        
+        print(clientOrder.dictionaryRepresentation)
+        Alamofire.request(url, method: .post, parameters: clientOrder.dictionaryRepresentation, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            if((response.result.value) != nil) {
+                self.hideActivityIndicator(uiView: self.view)
+                self.performSegue(withIdentifier: "paySegue", sender: nil)
+            } else {
+                self.hideActivityIndicator(uiView: self.view)
+                self.createAlert(titleText: "Order Error", messageText: "Order could not be placed")
+            }
+        }
+    }
+    
 }

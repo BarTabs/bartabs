@@ -45,16 +45,15 @@ class addMenuItemViewController: UIViewController {
                 "Authorization" : token
             ]
             
-            let parameters : Parameters = [
-                "name" : name!,
-                "description" : desc!,
-                "type" : type!,
-                "category" : cat!,
-                "price" : price!,
-                "menuID" : 1
-            ]
+            var menuItem = ClientMenuItem()
+            menuItem.name = name!
+            menuItem.description = desc!
+            menuItem.type = type!
+            menuItem.category = cat!
+            menuItem.price = Double(price!)
+            menuItem.menuID = 1
             
-            Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
+            Alamofire.request(url, method: .post, parameters: menuItem.dictionaryRepresentation, encoding: URLEncoding.default, headers: headers).responseJSON { response in
                 if((response.result.value) != nil) {
                     self.hideActivityIndicator(uiView: self.view)
                     self.performSegue(withIdentifier: "addItemSegue", sender: self)

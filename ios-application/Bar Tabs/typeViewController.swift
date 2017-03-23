@@ -19,11 +19,6 @@ class typeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     let container: UIView = UIView()
     let loadingView: UIView = UIView()
     let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
-//    let manager: Manager = {
-//        let configuration = NSURL = NSURLSessionConfiguration.defaultSessionConfiguration()
-//        configuration.URLCache = nil
-//        return Manager(configuration: configuration)
-//    }()
     
     @IBOutlet var tableView: UITableView!
     

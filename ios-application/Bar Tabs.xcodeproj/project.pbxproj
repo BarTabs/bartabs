@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E256D601E82F99D00189D59 /* ClientMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E256D5F1E82F99D00189D59 /* ClientMenuItem.swift */; };
+		7E256D631E82FA4900189D59 /* ClientOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E256D621E82FA4900189D59 /* ClientOrder.swift */; };
 		7EED520D1E637C6700669184 /* userTypeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EED520C1E637C6700669184 /* userTypeSelectionViewController.swift */; };
 		A009C7911E5A44CF009095E8 /* customerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A009C7901E5A44CF009095E8 /* customerViewController.swift */; };
 		A0117A3C1E636C3B00A331CF /* menuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0117A3B1E636C3B00A331CF /* menuViewController.swift */; };
@@ -28,6 +30,8 @@
 
 /* Begin PBXFileReference section */
 		265CA14D6751A56538014C0B /* Pods-Bar Tabs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bar Tabs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bar Tabs/Pods-Bar Tabs.debug.xcconfig"; sourceTree = "<group>"; };
+		7E256D5F1E82F99D00189D59 /* ClientMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientMenuItem.swift; sourceTree = "<group>"; };
+		7E256D621E82FA4900189D59 /* ClientOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientOrder.swift; sourceTree = "<group>"; };
 		7EED520C1E637C6700669184 /* userTypeSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userTypeSelectionViewController.swift; sourceTree = "<group>"; };
 		A009C7901E5A44CF009095E8 /* customerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customerViewController.swift; sourceTree = "<group>"; };
 		A0117A3B1E636C3B00A331CF /* menuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +66,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E256D611E82FA3600189D59 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				7E256D5F1E82F99D00189D59 /* ClientMenuItem.swift */,
+				7E256D621E82FA4900189D59 /* ClientOrder.swift */,
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
 		96FDC85AA8B325D9B546BD74 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +104,7 @@
 		A030DD7B1E4FB45D0049539D /* Bar Tabs */ = {
 			isa = PBXGroup;
 			children = (
+				7E256D611E82FA3600189D59 /* models */,
 				A030DD7C1E4FB45D0049539D /* AppDelegate.swift */,
 				A030DD7E1E4FB45D0049539D /* ViewController.swift */,
 				A0C14C381E5A0726003555D5 /* userLoginViewController.swift */,
@@ -251,6 +265,8 @@
 				A0117A3C1E636C3B00A331CF /* menuViewController.swift in Sources */,
 				7EED520D1E637C6700669184 /* userTypeSelectionViewController.swift in Sources */,
 				A09F16561E5A8C05003B2BB0 /* paymentViewController.swift in Sources */,
+				7E256D631E82FA4900189D59 /* ClientOrder.swift in Sources */,
+				7E256D601E82F99D00189D59 /* ClientMenuItem.swift in Sources */,
 				A030DD7D1E4FB45D0049539D /* AppDelegate.swift in Sources */,
 				A089A60C1E7DB64F00B07628 /* orderViewController.swift in Sources */,
 				A0D75AD91E79AFEF004F81E0 /* itemAddedViewController.swift in Sources */,
