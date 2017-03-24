@@ -76,8 +76,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-//        let token = FIRInstanceID.instanceID().token()
-//        print("InstanceID token: \(token!)")
+        let token = FIRInstanceID.instanceID().token()
+        print("InstanceID token: \(token!)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
