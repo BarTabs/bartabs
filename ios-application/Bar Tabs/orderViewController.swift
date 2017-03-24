@@ -26,7 +26,7 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
     var item : JSON?
     var items = [JSON]()
     
-    let url = "http://138.197.87.137:8080/bartabs-server/order/placeorder"
+    let placeOrderUrl = _url + "order/placeorder"
     let container: UIView = UIView()
     let loadingView: UIView = UIView()
     let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
@@ -66,14 +66,6 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "backSegue" {
-            let destView = segue.destination as! typeViewController
-            destView.category = item!["category"].string!
-            destView.type = item!["type"].string!
-        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -155,7 +147,7 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         URLCache.shared.removeAllCachedResponses()
         
-        Alamofire.request(url, method: .post, parameters: clientOrder.dictionaryRepresentation, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+        Alamofire.request(placeOrderUrl, method: .post, parameters: clientOrder.dictionaryRepresentation, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             if((response.result.value) != nil) {
                 self.clearOrderItems()
                 self.hideActivityIndicator(uiView: self.view)

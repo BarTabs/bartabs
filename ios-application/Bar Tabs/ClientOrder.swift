@@ -27,48 +27,48 @@ struct ClientOrder {
     var dictionaryRepresentation: [String: Any] {
         var dict = [String: Any]()
         
-        if (self.objectID != nil) {
-            dict["objectID"] = self.objectID!
+        if let objectID = self.objectID {
+            dict["objectID"] = objectID
         }
         
-        if (self.barID != nil) {
-            dict["barID"] = self.barID!
+        if let barID = self.barID {
+            dict["barID"] = barID
         }
         
-        if (self.total != nil) {
-            dict["total"] = self.total!
+        if let total = self.total {
+            dict["total"] = total
         }
         
-        if (self.orderedBy != nil) {
-            dict["orderedBy"] = self.orderedBy!
+        if let orderedBy = self.orderedBy {
+            dict["orderedBy"] = orderedBy
         }
         
-        if (self.orderedByDisplay != nil) {
-            dict["orderedByDisplay"] = self.orderedByDisplay!
+        if let orderedByDisplay = self.orderedByDisplay {
+            dict["orderedByDisplay"] = orderedByDisplay
         }
         
-        if (self.orderedDate != nil) {
-            dict["orderedDate"] = self.orderedDate!
+        if let orderedDate = self.orderedDate {
+            dict["orderedDate"] = orderedDate
         }
         
-        if (self.completedByDisplay != nil) {
-            dict["completedByDisplay"] = self.completedByDisplay!
+        if let completedByDisplay = self.completedByDisplay {
+            dict["completedByDisplay"] = completedByDisplay;
         }
         
-        if (self.completed != nil) {
-            dict["completed"] = self.completed!
+        if let completed = self.completed {
+            dict["completed"] = completed
         }
         
-        if (self.completedByDisplay != nil) {
-            dict["completedByDisplay"] = self.completedByDisplay!
+        if let completedByDisplay = self.completedByDisplay {
+            dict["completedByDisplay"] = completedByDisplay
         }
         
-        if (self.completedDate != nil) {
-            dict["completedDate"] = self.completedDate!
+        if let completedDate = self.completedDate {
+            dict["completedDate"] = completedDate
         }
         
-        if (self.completedDateDisplay != nil) {
-            dict["completedDateDisplay"] = self.completedDateDisplay!
+        if  let completedDateDisplay = self.completedDateDisplay {
+            dict["completedDateDisplay"] = completedDateDisplay
         }
         
         var items = [Any]()

@@ -10,11 +10,15 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
+var _category: String?
+
 class categoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var menu : JSON?
-    let url = "http://138.197.87.137:8080/bartabs-server/menu/getmenu"
-    var category = ""
+    let getMenuUrl = _url + "menu/getmenu"
+    var category: String {
+        return _category ?? ""
+    }
     let container: UIView = UIView()
     let loadingView: UIView = UIView()
     let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
@@ -32,30 +36,8 @@ class categoryViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.delegate = self
         tableView.dataSource = self
         
-        let token = UserDefaults.standard.string(forKey: "token")!
+        fetchData()
         
-        let headers : HTTPHeaders = [
-            "Authorization" : token
-        ]
-        
-        let parameters: Parameters = [
-            "barID" : 4,
-            "category" : category
-            
-        ]
-        
-        URLCache.shared.removeAllCachedResponses()
-        
-        Alamofire.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
-            if((response.result.value) != nil) {
-                self.menu = JSON(response.result.value ?? "success")
-                self.hideActivityIndicator(uiView: self.view)
-                self.tableView.reloadData()
-            } else {
-                self.hideActivityIndicator(uiView: self.view)
-                self.createAlert(titleText: "Data Error", messageText: "There was a problem receiving the data")
-            }
-        }
     }
 
 
@@ -83,16 +65,8 @@ class categoryViewController: UIViewController, UITableViewDataSource, UITableVi
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let jsonVar : JSON = self.menu!
-        let categories = jsonVar["data"][indexPath.row].string
-        performSegue(withIdentifier: "typeSegue", sender: categories)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "typeSegue" {
-            let destSeg = segue.destination as! typeViewController
-            destSeg.type = sender as! String
-            destSeg.category = category
-        }
+        _type = jsonVar["data"][indexPath.row].string
+        performSegue(withIdentifier: "typeSegue", sender: nil)
     }
 
     //Create func to show alerts
@@ -138,6 +112,34 @@ class categoryViewController: UIViewController, UITableViewDataSource, UITableVi
     //Create func for rectangular graphic container for activity indicator
     func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
         return CGRect(x: x, y: y, width: width, height: height)
+    }
+    
+    func fetchData() {
+        let token = UserDefaults.standard.string(forKey: "token")!
+        
+        let headers : HTTPHeaders = [
+            "Authorization" : token
+        ]
+        
+        let parameters: Parameters = [
+            "barID" : 4,
+            "category" : category
+            
+        ]
+        
+        URLCache.shared.removeAllCachedResponses()
+        
+        Alamofire.request(getMenuUrl, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
+            if((response.result.value) != nil) {
+                self.menu = JSON(response.result.value ?? "success")
+                self.hideActivityIndicator(uiView: self.view)
+                self.tableView.reloadData()
+            } else {
+                self.hideActivityIndicator(uiView: self.view)
+                self.createAlert(titleText: "Data Error", messageText: "There was a problem receiving the data")
+            }
+        }
+
     }
 
 }

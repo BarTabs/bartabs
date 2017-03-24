@@ -68,6 +68,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E21FBFC1E84D6AC00057A0B /* services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = services;
+			sourceTree = "<group>";
+		};
+		7E21FC011E84E3FA00057A0B /* menu */ = {
+			isa = PBXGroup;
+			children = (
+				A0117A3B1E636C3B00A331CF /* menuViewController.swift */,
+				A0C813631E68AF1800602023 /* categoryViewController.swift */,
+				A0C813651E68B3DE00602023 /* typeViewController.swift */,
+				A089A60B1E7DB64F00B07628 /* orderViewController.swift */,
+				A022CCDE1E823BB000384BB9 /* payViewController.swift */,
+				A09F16551E5A8C05003B2BB0 /* paymentViewController.swift */,
+			);
+			name = menu;
+			sourceTree = "<group>";
+		};
 		7E256D611E82FA3600189D59 /* models */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,18 +126,14 @@
 		A030DD7B1E4FB45D0049539D /* Bar Tabs */ = {
 			isa = PBXGroup;
 			children = (
+				7E21FC011E84E3FA00057A0B /* menu */,
+				7E21FBFC1E84D6AC00057A0B /* services */,
 				7E256D611E82FA3600189D59 /* models */,
 				A030DD7C1E4FB45D0049539D /* AppDelegate.swift */,
 				A030DD7E1E4FB45D0049539D /* ViewController.swift */,
 				A0C14C381E5A0726003555D5 /* userLoginViewController.swift */,
 				A009C7901E5A44CF009095E8 /* customerViewController.swift */,
-				A09F16551E5A8C05003B2BB0 /* paymentViewController.swift */,
 				7EED520C1E637C6700669184 /* userTypeSelectionViewController.swift */,
-				A0117A3B1E636C3B00A331CF /* menuViewController.swift */,
-				A0C813631E68AF1800602023 /* categoryViewController.swift */,
-				A0C813651E68B3DE00602023 /* typeViewController.swift */,
-				A089A60B1E7DB64F00B07628 /* orderViewController.swift */,
-				A022CCDE1E823BB000384BB9 /* payViewController.swift */,
 				A011B5EF1E7724AC00446119 /* addMenuItemViewController.swift */,
 				A0D75AD81E79AFEF004F81E0 /* itemAddedViewController.swift */,
 				A030DD801E4FB45D0049539D /* Main.storyboard */,

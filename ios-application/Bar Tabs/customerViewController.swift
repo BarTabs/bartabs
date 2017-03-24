@@ -12,7 +12,7 @@ import SwiftyJSON
 
 class customerViewController: UIViewController {
     
-    let url = "http://138.197.87.137:8080/bartabs-server/user/createuser"
+    let service = _url + "user/createuser"
     let container: UIView = UIView()
     let loadingView: UIView = UIView()
     let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
@@ -51,7 +51,7 @@ class customerViewController: UIViewController {
                 "userType" : userType!
             ]
             
-            Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default).responseJSON { response in
+            Alamofire.request(service, method: .post, parameters: parameters, encoding: URLEncoding.default).responseJSON { response in
                 if((response.result.value) != nil) {
                     let jsonVar: JSON = JSON(response.result.value ?? "success")
                     if(jsonVar["status"] == -1) {

@@ -10,12 +10,17 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
+var _type: String?
+
 class typeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var menu : JSON?
-    let url = "http://138.197.87.137:8080/bartabs-server/menu/getmenu"
-    var category = ""
-    var type = ""
+    let getMenuUrl = _url + "menu/getmenu"
+    let deleteMenuItemUrl = _url + "menu/deletemenuitem"
+    var type: String {
+        return _type ?? ""
+    }
+    
     let container: UIView = UIView()
     let loadingView: UIView = UIView()
     let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
@@ -68,9 +73,6 @@ class typeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if segue.identifier == "orderSegue" {
             let destSeg = segue.destination as! orderViewController
             destSeg.item = sender as? JSON
-        } else if segue.identifier == "backSegue" {
-            let destSeg = segue.destination as! categoryViewController
-            destSeg.category = category
         }
     }
     
@@ -144,11 +146,11 @@ class typeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         let parameters: Parameters = [
             "barID" : 4,
-            "category" : category,
+            "category" : _category ?? "-1" ,
             "type" : type
         ]
 
-        Alamofire.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
+        Alamofire.request(getMenuUrl, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
             if((response.result.value) != nil) {
                 self.menu = JSON(response.result.value ?? "success")
                 self.hideActivityIndicator(uiView: self.view)
@@ -161,7 +163,7 @@ class typeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func deleteRecord(objectID: Int64) {
-        let url = "http://138.197.87.137:8080/bartabs-server/menu/deletemenuitem"
+        
         let token = UserDefaults.standard.string(forKey: "token")!
 
         let headers : HTTPHeaders = [
@@ -173,7 +175,7 @@ class typeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         ]
         
         
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
+        Alamofire.request(deleteMenuItemUrl, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
             if((response.result.value) != nil) {
                 self.menu = JSON(response.result.value ?? "success")
                 self.hideActivityIndicator(uiView: self.view)

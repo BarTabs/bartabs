@@ -14,7 +14,7 @@ class menuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     var menu : JSON?
     var bar = ""
-    let url = "http://138.197.87.137:8080/bartabs-server/menu/getmenu"
+    let getMenuUrl = _url + "menu/getmenu"
     let container: UIView = UIView()
     let loadingView: UIView = UIView()
     let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
@@ -30,29 +30,10 @@ class menuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.delegate = self
         tableView.dataSource = self
         
+        
+        
         // Do any additional setup after loading the view.
-        let token = UserDefaults.standard.string(forKey: "token")!
-        
-        let headers : HTTPHeaders = [
-            "Authorization" : token
-        ]
-        
-        let parameters: Parameters = [
-            "barID" : 4
-        ]
-        
-        URLCache.shared.removeAllCachedResponses()
-        
-        Alamofire.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
-            if((response.result.value) != nil) {
-                self.menu = JSON(response.result.value ?? "success")
-                self.hideActivityIndicator(uiView: self.view)
-                self.tableView.reloadData()
-            } else {
-                self.hideActivityIndicator(uiView: self.view)
-                self.createAlert(titleText: "Data Error", messageText: "There was a problem receiving the data")
-            }
-        }
+        fetchData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -78,17 +59,9 @@ class menuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let jsonVar : JSON = self.menu!
-        let categories = jsonVar["data"][indexPath.row].string
-        performSegue(withIdentifier: "categorySegue", sender: categories)
+        _category = jsonVar["data"][indexPath.row].string
+        performSegue(withIdentifier: "categorySegue", sender: nil)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "categorySegue" {
-            let destSeg = segue.destination as! categoryViewController
-            destSeg.category = sender as! String
-        }
-    }
-    
     
     //Create an alert function that is used for UIAlerts
     func createAlert(titleText: String, messageText: String) {
@@ -143,6 +116,31 @@ class menuViewController: UIViewController, UITableViewDataSource, UITableViewDe
             blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
             alpha: CGFloat(1.0)
         )
+    }
+    
+    func fetchData() {
+        let token = UserDefaults.standard.string(forKey: "token")!
+        
+        let headers : HTTPHeaders = [
+            "Authorization" : token
+        ]
+        
+        let parameters: Parameters = [
+            "barID" : 4
+        ]
+        
+        URLCache.shared.removeAllCachedResponses()
+        
+        Alamofire.request(getMenuUrl, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
+            if((response.result.value) != nil) {
+                self.menu = JSON(response.result.value ?? "success")
+                self.hideActivityIndicator(uiView: self.view)
+                self.tableView.reloadData()
+            } else {
+                self.hideActivityIndicator(uiView: self.view)
+                self.createAlert(titleText: "Data Error", messageText: "There was a problem receiving the data")
+            }
+        }
     }
     
 }
