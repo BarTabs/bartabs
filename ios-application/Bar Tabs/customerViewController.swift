@@ -12,11 +12,6 @@ import SwiftyJSON
 
 class customerViewController: UIViewController {
     
-    let service = _url + "user/createuser"
-    let container: UIView = UIView()
-    let loadingView: UIView = UIView()
-    let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
-    
     var userType:Int?
     
     @IBOutlet var userNameField: UITextField!
@@ -29,6 +24,7 @@ class customerViewController: UIViewController {
     
     @IBAction func createAccount(_ sender: Any) {
         
+        // TODO: Validate with guard
         let userName = userNameField.text!
         let password = passwordField.text!
         let confirmPassword = confirmPasswordField.text!
@@ -41,7 +37,6 @@ class customerViewController: UIViewController {
         } else if(password != confirmPassword) {
             createAlert(titleText: "Registration Error", messageText: "Passwords do not match")
         } else {
-            showActivityIndicatory(uiView: self.view)
             let phoneNumber = Int(phoneNumberField.text!)!
             
             let parameters : Parameters = [
@@ -51,27 +46,7 @@ class customerViewController: UIViewController {
                 "userType" : userType!
             ]
             
-            Alamofire.request(service, method: .post, parameters: parameters, encoding: URLEncoding.default).responseJSON { response in
-                if((response.result.value) != nil) {
-                    let jsonVar: JSON = JSON(response.result.value ?? "success")
-                    if(jsonVar["status"] == -1) {
-                        self.hideActivityIndicator(uiView: self.view)
-                        self.createAlert(titleText: "Registration Error", messageText: "Error processing user creation")
-                    } else {
-                        UserDefaults.standard.set(jsonVar["data"]["objectID"].int64 ?? -1, forKey: "userID")
-                        UserDefaults.standard.set(String(describing: jsonVar["data"]["token"]), forKey: "token")
-                        UserDefaults.standard.set(String(describing: jsonVar["data"]["firstName"]), forKey: "firstName")
-                        UserDefaults.standard.set(String(describing: jsonVar["data"]["username"]), forKey: "username")
-                        UserDefaults.standard.set(jsonVar["data"]["userType"].int ?? -1, forKey: "userType")
-                        UserDefaults.standard.synchronize()
-                        self.hideActivityIndicator(uiView: self.view)
-                        self.performSegue(withIdentifier: "welcomeSegue", sender: nil)
-                    }
-                } else {
-                    self.hideActivityIndicator(uiView: self.view)
-                    self.createAlert(titleText: "Error", messageText: "There was a problem creating the account")
-                }
-            }
+            createUser(parameters: parameters)
         }
     }
     
@@ -97,38 +72,17 @@ class customerViewController: UIViewController {
         
     }
     
-    //Create func for activity indicator to display on screen
-    func showActivityIndicatory(uiView: UIView) {
-        container.frame = uiView.frame
-        container.center = uiView.center
-        container.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.5)
-        
-        loadingView.frame = CGRectMake(0, 0, 80, 80)
-        loadingView.center = uiView.center
-        loadingView.backgroundColor = UIColor(red:0.27, green:0.27, blue:0.27, alpha:1.0)
-        loadingView.clipsToBounds = true
-        loadingView.layer.cornerRadius = 10
-        
-        activityIndicator.frame = CGRectMake(0.0, 0.0, 40.0, 40.0);
-        activityIndicator.activityIndicatorViewStyle =
-            UIActivityIndicatorViewStyle.whiteLarge
-        activityIndicator.center = CGPoint(x:loadingView.frame.size.width / 2,
-                                           y:loadingView.frame.size.height / 2);
-        loadingView.addSubview(activityIndicator)
-        container.addSubview(loadingView)
-        uiView.addSubview(container)
-        activityIndicator.startAnimating()
+    func createUser(parameters: Parameters) {
+        let service = "user/createuser"
+        let postService = PostService(view: self)
+        postService.post(service: service, parameters: parameters, completion: { (response: JSON) -> Void in
+            UserDefaults.standard.set(response["objectID"].int64 ?? -1, forKey: "userID")
+            UserDefaults.standard.set(String(describing: response["token"]), forKey: "token")
+            UserDefaults.standard.set(String(describing: response["firstName"]), forKey: "firstName")
+            UserDefaults.standard.set(String(describing: response["username"]), forKey: "username")
+            UserDefaults.standard.set(response["userType"].int ?? -1, forKey: "userType")
+            UserDefaults.standard.synchronize()
+            self.performSegue(withIdentifier: "welcomeSegue", sender: nil)
+        })
     }
-    
-    //Create func to hide the activity indicator
-    func hideActivityIndicator(uiView: UIView) {
-        activityIndicator.stopAnimating()
-        container.removeFromSuperview()
-    }
-    
-    //Create func for rectangular graphic container for activity indicator
-    func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
-        return CGRect(x: x, y: y, width: width, height: height)
-    }
-    
 }

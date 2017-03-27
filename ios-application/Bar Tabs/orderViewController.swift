@@ -26,12 +26,6 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
     var item : JSON?
     var items = [JSON]()
     
-    let placeOrderUrl = _url + "order/placeorder"
-    let container: UIView = UIView()
-    let loadingView: UIView = UIView()
-    let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
-    
-    
     @IBOutlet var tableView: UITableView!
     
     @IBOutlet var totalPrice: UILabel!
@@ -63,11 +57,6 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
         
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let count = clientOrder.orderItems.count
         return count
@@ -88,80 +77,28 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.tableView.backgroundColor = UIColor(red: 0.9608, green: 0.9608, blue: 0.8627, alpha: 1.0)
     }
     
-    //Create alert function
-    func createAlert(titleText: String, messageText: String) {
-        
-        let alert = UIAlertController(title: titleText, message: messageText, preferredStyle: .alert)
-        
-        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
-        }))
-        self.present(alert, animated: true, completion: nil)
-        
-    }
-    
-    //Create func for activity indicator to display on screen
-    func showActivityIndicatory(uiView: UIView) {
-        container.frame = uiView.frame
-        container.center = uiView.center
-        container.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.5)
-        
-        loadingView.frame = CGRectMake(0, 0, 80, 80)
-        loadingView.center = uiView.center
-        loadingView.backgroundColor = UIColor(red:0.27, green:0.27, blue:0.27, alpha:1.0)
-        loadingView.clipsToBounds = true
-        loadingView.layer.cornerRadius = 10
-        
-        activityIndicator.frame = CGRectMake(0.0, 0.0, 40.0, 40.0);
-        activityIndicator.activityIndicatorViewStyle =
-            UIActivityIndicatorViewStyle.whiteLarge
-        activityIndicator.center = CGPoint(x:loadingView.frame.size.width / 2,
-                                           y:loadingView.frame.size.height / 2);
-        loadingView.addSubview(activityIndicator)
-        container.addSubview(loadingView)
-        uiView.addSubview(container)
-        activityIndicator.startAnimating()
-    }
-    
-    //Create func to hide the activity indicator
-    func hideActivityIndicator(uiView: UIView) {
-        activityIndicator.stopAnimating()
-        container.removeFromSuperview()
-    }
-    
-    //Create func for rectangular graphic container for activity indicator
-    func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
-        return CGRect(x: x, y: y, width: width, height: height)
-    }
-    
     func placeOrder() {
+        let service = "order/placeorder"
         let userID = UserDefaults.standard.string(forKey: "userID")!
         _clientOrder.orderedBy = Int64(userID)
         _clientOrder.barID = 4
         
-        showActivityIndicatory(uiView: self.view)
-        let token = UserDefaults.standard.string(forKey: "token")!
-        
-        let headers : HTTPHeaders = [
-            "Authorization" : token
-        ]
-        
-        URLCache.shared.removeAllCachedResponses()
-        
-        Alamofire.request(placeOrderUrl, method: .post, parameters: clientOrder.dictionaryRepresentation, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
-            if((response.result.value) != nil) {
-                self.clearOrderItems()
-                self.hideActivityIndicator(uiView: self.view)
-                self.performSegue(withIdentifier: "paySegue", sender: nil)
-            } else {
-                self.hideActivityIndicator(uiView: self.view)
-                self.createAlert(titleText: "Order Error", messageText: "Order could not be placed")
-            }
-        }
+        let postService = PostService(view: self)
+        postService.post(service: service, parameters: clientOrder.dictionaryRepresentation, completion: {(response: JSON) -> Void in
+            self.clearOrderItems()
+            self.performSegue(withIdentifier: "paySegue", sender: nil)
+        })
     }
     
     func clearOrderItems() {
         _clientOrder.orderItems.removeAll()
         self.tableView.reloadData()
     }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
     
 }

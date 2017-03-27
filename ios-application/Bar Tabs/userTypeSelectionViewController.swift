@@ -2,7 +2,7 @@
 //  userTypeSelectionViewController.swift
 //  Bar Tabs
 //
-//  Created by admin on 2/26/17.
+//  Created by Victor Lora on 2/26/17.
 //  Copyright © 2017 muhlenberg. All rights reserved.
 //
 

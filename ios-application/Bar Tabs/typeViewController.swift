@@ -15,24 +15,16 @@ var _type: String?
 class typeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var menu : JSON?
-    let getMenuUrl = _url + "menu/getmenu"
-    let deleteMenuItemUrl = _url + "menu/deletemenuitem"
     var type: String {
         return _type ?? ""
     }
-    
-    let container: UIView = UIView()
-    let loadingView: UIView = UIView()
-    let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
     @IBOutlet var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+    
         self.navigationItem.title = type
-        showActivityIndicatory(uiView: self.view)
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -40,14 +32,20 @@ class typeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         fetchData()
     }
     
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "orderSegue" {
+            let destSeg = segue.destination as! orderViewController
+            destSeg.item = sender as? JSON
+        }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let count = (self.menu?["data"]["menuItems"].count) ?? 0
+        let count = (self.menu?["menuItems"].count) ?? 0
         return count
     }
     
@@ -56,7 +54,7 @@ class typeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         if (self.menu != nil) {
             let jsonVar : JSON = self.menu!
-            let categories = jsonVar["data"]["menuItems"][indexPath.row]["name"].string
+            let categories = jsonVar["menuItems"][indexPath.row]["name"].string
             cell.textLabel?.textAlignment = .center
             cell.textLabel?.text = categories
         }
@@ -65,15 +63,8 @@ class typeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let jsonVar : JSON = self.menu!
-        let item = jsonVar["data"]["menuItems"][indexPath.row]
+        let item = jsonVar["menuItems"][indexPath.row]
         performSegue(withIdentifier: "orderSegue", sender: item)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "orderSegue" {
-            let destSeg = segue.destination as! orderViewController
-            destSeg.item = sender as? JSON
-        }
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -83,109 +74,40 @@ class typeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.delete) {
             
-            showActivityIndicatory(uiView: self.view)
+            //            showActivityIndicatory(uiView: self.view)
             let jsonVar : JSON = self.menu!
-            let objectID = jsonVar["data"]["menuItems"][indexPath.row]["objectID"].int64Value
+            let objectID = jsonVar["menuItems"][indexPath.row]["objectID"].int64Value
             deleteRecord(objectID: objectID)
         }
     }
     
-    //Create alert function
-    func createAlert(titleText: String, messageText: String) {
-        
-        let alert = UIAlertController(title: titleText, message: messageText, preferredStyle: .alert)
-        
-        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
-        }))
-        self.present(alert, animated: true, completion: nil)
-        
-    }
-    
-    //Create func for activity indicator to display on screen
-    func showActivityIndicatory(uiView: UIView) {
-        container.frame = uiView.frame
-        container.center = uiView.center
-        container.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.5)
-        
-        loadingView.frame = CGRectMake(0, 0, 80, 80)
-        loadingView.center = uiView.center
-        loadingView.backgroundColor = UIColor(red:0.27, green:0.27, blue:0.27, alpha:1.0)
-        loadingView.clipsToBounds = true
-        loadingView.layer.cornerRadius = 10
-        
-        activityIndicator.frame = CGRectMake(0.0, 0.0, 40.0, 40.0);
-        activityIndicator.activityIndicatorViewStyle =
-            UIActivityIndicatorViewStyle.whiteLarge
-        activityIndicator.center = CGPoint(x:loadingView.frame.size.width / 2,
-                                           y:loadingView.frame.size.height / 2);
-        loadingView.addSubview(activityIndicator)
-        container.addSubview(loadingView)
-        uiView.addSubview(container)
-        activityIndicator.startAnimating()
-    }
-    
-    //Create func to hide the activity indicator
-    func hideActivityIndicator(uiView: UIView) {
-        activityIndicator.stopAnimating()
-        container.removeFromSuperview()
-    }
-    
-    //Create func for rectangular graphic container for activity indicator
-    func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
-        return CGRect(x: x, y: y, width: width, height: height)
-    }
-    
     func fetchData() {
-        URLCache.shared.removeAllCachedResponses()
-
-        let token = UserDefaults.standard.string(forKey: "token")!
-        
-        let headers : HTTPHeaders = [
-            "Authorization" : token
-        ]
+        let service = "menu/getmenu"
         
         let parameters: Parameters = [
             "barID" : 4,
             "category" : _category ?? "-1" ,
             "type" : type
         ]
-
-        Alamofire.request(getMenuUrl, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
-            if((response.result.value) != nil) {
-                self.menu = JSON(response.result.value ?? "success")
-                self.hideActivityIndicator(uiView: self.view)
-                self.tableView.reloadData()
-            } else {
-                self.hideActivityIndicator(uiView: self.view)
-                self.createAlert(titleText: "Data Error", messageText: "There was a problem receiving the data")
-            }
-        }
+        
+        let getService = GetService(view: self)
+        getService.fetchData(service: service, parameters: parameters, completion: {(response: JSON) -> Void in
+            self.menu = response
+            self.tableView.reloadData()
+        })
     }
     
     func deleteRecord(objectID: Int64) {
-        
-        let token = UserDefaults.standard.string(forKey: "token")!
-
-        let headers : HTTPHeaders = [
-            "Authorization" : token
-        ]
+        let service = "menu/deletemenuitem"
         
         let parameters: Parameters = [
             "objectID" : objectID
         ]
         
-        
-        Alamofire.request(deleteMenuItemUrl, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
-            if((response.result.value) != nil) {
-                self.menu = JSON(response.result.value ?? "success")
-                self.hideActivityIndicator(uiView: self.view)
-                self.fetchData()
-            } else {
-                self.hideActivityIndicator(uiView: self.view)
-                self.createAlert(titleText: "Data Error", messageText: "There was a problem removing the item")
-            }
-        }
-
+        let postService = PostService(view: self)
+        postService.post(service: service, parameters: parameters, completion: {(response: JSON) -> Void in
+            self.fetchData()
+        })
     }
     
 }
