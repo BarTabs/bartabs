@@ -255,7 +255,7 @@
                                     </connections>
                                 </button>
                             </barButtonItem>
-                            <barButtonItem style="plain" id="MLD-eO-QHY">
+                            <barButtonItem style="done" id="MLD-eO-QHY">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GFP-Eq-m7a">
                                     <rect key="frame" x="175" y="7" width="93" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -274,7 +274,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1492" y="-101"/>
+            <point key="canvasLocation" x="1492" y="-102"/>
         </scene>
         <!--Title-->
         <scene sceneID="ptb-F3-GWh">
