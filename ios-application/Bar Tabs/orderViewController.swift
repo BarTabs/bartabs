@@ -39,6 +39,7 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         tableView.delegate = self
         tableView.dataSource = self
+        self.automaticallyAdjustsScrollViewInsets = false
         
         var menuItem = ClientMenuItem()
         menuItem.objectID = item?["objectID"].int64Value

@@ -20,7 +20,8 @@ class menuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Amnesia"
-        
+        self.automaticallyAdjustsScrollViewInsets = false
+
         tableView.delegate = self
         tableView.dataSource = self
         

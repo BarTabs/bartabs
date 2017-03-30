@@ -27,6 +27,7 @@ class categoryViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
         
         self.navigationItem.title = category
+        self.automaticallyAdjustsScrollViewInsets = false
         
         tableView.delegate = self
         tableView.dataSource = self

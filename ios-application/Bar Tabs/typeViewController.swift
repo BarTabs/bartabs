@@ -25,6 +25,7 @@ class typeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
     
         self.navigationItem.title = type
+        self.automaticallyAdjustsScrollViewInsets = false
         
         tableView.delegate = self
         tableView.dataSource = self
