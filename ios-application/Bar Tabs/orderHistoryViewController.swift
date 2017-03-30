@@ -40,16 +40,14 @@ class orderHistoryViewController: UIViewController, UITableViewDataSource, UITab
         if (self.orders != nil) {
             
             let jsonVar : JSON = self.orders!
-            let categories = jsonVar[indexPath.row].string
+            let orderName = jsonVar[indexPath.row]["objectID"].int64
             cell.textLabel?.textAlignment = .center
-            cell.textLabel?.text = categories
+            cell.textLabel?.text = "\(orderName!)"
         }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let jsonVar : JSON = self.orders!
-        _type = jsonVar[indexPath.row]["barID"].string
         //performSegue(withIdentifier: "typeSegue", sender: nil)
     }
     
