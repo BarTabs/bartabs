@@ -57,6 +57,16 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.black]
+        self.navigationController?.navigationBar.isHidden = false
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let count = clientOrder.orderItems.count
         return count
@@ -73,8 +83,8 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableCutomize() {
-        self.tableView.separatorStyle = .none
-        self.tableView.backgroundColor = UIColor(red: 0.9608, green: 0.9608, blue: 0.8627, alpha: 1.0)
+        self.tableView.layer.borderColor = UIColor.black.cgColor
+        self.tableView.layer.borderWidth = 1
     }
     
     func placeOrder() {

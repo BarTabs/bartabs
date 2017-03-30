@@ -70,9 +70,7 @@ class userLoginViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        UIApplication.shared.statusBarStyle = .default
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.2157, green: 0.2157, blue: 0.2157, alpha: 1.0)
         self.navigationController?.navigationBar.tintColor = UIColor.white
-        
     }
 }
