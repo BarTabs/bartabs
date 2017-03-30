@@ -49,7 +49,7 @@ class orderHistoryViewController: UIViewController, UITableViewDataSource, UITab
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let jsonVar : JSON = self.orders!
-        _type = jsonVar[indexPath.row].string
+        _type = jsonVar[indexPath.row]["barID"].string
         //performSegue(withIdentifier: "typeSegue", sender: nil)
     }
     
