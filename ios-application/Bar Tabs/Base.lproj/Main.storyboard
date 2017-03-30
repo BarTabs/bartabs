@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="NRb-vL-Pat">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="NRb-vL-Pat">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,7 +13,6 @@
         <!--Title-->
         <scene sceneID="rg7-BO-hNa">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Cpw-sJ-czS" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="c63-s3-C1s" customClass="ViewController" customModule="Bar_Tabs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1QQ-ic-y4h"/>
@@ -67,13 +66,13 @@
                         <segue destination="Qte-pK-Dsy" kind="show" identifier="userSegue" id="jBj-ef-Cyu"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cpw-sJ-czS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="728.79999999999995" y="-101.19940029985008"/>
         </scene>
         <!--Title-->
         <scene sceneID="cuj-em-I94">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="S08-8A-g3g" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="FuF-lu-MVw" customClass="userTypeSelectionViewController" customModule="Bar_Tabs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4wG-5B-aKQ"/>
@@ -107,13 +106,13 @@
                         <segue destination="9EO-vf-sGM" kind="show" identifier="customerViewController" id="5Eu-jS-476"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S08-8A-g3g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="729" y="630"/>
         </scene>
         <!--Customer View Controller-->
         <scene sceneID="6y4-fD-5CE">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="A0D-z4-pX0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="9EO-vf-sGM" customClass="customerViewController" customModule="Bar_Tabs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hrc-0z-zJX"/>
@@ -170,6 +169,7 @@
                         <segue destination="Qte-pK-Dsy" kind="show" identifier="welcomeSegue" id="JNB-Tp-yBN"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A0D-z4-pX0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1492" y="628.33583208395805"/>
         </scene>
@@ -194,7 +194,6 @@
         <!--User Login View Controller-->
         <scene sceneID="USb-Xd-eso">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="X7f-rb-YPr" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Qte-pK-Dsy" customClass="userLoginViewController" customModule="Bar_Tabs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="A6K-gH-j6e"/>
@@ -211,18 +210,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6gm-DV-vbU">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gm-DV-vbU">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Settings" id="y5N-Iu-aZE"/>
+                                    <barButtonItem title="Settings" id="y5N-Iu-aZE">
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="NOQ-MC-pk9"/>
                                     <barButtonItem title="Logout" id="7ce-GS-D8q">
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="logout:" destination="Qte-pK-Dsy" id="9fa-HF-MAv"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
+                                <color key="barTintColor" red="0.2140732964" green="0.2140732964" blue="0.2140732964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -273,13 +276,13 @@
                         <segue destination="c63-s3-C1s" kind="show" identifier="loginSegue" id="1Mg-bi-6hh"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X7f-rb-YPr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1492" y="-102"/>
         </scene>
         <!--Title-->
         <scene sceneID="ptb-F3-GWh">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KZh-fr-xm9" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="0II-OC-moI" customClass="addMenuItemViewController" customModule="Bar_Tabs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OLQ-JS-zI4"/>
@@ -345,13 +348,13 @@
                         <segue destination="sAQ-X1-eKg" kind="show" identifier="addItemSegue" id="knp-jt-bUb"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KZh-fr-xm9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2228" y="-101"/>
         </scene>
         <!--Title-->
         <scene sceneID="wSZ-Mj-OA2">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="a5S-N1-bZZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="sAQ-X1-eKg" customClass="itemAddedViewController" customModule="Bar_Tabs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dPs-Zu-VPJ"/>
@@ -384,13 +387,13 @@
                         <outlet property="menuItem" destination="Cgs-EK-ele" id="Iwh-iW-HaC"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a5S-N1-bZZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3045.5999999999999" y="-101.19940029985008"/>
         </scene>
         <!--Title-->
         <scene sceneID="5nz-r5-2iQ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oWH-xw-HmW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="aCf-Ds-QWe" customClass="menuViewController" customModule="Bar_Tabs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cEp-Co-nld"/>
@@ -409,7 +412,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TLp-9o-jVe" id="tVi-e8-YVI">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -424,13 +427,13 @@
                         <segue destination="kzC-ec-iG1" kind="show" identifier="categorySegue" id="Qba-sQ-YGf"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oWH-xw-HmW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1492" y="-786.65667166416802"/>
         </scene>
         <!--Title-->
         <scene sceneID="YxO-0h-Cn6">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RDS-dZ-7go" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="kzC-ec-iG1" customClass="categoryViewController" customModule="Bar_Tabs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mUv-7S-Y0F"/>
@@ -449,7 +452,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b5b-oh-I6C" id="WtV-mR-SFs">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -475,13 +478,13 @@
                         <segue destination="j59-M0-viJ" kind="show" identifier="typeSegue" id="Kma-Ru-JXS"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RDS-dZ-7go" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2228" y="-787.55622188905556"/>
         </scene>
         <!--Title-->
         <scene sceneID="Z3F-TD-EoT">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WHz-Ed-Y63" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="j59-M0-viJ" customClass="typeViewController" customModule="Bar_Tabs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vis-Jm-pm6"/>
@@ -500,7 +503,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F72-3Q-p7h" id="ARg-Bx-Iup">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -526,13 +529,13 @@
                         <segue destination="zqw-FT-gEI" kind="show" identifier="orderSegue" id="4QI-gD-nsZ"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WHz-Ed-Y63" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3046" y="-787"/>
         </scene>
         <!--Title-->
         <scene sceneID="GCF-oJ-Wtj">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0uL-PC-rbG" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="zqw-FT-gEI" customClass="orderViewController" customModule="Bar_Tabs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FwB-F6-RO0"/>
@@ -551,7 +554,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iku-29-lYv" id="87r-TN-ViT">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -604,13 +607,13 @@
                         <segue destination="1Kr-Ov-PZh" kind="show" identifier="paySegue" id="n5w-wW-2rk"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0uL-PC-rbG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3808.8000000000002" y="-787.55622188905556"/>
         </scene>
         <!--Title-->
         <scene sceneID="haz-KD-Kv0">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tTU-cM-Pq6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="1Kr-Ov-PZh" customClass="payViewController" customModule="Bar_Tabs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5mY-Ux-Jbc"/>
@@ -640,13 +643,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="YGd-DG-9vf"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tTU-cM-Pq6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4610" y="-788"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Fqg-bB-b3p">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="I0f-ZM-N6P" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NRb-vL-Pat" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="a4O-PH-Cd4">
@@ -658,6 +661,7 @@
                         <segue destination="c63-s3-C1s" kind="relationship" relationship="rootViewController" id="3gg-Ni-fkD"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I0f-ZM-N6P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-137" y="-101"/>
         </scene>
