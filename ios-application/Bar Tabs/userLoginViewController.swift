@@ -26,14 +26,21 @@ class userLoginViewController: UIViewController {
     
     @IBOutlet var addMenuItem: UIButton!
     
+    @IBOutlet var employees: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let type = UserDefaults.standard.integer(forKey: "userType")
         if(type == 4) {
-            addMenuItem.isHidden = true
-        } else {
             addMenuItem.isHidden = false
+        } else {
+            addMenuItem.isHidden = true
+        }
+        
+        if(type == 1) {
+            employees.isHidden = false
+        } else {
+            employees.isHidden = true
         }
         
         // Do any additional setup after loading the view.
