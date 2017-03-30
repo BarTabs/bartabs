@@ -26,9 +26,9 @@ class userLoginViewController: UIViewController {
     
     @IBOutlet var addMenuItem: UIButton!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let type = UserDefaults.standard.integer(forKey: "userType")
         if(type == 4) {
             addMenuItem.isHidden = true
@@ -44,6 +44,7 @@ class userLoginViewController: UIViewController {
                 welcomeLabel.text = "Welcome \(username)!"
             }
         }
+
     }
     
     override func didReceiveMemoryWarning() {
