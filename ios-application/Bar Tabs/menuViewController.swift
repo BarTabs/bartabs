@@ -25,6 +25,9 @@ class menuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.dataSource = self
         
         // Do any additional setup after loading the view.
+        tableView.dataSource = self
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
+        tableView.separatorColor = UIColor.gray
         fetchData()
     }
     
