@@ -51,6 +51,7 @@
 		A0C813641E68AF1800602023 /* categoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C813631E68AF1800602023 /* categoryViewController.swift */; };
 		A0C813661E68B3DE00602023 /* typeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C813651E68B3DE00602023 /* typeViewController.swift */; };
 		A0D75AD91E79AFEF004F81E0 /* itemAddedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D75AD81E79AFEF004F81E0 /* itemAddedViewController.swift */; };
+		BAA78E1D1E952B41000A454D /* addEmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA78E1C1E952B41000A454D /* addEmployeeViewController.swift */; };
 		CA30E256831FA78057A1E448 /* Pods_Bar_Tabs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4F3D1E041A64E6CC99904B5 /* Pods_Bar_Tabs.framework */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +105,7 @@
 		A0D75AD81E79AFEF004F81E0 /* itemAddedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = itemAddedViewController.swift; sourceTree = "<group>"; };
 		A4F3D1E041A64E6CC99904B5 /* Pods_Bar_Tabs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bar_Tabs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9B886795B43E4489287E26A /* Pods-Bar Tabs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bar Tabs.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bar Tabs/Pods-Bar Tabs.release.xcconfig"; sourceTree = "<group>"; };
+		BAA78E1C1E952B41000A454D /* addEmployeeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addEmployeeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 				7E5A19371E8D6E39004EE3D5 /* orderHistoryViewController.swift */,
 				A00C8A181E95601800090A15 /* mapViewController.swift */,
 				A030DD801E4FB45D0049539D /* Main.storyboard */,
+				BAA78E1C1E952B41000A454D /* addEmployeeViewController.swift */,
 				A030DD831E4FB45D0049539D /* Assets.xcassets */,
 				A0BEB4C21E8D6EF20098FFA1 /* AppIcon.appiconset */,
 				A030DD851E4FB45D0049539D /* LaunchScreen.storyboard */,
@@ -398,6 +401,7 @@
 				A089A60C1E7DB64F00B07628 /* orderViewController.swift in Sources */,
 				A0D75AD91E79AFEF004F81E0 /* itemAddedViewController.swift in Sources */,
 				7E5D38CD1E88655A00C212D5 /* GetService.swift in Sources */,
+				BAA78E1D1E952B41000A454D /* addEmployeeViewController.swift in Sources */,
 				A0C813641E68AF1800602023 /* categoryViewController.swift in Sources */,
 				A011B5F01E7724AC00446119 /* addMenuItemViewController.swift in Sources */,
 				A0C813661E68B3DE00602023 /* typeViewController.swift in Sources */,

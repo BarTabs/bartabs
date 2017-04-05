@@ -42,7 +42,7 @@ class GetService {
         showActivityIndicatory(uiView: parentView.view)
         
         Alamofire.request(serviceUrl, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
-
+            
             if let rawResponse = response.result.value {
                 let json = JSON(rawResponse)
                 
