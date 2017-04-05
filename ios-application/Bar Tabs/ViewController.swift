@@ -104,8 +104,8 @@ class ViewController: UIViewController {
     
     func login(parameters: Parameters) {
         let service = "authenticate"
-        let getService = GetService(view: self)
-        getService.fetchData(service: service, parameters: parameters, completion: { (response: JSON) -> Void in
+        let dataService = DataService(view: self)
+        dataService.fetchData(service: service, parameters: parameters, completion: { (response: JSON) -> Void in
             UserDefaults.standard.set(response["objectID"].int64 ?? -1, forKey: "userID")
             UserDefaults.standard.set(String(describing: response["token"]), forKey: "token")
             UserDefaults.standard.set(String(describing: response["firstName"]), forKey: "firstName")

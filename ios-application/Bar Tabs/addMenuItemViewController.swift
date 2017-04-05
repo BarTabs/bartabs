@@ -12,7 +12,6 @@ import SwiftyJSON
 
 class addMenuItemViewController: UIViewController {
     
-    let url = "http://138.197.87.137:8080/bartabs-server/menu/createmenuitem"
     let container: UIView = UIView()
     let loadingView: UIView = UIView()
     let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
@@ -30,6 +29,8 @@ class addMenuItemViewController: UIViewController {
     
     @IBAction func addItem(_ sender: Any) {
         
+        let service = "menu/createmenuitem"
+        
         let name = itemName.text
         let desc = itemDesc.text
         let type = itemType.text
@@ -39,11 +40,6 @@ class addMenuItemViewController: UIViewController {
         if(name == "" || desc == "" || type == "" || cat == "" || price == "") {
             self.createAlert(titleText: "Error", messageText: "All fields are required")
         } else {
-            showActivityIndicatory(uiView: self.view)
-            let token = UserDefaults.standard.string(forKey: "token")!
-            let headers : HTTPHeaders = [
-                "Authorization" : token
-            ]
             
             var menuItem = ClientMenuItem()
             menuItem.name = name!
@@ -53,15 +49,11 @@ class addMenuItemViewController: UIViewController {
             menuItem.price = Double(price!)
             menuItem.menuID = 1
             
-            Alamofire.request(url, method: .post, parameters: menuItem.dictionaryRepresentation, encoding: URLEncoding.default, headers: headers).responseJSON { response in
-                if((response.result.value) != nil) {
-                    self.hideActivityIndicator(uiView: self.view)
-                    self.performSegue(withIdentifier: "addItemSegue", sender: self)
-                } else {
-                    self.hideActivityIndicator(uiView: self.view)
-                    self.createAlert(titleText: "Data Error", messageText: "There was a problem receiving the data")
-                }
-            }
+            let dataService = DataService(view: self)
+            dataService.post(service: service, parameters: menuItem.dictionaryRepresentation, completion: {(response: JSON) -> Void in
+                self.performSegue(withIdentifier: "addItemSegue", sender: self)
+            })
+
         }
         
     }
@@ -108,37 +100,4 @@ class addMenuItemViewController: UIViewController {
         
     }
     
-    //Create func for activity indicator to display on screen
-    func showActivityIndicatory(uiView: UIView) {
-        container.frame = uiView.frame
-        container.center = uiView.center
-        container.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.5)
-        
-        loadingView.frame = CGRectMake(0, 0, 80, 80)
-        loadingView.center = uiView.center
-        loadingView.backgroundColor = UIColor(red:0.27, green:0.27, blue:0.27, alpha:1.0)
-        loadingView.clipsToBounds = true
-        loadingView.layer.cornerRadius = 10
-        
-        activityIndicator.frame = CGRectMake(0.0, 0.0, 40.0, 40.0);
-        activityIndicator.activityIndicatorViewStyle =
-            UIActivityIndicatorViewStyle.whiteLarge
-        activityIndicator.center = CGPoint(x:loadingView.frame.size.width / 2,
-                                           y:loadingView.frame.size.height / 2);
-        loadingView.addSubview(activityIndicator)
-        container.addSubview(loadingView)
-        uiView.addSubview(container)
-        activityIndicator.startAnimating()
-    }
-    
-    //Create func to hide the activity indicator
-    func hideActivityIndicator(uiView: UIView) {
-        activityIndicator.stopAnimating()
-        container.removeFromSuperview()
-    }
-    
-    //Create func for rectangular graphic container for activity indicator
-    func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
-        return CGRect(x: x, y: y, width: width, height: height)
-    }
 }

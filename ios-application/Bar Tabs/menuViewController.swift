@@ -84,8 +84,8 @@ class menuViewController: UIViewController, UITableViewDataSource, UITableViewDe
             "barID" : 4
         ]
         
-        let getService = GetService(view: self)
-        getService.fetchData(service: service, parameters: parameters, completion: {(response: JSON) -> Void in
+        let dataService = DataService(view: self)
+        dataService.fetchData(service: service, parameters: parameters, completion: {(response: JSON) -> Void in
             self.menu = response
             self.tableView.reloadData()
         })

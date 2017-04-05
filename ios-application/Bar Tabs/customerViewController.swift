@@ -74,8 +74,8 @@ class customerViewController: UIViewController {
     
     func createUser(parameters: Parameters) {
         let service = "user/createuser"
-        let postService = PostService(view: self)
-        postService.post(service: service, parameters: parameters, completion: { (response: JSON) -> Void in
+        let dataService = DataService(view: self)
+        dataService.post(service: service, parameters: parameters, completion: { (response: JSON) -> Void in
             UserDefaults.standard.set(response["objectID"].int64 ?? -1, forKey: "userID")
             UserDefaults.standard.set(String(describing: response["token"]), forKey: "token")
             UserDefaults.standard.set(String(describing: response["firstName"]), forKey: "firstName")

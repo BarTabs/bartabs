@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-class GetService {
+class DataService {
     
     let container: UIView = UIView()
     let loadingView: UIView = UIView()
@@ -59,6 +59,43 @@ class GetService {
             }
         }
     }
+    
+    func post(service: String, parameters: Parameters, completion: @escaping (_ callback:JSON) -> Void) {
+        URLCache.shared.removeAllCachedResponses()
+        
+        var authToken = ""
+        
+        if let token = UserDefaults.standard.string(forKey: "token") {
+            authToken = token
+        }
+        
+        let headers : HTTPHeaders = [
+            "Authorization" : authToken
+        ]
+        
+        let serviceUrl = (url + service)
+        
+        showActivityIndicatory(uiView: parentView.view)
+        
+        Alamofire.request(serviceUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            print(response)
+            if let rawResponse = response.result.value {
+                let json = JSON(rawResponse)
+                
+                if json["status"] != JSON.null && json["status"].intValue == 0 {
+                    self.hideActivityIndicator(uiView: self.parentView.view)
+                    completion(json["data"])
+                } else if (json["message"] != JSON.null) {
+                    self.hideActivityIndicatorCreateAlert(titleText: "Data Error", messageText: json["message"].stringValue)
+                } else {
+                    self.hideActivityIndicatorCreateAlert(titleText: "Data Error", messageText: "There was a problem receiving the data.")
+                }
+            } else {
+                self.hideActivityIndicatorCreateAlert(titleText: "Data Error", messageText: "There was a problem with the request. Please try again.")
+            }
+        }
+    }
+
     
     func hideActivityIndicatorCreateAlert(titleText: String, messageText: String) {
         self.hideActivityIndicator(uiView: self.parentView.view)

@@ -40,9 +40,9 @@ class orderHistoryViewController: UIViewController, UITableViewDataSource, UITab
         if (self.orders != nil) {
             
             let jsonVar : JSON = self.orders!
-            let orderName = jsonVar[indexPath.row]["objectID"].int64
+            let menuItemName = jsonVar[indexPath.row]["name"].string
             cell.textLabel?.textAlignment = .center
-            cell.textLabel?.text = "\(orderName!)"
+            cell.textLabel?.text = menuItemName
         }
         return cell
     }
@@ -57,8 +57,8 @@ class orderHistoryViewController: UIViewController, UITableViewDataSource, UITab
             "userID" : UserDefaults.standard.integer(forKey: "userID")
         ]
         
-        let getService = GetService(view: self)
-        getService.fetchData(service: service, parameters: parameters, completion: {(response: JSON) -> Void in
+        let dataService = DataService(view: self)
+        dataService.fetchData(service: service, parameters: parameters, completion: {(response: JSON) -> Void in
             self.orders = response
             self.tableView.reloadData()
         })

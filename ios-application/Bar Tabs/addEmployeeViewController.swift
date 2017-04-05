@@ -57,8 +57,8 @@ class addEmployeeViewController: UIViewController, UITableViewDataSource, UITabl
         let service = "employee/getemployees"
         let parameters: Parameters = ["barID" : 4]
         
-        let getService = GetService(view: self)
-        getService.fetchData(service: service, parameters: parameters, completion: {(response: JSON) -> Void in
+        let dataService = DataService(view: self)
+        dataService.fetchData(service: service, parameters: parameters, completion: {(response: JSON) -> Void in
             self.employees = response
             self.tableView.reloadData()
         })

@@ -10,8 +10,7 @@
 		7E256D601E82F99D00189D59 /* ClientMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E256D5F1E82F99D00189D59 /* ClientMenuItem.swift */; };
 		7E256D631E82FA4900189D59 /* ClientOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E256D621E82FA4900189D59 /* ClientOrder.swift */; };
 		7E5A19381E8D6E39004EE3D5 /* orderHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5A19371E8D6E39004EE3D5 /* orderHistoryViewController.swift */; };
-		7E5D38CD1E88655A00C212D5 /* GetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5D38CC1E88655A00C212D5 /* GetService.swift */; };
-		7E5D38D11E88D39600C212D5 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5D38D01E88D39600C212D5 /* PostService.swift */; };
+		7E5D38CD1E88655A00C212D5 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5D38CC1E88655A00C212D5 /* DataService.swift */; };
 		7EED520D1E637C6700669184 /* userTypeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EED520C1E637C6700669184 /* userTypeSelectionViewController.swift */; };
 		A009C7911E5A44CF009095E8 /* customerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A009C7901E5A44CF009095E8 /* customerViewController.swift */; };
 		A00C8A191E95601800090A15 /* mapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00C8A181E95601800090A15 /* mapViewController.swift */; };
@@ -60,8 +59,7 @@
 		7E256D5F1E82F99D00189D59 /* ClientMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientMenuItem.swift; sourceTree = "<group>"; };
 		7E256D621E82FA4900189D59 /* ClientOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientOrder.swift; sourceTree = "<group>"; };
 		7E5A19371E8D6E39004EE3D5 /* orderHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = orderHistoryViewController.swift; sourceTree = "<group>"; };
-		7E5D38CC1E88655A00C212D5 /* GetService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetService.swift; sourceTree = "<group>"; };
-		7E5D38D01E88D39600C212D5 /* PostService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
+		7E5D38CC1E88655A00C212D5 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		7EED520C1E637C6700669184 /* userTypeSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userTypeSelectionViewController.swift; sourceTree = "<group>"; };
 		A009C7901E5A44CF009095E8 /* customerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customerViewController.swift; sourceTree = "<group>"; };
 		A00C8A181E95601800090A15 /* mapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapViewController.swift; sourceTree = "<group>"; };
@@ -123,8 +121,7 @@
 		7E21FBFC1E84D6AC00057A0B /* services */ = {
 			isa = PBXGroup;
 			children = (
-				7E5D38CC1E88655A00C212D5 /* GetService.swift */,
-				7E5D38D01E88D39600C212D5 /* PostService.swift */,
+				7E5D38CC1E88655A00C212D5 /* DataService.swift */,
 			);
 			name = services;
 			sourceTree = "<group>";
@@ -395,12 +392,11 @@
 				7EED520D1E637C6700669184 /* userTypeSelectionViewController.swift in Sources */,
 				A09F16561E5A8C05003B2BB0 /* paymentViewController.swift in Sources */,
 				7E256D631E82FA4900189D59 /* ClientOrder.swift in Sources */,
-				7E5D38D11E88D39600C212D5 /* PostService.swift in Sources */,
 				7E256D601E82F99D00189D59 /* ClientMenuItem.swift in Sources */,
 				A030DD7D1E4FB45D0049539D /* AppDelegate.swift in Sources */,
 				A089A60C1E7DB64F00B07628 /* orderViewController.swift in Sources */,
 				A0D75AD91E79AFEF004F81E0 /* itemAddedViewController.swift in Sources */,
-				7E5D38CD1E88655A00C212D5 /* GetService.swift in Sources */,
+				7E5D38CD1E88655A00C212D5 /* DataService.swift in Sources */,
 				BAA78E1D1E952B41000A454D /* addEmployeeViewController.swift in Sources */,
 				A0C813641E68AF1800602023 /* categoryViewController.swift in Sources */,
 				A011B5F01E7724AC00446119 /* addMenuItemViewController.swift in Sources */,

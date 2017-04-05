@@ -94,8 +94,8 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
         _clientOrder.orderedBy = Int64(userID)
         _clientOrder.barID = 4
         
-        let postService = PostService(view: self)
-        postService.post(service: service, parameters: clientOrder.dictionaryRepresentation, completion: {(response: JSON) -> Void in
+        let dataService = DataService(view: self)
+        dataService.post(service: service, parameters: clientOrder.dictionaryRepresentation, completion: {(response: JSON) -> Void in
             self.clearOrderItems()
             self.performSegue(withIdentifier: "paySegue", sender: nil)
         })

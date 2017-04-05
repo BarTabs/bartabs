@@ -101,8 +101,8 @@ class typeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             "type" : type
         ]
         
-        let getService = GetService(view: self)
-        getService.fetchData(service: service, parameters: parameters, completion: {(response: JSON) -> Void in
+        let dataService = DataService(view: self)
+        dataService.fetchData(service: service, parameters: parameters, completion: {(response: JSON) -> Void in
             self.menu = response
             self.tableView.reloadData()
         })
@@ -115,8 +115,8 @@ class typeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             "objectID" : objectID
         ]
         
-        let postService = PostService(view: self)
-        postService.post(service: service, parameters: parameters, completion: {(response: JSON) -> Void in
+        let dataService = DataService(view: self)
+        dataService.post(service: service, parameters: parameters, completion: {(response: JSON) -> Void in
             self.fetchData()
         })
     }
