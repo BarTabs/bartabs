@@ -14,6 +14,7 @@
 		7E5D38D11E88D39600C212D5 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5D38D01E88D39600C212D5 /* PostService.swift */; };
 		7EED520D1E637C6700669184 /* userTypeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EED520C1E637C6700669184 /* userTypeSelectionViewController.swift */; };
 		A009C7911E5A44CF009095E8 /* customerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A009C7901E5A44CF009095E8 /* customerViewController.swift */; };
+		A00C8A191E95601800090A15 /* mapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00C8A181E95601800090A15 /* mapViewController.swift */; };
 		A0117A3C1E636C3B00A331CF /* menuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0117A3B1E636C3B00A331CF /* menuViewController.swift */; };
 		A011B5F01E7724AC00446119 /* addMenuItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A011B5EF1E7724AC00446119 /* addMenuItemViewController.swift */; };
 		A01D4B911E8D7B740080A563 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = A01D4B901E8D7B740080A563 /* splash.png */; };
@@ -62,6 +63,7 @@
 		7E5D38D01E88D39600C212D5 /* PostService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		7EED520C1E637C6700669184 /* userTypeSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userTypeSelectionViewController.swift; sourceTree = "<group>"; };
 		A009C7901E5A44CF009095E8 /* customerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customerViewController.swift; sourceTree = "<group>"; };
+		A00C8A181E95601800090A15 /* mapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapViewController.swift; sourceTree = "<group>"; };
 		A0117A3B1E636C3B00A331CF /* menuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuViewController.swift; sourceTree = "<group>"; };
 		A011B5EF1E7724AC00446119 /* addMenuItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addMenuItemViewController.swift; sourceTree = "<group>"; };
 		A01D4B901E8D7B740080A563 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				A011B5EF1E7724AC00446119 /* addMenuItemViewController.swift */,
 				A0D75AD81E79AFEF004F81E0 /* itemAddedViewController.swift */,
 				7E5A19371E8D6E39004EE3D5 /* orderHistoryViewController.swift */,
+				A00C8A181E95601800090A15 /* mapViewController.swift */,
 				A030DD801E4FB45D0049539D /* Main.storyboard */,
 				A030DD831E4FB45D0049539D /* Assets.xcassets */,
 				A0BEB4C21E8D6EF20098FFA1 /* AppIcon.appiconset */,
@@ -379,6 +382,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A00C8A191E95601800090A15 /* mapViewController.swift in Sources */,
 				7E5A19381E8D6E39004EE3D5 /* orderHistoryViewController.swift in Sources */,
 				A022CCDF1E823BB000384BB9 /* payViewController.swift in Sources */,
 				A009C7911E5A44CF009095E8 /* customerViewController.swift in Sources */,

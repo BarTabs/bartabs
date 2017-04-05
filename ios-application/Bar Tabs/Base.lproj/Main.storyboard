@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="NRb-vL-Pat">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="NRb-vL-Pat">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -194,7 +194,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LTV-LX-qew" id="XBg-Hb-qSp">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -309,35 +309,32 @@
                     </view>
                     <navigationItem key="navigationItem" id="u95-Q3-IE5">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" style="done" id="ZMM-gm-a7a">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tdc-hO-KNt">
-                                <rect key="frame" x="16" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Home"/>
-                            </button>
-                        </barButtonItem>
-                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="PDp-6J-ybO">
-                            <rect key="frame" x="105" y="7" width="64" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Menu"/>
-                            <connections>
-                                <segue destination="aCf-Ds-QWe" kind="show" id="FwP-IY-zzL"/>
-                            </connections>
-                        </button>
-                        <rightBarButtonItems>
-                            <barButtonItem style="done" id="XDY-Wi-535">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zb0-JT-uUX">
-                                    <rect key="frame" x="276" y="7" width="83" height="30"/>
+                        <leftBarButtonItems>
+                            <barButtonItem style="done" id="ZMM-gm-a7a">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tdc-hO-KNt">
+                                    <rect key="frame" x="16" y="7" width="83" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Menu+"/>
+                                    <state key="normal" title="Home"/>
+                                </button>
+                            </barButtonItem>
+                            <barButtonItem title="Bars" id="6GE-PV-TZ0">
+                                <connections>
+                                    <segue destination="GoK-m0-tfO" kind="show" id="LtX-Be-NPV"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem style="done" id="YS4-mp-iwU">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="PDp-6J-ybO">
+                                    <rect key="frame" x="150" y="7" width="39" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Menu"/>
                                     <connections>
-                                        <segue destination="0II-OC-moI" kind="show" id="jlf-wp-4xC"/>
+                                        <segue destination="aCf-Ds-QWe" kind="show" id="FwP-IY-zzL"/>
                                     </connections>
                                 </button>
                             </barButtonItem>
                             <barButtonItem style="done" id="MLD-eO-QHY">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GFP-Eq-m7a">
-                                    <rect key="frame" x="175" y="7" width="93" height="30"/>
+                                    <rect key="frame" x="197" y="7" width="93" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Order History"/>
                                     <connections>
@@ -345,7 +342,17 @@
                                     </connections>
                                 </button>
                             </barButtonItem>
-                        </rightBarButtonItems>
+                        </leftBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" style="done" id="XDY-Wi-535">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zb0-JT-uUX">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Menu+"/>
+                                <connections>
+                                    <segue destination="0II-OC-moI" kind="show" id="jlf-wp-4xC"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addMenuItem" destination="zb0-JT-uUX" id="VVI-9q-7Yy"/>
@@ -469,6 +476,53 @@
             </objects>
             <point key="canvasLocation" x="3045.5999999999999" y="-101.19940029985008"/>
         </scene>
+        <!--Map View Controller-->
+        <scene sceneID="Fg6-TE-yyW">
+            <objects>
+                <viewController id="GoK-m0-tfO" customClass="mapViewController" customModule="Bar_Tabs" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="x4W-cj-XlP"/>
+                        <viewControllerLayoutGuide type="bottom" id="lqY-zQ-r4e"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WEn-Pc-Mxd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsScale="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9dC-Qn-dWR">
+                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
+                            </mapView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wks-VZ-fAm">
+                                <rect key="frame" x="16" y="72" width="343" height="29"/>
+                                <segments>
+                                    <segment title="Normal"/>
+                                    <segment title="Satellite"/>
+                                    <segment title="Hybrid"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedChanged:" destination="GoK-m0-tfO" eventType="valueChanged" id="phz-Oc-1o7"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wks-VZ-fAm" firstAttribute="centerX" secondItem="9dC-Qn-dWR" secondAttribute="centerX" id="8g6-8g-HDU"/>
+                            <constraint firstItem="lqY-zQ-r4e" firstAttribute="top" secondItem="9dC-Qn-dWR" secondAttribute="bottom" id="DWC-7I-aWB"/>
+                            <constraint firstItem="9dC-Qn-dWR" firstAttribute="top" secondItem="wks-VZ-fAm" secondAttribute="bottom" constant="8" id="NRv-2o-DyC"/>
+                            <constraint firstItem="wks-VZ-fAm" firstAttribute="leading" secondItem="WEn-Pc-Mxd" secondAttribute="leadingMargin" id="U7p-2C-Fjd"/>
+                            <constraint firstItem="wks-VZ-fAm" firstAttribute="top" secondItem="x4W-cj-XlP" secondAttribute="bottom" constant="8" symbolic="YES" id="bMy-hI-eGh"/>
+                            <constraint firstAttribute="trailing" secondItem="9dC-Qn-dWR" secondAttribute="trailing" id="jV1-EO-7ds"/>
+                            <constraint firstItem="9dC-Qn-dWR" firstAttribute="leading" secondItem="WEn-Pc-Mxd" secondAttribute="leading" id="lp8-ez-EAR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="map" destination="9dC-Qn-dWR" id="rGe-jz-18Q"/>
+                        <outlet property="segmentedControl" destination="wks-VZ-fAm" id="cZb-xE-WY2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="489-ce-7dr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="728.79999999999995" y="-787.55622188905556"/>
+        </scene>
         <!--Title-->
         <scene sceneID="5nz-r5-2iQ">
             <objects>
@@ -490,7 +544,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TLp-9o-jVe" id="tVi-e8-YVI">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -530,7 +584,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b5b-oh-I6C" id="WtV-mR-SFs">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -581,7 +635,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F72-3Q-p7h" id="ARg-Bx-Iup">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -632,7 +686,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iku-29-lYv" id="87r-TN-ViT">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -750,7 +804,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="JNB-Tp-yBN"/>
         <segue reference="1Mg-bi-6hh"/>
-        <segue reference="3gg-Ni-fkD"/>
-        <segue reference="JNB-Tp-yBN"/>
     </inferredMetricsTieBreakers>
 </document>
