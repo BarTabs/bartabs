@@ -262,9 +262,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mbA-cM-SDJ">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mbA-cM-SDJ">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="qqk-li-gx8"/>
                                     <barButtonItem title="+" id="Cgu-PN-bcL">
@@ -274,10 +273,12 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oUy-br-rEf">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oUy-br-rEf">
                                 <rect key="frame" x="0.0" y="64" width="375" height="559"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="559" id="sEl-l6-1n5"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="lyc-26-mL4">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -291,6 +292,14 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mbA-cM-SDJ" firstAttribute="top" secondItem="oUy-br-rEf" secondAttribute="bottom" id="79f-XG-G3V"/>
+                            <constraint firstItem="oUy-br-rEf" firstAttribute="trailing" secondItem="mbA-cM-SDJ" secondAttribute="trailing" id="Fnn-Ka-nkQ"/>
+                            <constraint firstItem="oUy-br-rEf" firstAttribute="leading" secondItem="vnd-rB-AM8" secondAttribute="leading" id="M1J-tB-Dr7"/>
+                            <constraint firstItem="oUy-br-rEf" firstAttribute="top" secondItem="ASP-5L-M02" secondAttribute="bottom" id="WMF-PT-jYz"/>
+                            <constraint firstAttribute="trailing" secondItem="oUy-br-rEf" secondAttribute="trailing" id="dDF-r5-dsg"/>
+                            <constraint firstItem="oUy-br-rEf" firstAttribute="leading" secondItem="mbA-cM-SDJ" secondAttribute="leading" id="m7O-ZR-okR"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Employees" id="MbK-rs-DGJ"/>
                     <connections>
@@ -996,6 +1005,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="JNB-Tp-yBN"/>
         <segue reference="3gg-Ni-fkD"/>
-        <segue reference="Yxv-Ye-vl9"/>
+        <segue reference="Q1d-Jq-CT0"/>
     </inferredMetricsTieBreakers>
 </document>
