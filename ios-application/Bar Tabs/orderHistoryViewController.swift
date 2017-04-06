@@ -17,6 +17,7 @@ class orderHistoryViewController: UIViewController, UITableViewDataSource, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "History"
         self.automaticallyAdjustsScrollViewInsets = false
         tableView.delegate = self
         tableView.dataSource = self

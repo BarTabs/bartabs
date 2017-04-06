@@ -108,4 +108,19 @@ struct ClientOrder {
         return total
 
     }
+    
+    mutating func removeOrderItemAt(index: Int) {
+        self.orderItems.remove(at: index)
+    }
+    
+    mutating func removeOrderItemByID(id: Int64) {
+        let items = self.orderItems
+        for i in 0...items.count {
+            let item: ClientMenuItem = items[i]
+            if item.objectID == id {
+                self.orderItems.remove(at: i)
+                return
+            }
+        }
+    }
 }

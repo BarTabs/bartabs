@@ -23,10 +23,11 @@ class userLoginViewController: UIViewController {
     var condition: Bool = false
     
     @IBOutlet var welcomeLabel: UILabel!
-    
     @IBOutlet var addMenuItem: UIButton!
-    
+    @IBOutlet var historyMenuButton: UIButton!
     @IBOutlet var employees: UIButton!
+    @IBOutlet var orderMenuButton: UIButton!
+    
     
 
     
@@ -38,6 +39,21 @@ class userLoginViewController: UIViewController {
             employees.isHidden = false
         } else {
             employees.isHidden = true
+        }
+
+        
+        if(type == 4) {
+            addMenuItem.isHidden = false
+            historyMenuButton.isHidden = false
+        } else {
+            addMenuItem.isHidden = true
+            historyMenuButton.isHidden = true
+        }
+        
+        if(type == 2 || type == 3) {
+            orderMenuButton.isHidden = false
+        } else {
+            orderMenuButton.isHidden = true
         }
         
         // Do any additional setup after loading the view.

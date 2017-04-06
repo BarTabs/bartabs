@@ -16,6 +16,7 @@ class DataService {
     let loadingView: UIView = UIView()
     let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     let parentView: UIViewController
+    var showActivityIndicator = true
     
     // Defined in AppDelegate.swift
     let url = _url
@@ -24,7 +25,14 @@ class DataService {
         self.parentView = view
     }
     
-    func fetchData(service: String, parameters: Parameters, completion: @escaping (_ callback:JSON) -> Void) {
+    init(view: UIViewController, showActivityIndicator: Bool) {
+        self.parentView = view
+        self.showActivityIndicator = showActivityIndicator
+    }
+    
+    func fetchData(service: String, parameters: Parameters, showActivityIndicator: Bool, completion: @escaping (_ callback:JSON) -> Void) {
+        self.showActivityIndicator = showActivityIndicator
+        
         URLCache.shared.removeAllCachedResponses()
         
         var authToken = ""
@@ -59,7 +67,13 @@ class DataService {
         }
     }
     
-    func post(service: String, parameters: Parameters, completion: @escaping (_ callback:JSON) -> Void) {
+    func fetchData(service: String, parameters: Parameters, completion: @escaping (_ callback:JSON) -> Void) {
+        self.fetchData(service: service, parameters: parameters, showActivityIndicator: true, completion: completion)
+    }
+
+    func post(service: String, parameters: Parameters, showActivityIndicator: Bool, completion: @escaping (_ callback:JSON) -> Void) {
+        self.showActivityIndicator = showActivityIndicator
+        
         URLCache.shared.removeAllCachedResponses()
         
         var authToken = ""
@@ -93,10 +107,17 @@ class DataService {
             }
         }
     }
+    
+    func post(service: String, parameters: Parameters, completion: @escaping (_ callback:JSON) -> Void) {
+        post(service: service, parameters: parameters, showActivityIndicator: true, completion: completion)
+    }
 
     
     func hideActivityIndicatorCreateAlert(titleText: String, messageText: String) {
-        self.hideActivityIndicator(uiView: self.parentView.view)
+        if showActivityIndicator {
+            self.hideActivityIndicator(uiView: self.parentView.view)
+        }
+        
         self.createAlert(titleText: titleText, messageText: messageText)
     }
     
@@ -112,25 +133,27 @@ class DataService {
     
     // Create func for activity indicator to display on screen
     func showActivityIndicatory(uiView: UIView) {
-        container.frame = uiView.frame
-        container.center = uiView.center
-        container.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.5)
+        if (showActivityIndicator) {
+            container.frame = uiView.frame
+            container.center = uiView.center
+            container.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.5)
         
-        loadingView.frame = self.CGRectMake(0, 0, 80, 80)
-        loadingView.center = uiView.center
-        loadingView.backgroundColor = UIColor(red:0.27, green:0.27, blue:0.27, alpha:1.0)
-        loadingView.clipsToBounds = true
-        loadingView.layer.cornerRadius = 10
+            loadingView.frame = self.CGRectMake(0, 0, 80, 80)
+            loadingView.center = uiView.center
+            loadingView.backgroundColor = UIColor(red:0.27, green:0.27, blue:0.27, alpha:1.0)
+            loadingView.clipsToBounds = true
+            loadingView.layer.cornerRadius = 10
         
-        activityIndicator.frame = self.CGRectMake(0.0, 0.0, 40.0, 40.0);
-        activityIndicator.activityIndicatorViewStyle =
+            activityIndicator.frame = self.CGRectMake(0.0, 0.0, 40.0, 40.0);
+            activityIndicator.activityIndicatorViewStyle =
             UIActivityIndicatorViewStyle.whiteLarge
-        activityIndicator.center = CGPoint(x:loadingView.frame.size.width / 2,
+            activityIndicator.center = CGPoint(x:loadingView.frame.size.width / 2,
                                            y:loadingView.frame.size.height / 2);
-        loadingView.addSubview(activityIndicator)
-        container.addSubview(loadingView)
-        uiView.addSubview(container)
-        activityIndicator.startAnimating()
+            loadingView.addSubview(activityIndicator)
+            container.addSubview(loadingView)
+            uiView.addSubview(container)
+            activityIndicator.startAnimating()
+        }
 
     }
     
@@ -142,7 +165,9 @@ class DataService {
     
     // Create func to hide the activity indicator
     func hideActivityIndicator(uiView: UIView) {
-        activityIndicator.stopAnimating()
-        container.removeFromSuperview()
+        if showActivityIndicator {
+            activityIndicator.stopAnimating()
+            container.removeFromSuperview()
+        }
     }
 }
