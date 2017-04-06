@@ -28,14 +28,11 @@ class userLoginViewController: UIViewController {
     
     @IBOutlet var employees: UIButton!
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let type = UserDefaults.standard.integer(forKey: "userType")
-        if(type == 4) {
-            addMenuItem.isHidden = false
-        } else {
-            addMenuItem.isHidden = true
-        }
         
         if(type == 1) {
             employees.isHidden = false
@@ -51,7 +48,6 @@ class userLoginViewController: UIViewController {
                 welcomeLabel.text = "Welcome \(username)!"
             }
         }
-
     }
     
     override func didReceiveMemoryWarning() {

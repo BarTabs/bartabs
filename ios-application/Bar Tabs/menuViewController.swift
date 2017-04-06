@@ -15,10 +15,21 @@ class menuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var menu : JSON?
     var bar = ""
     
+    @IBOutlet var toolbar: UIToolbar!
+    
     @IBOutlet var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let type = UserDefaults.standard.integer(forKey: "userType")
+        if(type == 4) {
+            var items = [UIBarButtonItem]()
+            items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
+            items.append(UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(menuViewController.addMenuItem)))
+            toolbar.items = items
+        }
+        
         self.navigationItem.title = "Amnesia"
         self.automaticallyAdjustsScrollViewInsets = false
 
@@ -89,6 +100,10 @@ class menuViewController: UIViewController, UITableViewDataSource, UITableViewDe
             self.menu = response
             self.tableView.reloadData()
         })
+    }
+    
+    func addMenuItem() {
+        performSegue(withIdentifier: "addMenuSegue", sender: nil)
     }
     
 }
