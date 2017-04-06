@@ -219,7 +219,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="epZ-zT-A66">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="A9L-gN-hnZ">
@@ -394,7 +394,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="owG-en-L7P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3992.8000000000002" y="628.33583208395805"/>
+            <point key="canvasLocation" x="4039" y="692"/>
         </scene>
         <!--Open Orders View Controller-->
         <scene sceneID="vir-iE-8nx">
@@ -472,14 +472,14 @@
                                         </button>
                                     </barButtonItem>
                                     <barButtonItem title="Item" id="fau-nR-iVZ">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="XVY-fg-7bh" userLabel="History">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="XVY-fg-7bh">
                                             <rect key="frame" x="189" y="7" width="83" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="History">
+                                            <state key="normal" title="Orders">
                                                 <color key="titleColor" red="0.95841595989999995" green="0.99035949030000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
-                                                <segue destination="rWj-5Y-O4I" kind="show" id="7K6-K2-Bx6"/>
+                                                <segue destination="Y4h-3y-P9E" kind="show" id="rt2-Ua-NAP"/>
                                             </connections>
                                         </button>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -526,9 +526,9 @@
                             </button>
                         </barButtonItem>
                         <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GAV-cC-0yR">
-                            <rect key="frame" x="141" y="7" width="93" height="30"/>
+                            <rect key="frame" x="162.5" y="7" width="50" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Order History"/>
+                            <state key="normal" title="History"/>
                             <connections>
                                 <segue destination="rWj-5Y-O4I" kind="show" id="VKC-da-1J3"/>
                             </connections>
@@ -546,7 +546,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="employees" destination="oKR-8r-nxK" id="yeH-yo-tls"/>
-                        <outlet property="historyMenuButton" destination="XVY-fg-7bh" id="XNm-BW-ssr"/>
+                        <outlet property="historyMenuButton" destination="GAV-cC-0yR" id="S4F-E6-pvJ"/>
+                        <outlet property="ordersMenuButton" destination="XVY-fg-7bh" id="fbk-O5-Pna"/>
                         <outlet property="welcomeLabel" destination="GzV-Hg-Q5S" id="Hjv-eJ-lLN"/>
                         <segue destination="c63-s3-C1s" kind="show" identifier="loginSegue" id="1Mg-bi-6hh"/>
                     </connections>
@@ -798,7 +799,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6YV-wt-iG3">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="b5b-oh-I6C">
@@ -854,7 +855,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8bR-Gt-UM8">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="F72-3Q-p7h">
@@ -910,7 +911,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lFQ-6U-5bA">
-                                <rect key="frame" x="16" y="71" width="343" height="362"/>
+                                <rect key="frame" x="16" y="115" width="343" height="318"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="iku-29-lYv">
@@ -1061,10 +1062,10 @@
         <image name="splash.png" width="1242" height="2208"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="jBj-ef-Cyu"/>
         <segue reference="1Mg-bi-6hh"/>
-        <segue reference="h6c-tE-qbp"/>
+        <segue reference="rt2-Ua-NAP"/>
         <segue reference="4QI-gD-nsZ"/>
-        <segue reference="VKC-da-1J3"/>
-        <segue reference="Q1d-Jq-CT0"/>
+        <segue reference="Yxv-Ye-vl9"/>
     </inferredMetricsTieBreakers>
 </document>

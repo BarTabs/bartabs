@@ -23,13 +23,9 @@ class userLoginViewController: UIViewController {
     var condition: Bool = false
     
     @IBOutlet var welcomeLabel: UILabel!
-    @IBOutlet var addMenuItem: UIButton!
     @IBOutlet var historyMenuButton: UIButton!
+    @IBOutlet var ordersMenuButton: UIButton!
     @IBOutlet var employees: UIButton!
-    @IBOutlet var orderMenuButton: UIButton!
-    
-    
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,19 +38,12 @@ class userLoginViewController: UIViewController {
         }
 
         
-        if(type == 4) {
-            addMenuItem.isHidden = false
+        if(type == 4 || type == 2 || type == 3) {
             historyMenuButton.isHidden = false
         } else {
-            addMenuItem.isHidden = true
             historyMenuButton.isHidden = true
         }
         
-        if(type == 2 || type == 3) {
-            orderMenuButton.isHidden = false
-        } else {
-            orderMenuButton.isHidden = true
-        }
         
         // Do any additional setup after loading the view.
         if let firstName = UserDefaults.standard.string(forKey: "firstName") {
