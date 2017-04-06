@@ -636,7 +636,7 @@
             </objects>
             <point key="canvasLocation" x="3045.5999999999999" y="-101.19940029985008"/>
         </scene>
-        <!--Map View Controller-->
+        <!--Bars-->
         <scene sceneID="Fg6-TE-yyW">
             <objects>
                 <viewController id="GoK-m0-tfO" customClass="mapViewController" customModule="Bar_Tabs" customModuleProvider="target" sceneMemberID="viewController">
@@ -649,10 +649,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsScale="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9dC-Qn-dWR">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
                             </mapView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wks-VZ-fAm">
-                                <rect key="frame" x="16" y="28" width="343" height="29"/>
+                                <rect key="frame" x="16" y="72" width="343" height="29"/>
                                 <segments>
                                     <segment title="Normal"/>
                                     <segment title="Satellite"/>
@@ -665,15 +665,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="9dC-Qn-dWR" secondAttribute="trailing" id="8A2-dJ-BCo"/>
-                            <constraint firstItem="wks-VZ-fAm" firstAttribute="centerX" secondItem="9dC-Qn-dWR" secondAttribute="centerX" id="8YT-rN-YAh"/>
-                            <constraint firstItem="wks-VZ-fAm" firstAttribute="leading" secondItem="WEn-Pc-Mxd" secondAttribute="leadingMargin" id="NL7-eI-9u7"/>
-                            <constraint firstItem="lqY-zQ-r4e" firstAttribute="top" secondItem="9dC-Qn-dWR" secondAttribute="bottom" id="SYf-OH-sZQ"/>
-                            <constraint firstItem="wks-VZ-fAm" firstAttribute="top" secondItem="x4W-cj-XlP" secondAttribute="bottom" constant="8" symbolic="YES" id="Y23-0q-KjC"/>
-                            <constraint firstItem="9dC-Qn-dWR" firstAttribute="top" secondItem="wks-VZ-fAm" secondAttribute="bottom" constant="8" id="fao-fI-8NU"/>
-                            <constraint firstItem="9dC-Qn-dWR" firstAttribute="leading" secondItem="WEn-Pc-Mxd" secondAttribute="leading" id="yDU-fA-hHG"/>
+                            <constraint firstItem="lqY-zQ-r4e" firstAttribute="top" secondItem="9dC-Qn-dWR" secondAttribute="bottom" id="0ay-jF-CBf"/>
+                            <constraint firstItem="9dC-Qn-dWR" firstAttribute="leading" secondItem="WEn-Pc-Mxd" secondAttribute="leading" id="8SX-vN-WAf"/>
+                            <constraint firstItem="wks-VZ-fAm" firstAttribute="leading" secondItem="WEn-Pc-Mxd" secondAttribute="leadingMargin" id="8pn-Mt-Vwb"/>
+                            <constraint firstItem="wks-VZ-fAm" firstAttribute="trailing" secondItem="WEn-Pc-Mxd" secondAttribute="trailingMargin" id="E7E-Xi-F2a"/>
+                            <constraint firstItem="9dC-Qn-dWR" firstAttribute="top" secondItem="wks-VZ-fAm" secondAttribute="bottom" constant="8" id="Qnb-cq-XUG"/>
+                            <constraint firstItem="wks-VZ-fAm" firstAttribute="top" secondItem="x4W-cj-XlP" secondAttribute="bottom" constant="8" id="gIy-In-ehV"/>
+                            <constraint firstAttribute="trailing" secondItem="9dC-Qn-dWR" secondAttribute="trailing" id="l6Q-aX-nHp"/>
+                            <constraint firstItem="9dC-Qn-dWR" firstAttribute="top" secondItem="wks-VZ-fAm" secondAttribute="bottom" constant="8" id="pbB-xG-21g"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Bars" id="Qc8-hs-B8c"/>
                     <connections>
                         <outlet property="map" destination="9dC-Qn-dWR" id="rGe-jz-18Q"/>
                         <outlet property="segmentedControl" destination="wks-VZ-fAm" id="cZb-xE-WY2"/>

@@ -42,7 +42,6 @@ class DataService {
         showActivityIndicatory(uiView: parentView.view)
         
         Alamofire.request(serviceUrl, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
-            print(response)
             if let rawResponse = response.result.value {
                 let json = JSON(rawResponse)
                 
@@ -78,7 +77,6 @@ class DataService {
         showActivityIndicatory(uiView: parentView.view)
         
         Alamofire.request(serviceUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
-            print(response)
             if let rawResponse = response.result.value {
                 let json = JSON(rawResponse)
                 
