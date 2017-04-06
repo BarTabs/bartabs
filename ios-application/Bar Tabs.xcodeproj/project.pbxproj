@@ -50,6 +50,7 @@
 		A0C813641E68AF1800602023 /* categoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C813631E68AF1800602023 /* categoryViewController.swift */; };
 		A0C813661E68B3DE00602023 /* typeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C813651E68B3DE00602023 /* typeViewController.swift */; };
 		A0D75AD91E79AFEF004F81E0 /* itemAddedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D75AD81E79AFEF004F81E0 /* itemAddedViewController.swift */; };
+		BA4AF9491E96B88A0049F34D /* newEmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4AF9481E96B88A0049F34D /* newEmployeeViewController.swift */; };
 		BAA78E1D1E952B41000A454D /* addEmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA78E1C1E952B41000A454D /* addEmployeeViewController.swift */; };
 		CA30E256831FA78057A1E448 /* Pods_Bar_Tabs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4F3D1E041A64E6CC99904B5 /* Pods_Bar_Tabs.framework */; };
 /* End PBXBuildFile section */
@@ -103,6 +104,7 @@
 		A0D75AD81E79AFEF004F81E0 /* itemAddedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = itemAddedViewController.swift; sourceTree = "<group>"; };
 		A4F3D1E041A64E6CC99904B5 /* Pods_Bar_Tabs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bar_Tabs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9B886795B43E4489287E26A /* Pods-Bar Tabs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bar Tabs.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bar Tabs/Pods-Bar Tabs.release.xcconfig"; sourceTree = "<group>"; };
+		BA4AF9481E96B88A0049F34D /* newEmployeeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newEmployeeViewController.swift; sourceTree = "<group>"; };
 		BAA78E1C1E952B41000A454D /* addEmployeeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addEmployeeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -190,6 +192,7 @@
 				7E5A19371E8D6E39004EE3D5 /* orderHistoryViewController.swift */,
 				A00C8A181E95601800090A15 /* mapViewController.swift */,
 				BAA78E1C1E952B41000A454D /* addEmployeeViewController.swift */,
+				BA4AF9481E96B88A0049F34D /* newEmployeeViewController.swift */,
 				A030DD801E4FB45D0049539D /* Main.storyboard */,
 				A030DD831E4FB45D0049539D /* Assets.xcassets */,
 				A0BEB4C21E8D6EF20098FFA1 /* AppIcon.appiconset */,
@@ -385,6 +388,7 @@
 				A00C8A191E95601800090A15 /* mapViewController.swift in Sources */,
 				7E5A19381E8D6E39004EE3D5 /* orderHistoryViewController.swift in Sources */,
 				A022CCDF1E823BB000384BB9 /* payViewController.swift in Sources */,
+				BA4AF9491E96B88A0049F34D /* newEmployeeViewController.swift in Sources */,
 				A009C7911E5A44CF009095E8 /* customerViewController.swift in Sources */,
 				A0C14C391E5A0726003555D5 /* userLoginViewController.swift in Sources */,
 				A030DD7F1E4FB45D0049539D /* ViewController.swift in Sources */,

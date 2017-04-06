@@ -13,10 +13,15 @@ import SwiftyJSON
 class addEmployeeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var employees : JSON?
-    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet var tableView: UITableView!
+
+    
+    @IBOutlet var barName: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Employees"
         self.automaticallyAdjustsScrollViewInsets = false
         tableView.delegate = self
         tableView.dataSource = self
@@ -42,12 +47,26 @@ class addEmployeeViewController: UIViewController, UITableViewDataSource, UITabl
             if (self.employees != nil) {
                 
                 let jsonVar : JSON = self.employees!
-                let employeeName = jsonVar[indexPath.row]["objectID"].int64
+                let employeeName = jsonVar[indexPath.row]["formattedName"].rawString()
                 cell.textLabel?.textAlignment = .center
                 cell.textLabel?.text = "\(employeeName!)"
             }
             return cell
         }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            
+            //            showActivityIndicatory(uiView: self.view)
+            let jsonVar : JSON = self.employees!
+            let objectID = jsonVar[indexPath.row]["employeeId"].int64Value
+            deleteRecord(employeeId: objectID)
+        }
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -63,4 +82,19 @@ class addEmployeeViewController: UIViewController, UITableViewDataSource, UITabl
             self.tableView.reloadData()
         })
     }
+    
+    func deleteRecord(employeeId: Int64) {
+        let service = "employee/deleteemployee"
+        
+        let parameters: Parameters = [
+            "employeeId" : employeeId
+        ]
+        
+        let dataService = DataService(view: self)
+        dataService.post(service: service, parameters: parameters, completion: {(response: JSON) -> Void in
+            self.fetchData()
+            self.tableView.reloadData()
+        })
+    }
+
 }
