@@ -26,6 +26,7 @@
 		A030DD871E4FB45D0049539D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A030DD851E4FB45D0049539D /* LaunchScreen.storyboard */; };
 		A089A60C1E7DB64F00B07628 /* orderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A089A60B1E7DB64F00B07628 /* orderViewController.swift */; };
 		A09F16561E5A8C05003B2BB0 /* paymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09F16551E5A8C05003B2BB0 /* paymentViewController.swift */; };
+		A09F55F31E98023900DBE1D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A09F55F21E98023900DBE1D3 /* GoogleService-Info.plist */; };
 		A0BEB4D71E8D6EF20098FFA1 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = A0BEB4C31E8D6EF20098FFA1 /* Contents.json */; };
 		A0BEB4D81E8D6EF20098FFA1 /* Icon-App-20x20@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0BEB4C41E8D6EF20098FFA1 /* Icon-App-20x20@1x.png */; };
 		A0BEB4D91E8D6EF20098FFA1 /* Icon-App-20x20@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0BEB4C51E8D6EF20098FFA1 /* Icon-App-20x20@2x.png */; };
@@ -46,7 +47,6 @@
 		A0BEB4E81E8D6EF20098FFA1 /* Icon-App-76x76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0BEB4D41E8D6EF20098FFA1 /* Icon-App-76x76@2x.png */; };
 		A0BEB4E91E8D6EF20098FFA1 /* Icon-App-76x76@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0BEB4D51E8D6EF20098FFA1 /* Icon-App-76x76@3x.png */; };
 		A0BEB4EA1E8D6EF20098FFA1 /* Icon-App-83.5x83.5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0BEB4D61E8D6EF20098FFA1 /* Icon-App-83.5x83.5@2x.png */; };
-		A0BF42D31E8476390046E2EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A0BF42D21E8476390046E2EC /* GoogleService-Info.plist */; };
 		A0C14C391E5A0726003555D5 /* userLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C14C381E5A0726003555D5 /* userLoginViewController.swift */; };
 		A0C813641E68AF1800602023 /* categoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C813631E68AF1800602023 /* categoryViewController.swift */; };
 		A0C813661E68B3DE00602023 /* typeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C813651E68B3DE00602023 /* typeViewController.swift */; };
@@ -79,6 +79,7 @@
 		A030DD881E4FB45D0049539D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A089A60B1E7DB64F00B07628 /* orderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = orderViewController.swift; sourceTree = "<group>"; };
 		A09F16551E5A8C05003B2BB0 /* paymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = paymentViewController.swift; sourceTree = "<group>"; };
+		A09F55F21E98023900DBE1D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A0BEB4C31E8D6EF20098FFA1 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		A0BEB4C41E8D6EF20098FFA1 /* Icon-App-20x20@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-20x20@1x.png"; sourceTree = "<group>"; };
 		A0BEB4C51E8D6EF20098FFA1 /* Icon-App-20x20@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-20x20@2x.png"; sourceTree = "<group>"; };
@@ -99,7 +100,6 @@
 		A0BEB4D41E8D6EF20098FFA1 /* Icon-App-76x76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-76x76@2x.png"; sourceTree = "<group>"; };
 		A0BEB4D51E8D6EF20098FFA1 /* Icon-App-76x76@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-76x76@3x.png"; sourceTree = "<group>"; };
 		A0BEB4D61E8D6EF20098FFA1 /* Icon-App-83.5x83.5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-83.5x83.5@2x.png"; sourceTree = "<group>"; };
-		A0BF42D21E8476390046E2EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A0C14C381E5A0726003555D5 /* userLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userLoginViewController.swift; sourceTree = "<group>"; };
 		A0C813631E68AF1800602023 /* categoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = categoryViewController.swift; sourceTree = "<group>"; };
 		A0C813651E68B3DE00602023 /* typeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = typeViewController.swift; sourceTree = "<group>"; };
@@ -195,13 +195,13 @@
 				A00C8A181E95601800090A15 /* mapViewController.swift */,
 				BAA78E1C1E952B41000A454D /* addEmployeeViewController.swift */,
 				BA4AF9481E96B88A0049F34D /* newEmployeeViewController.swift */,
+				7E2A77D31E9658D30055817A /* openOrdersViewController.swift */,
 				A030DD801E4FB45D0049539D /* Main.storyboard */,
 				A030DD831E4FB45D0049539D /* Assets.xcassets */,
 				A0BEB4C21E8D6EF20098FFA1 /* AppIcon.appiconset */,
 				A030DD851E4FB45D0049539D /* LaunchScreen.storyboard */,
+				A09F55F21E98023900DBE1D3 /* GoogleService-Info.plist */,
 				A030DD881E4FB45D0049539D /* Info.plist */,
-				A0BF42D21E8476390046E2EC /* GoogleService-Info.plist */,
-				7E2A77D31E9658D30055817A /* openOrdersViewController.swift */,
 			);
 			path = "Bar Tabs";
 			sourceTree = "<group>";
@@ -308,6 +308,7 @@
 			files = (
 				A0BEB4DC1E8D6EF20098FFA1 /* Icon-App-29x29@2x.png in Resources */,
 				A0BEB4D71E8D6EF20098FFA1 /* Contents.json in Resources */,
+				A09F55F31E98023900DBE1D3 /* GoogleService-Info.plist in Resources */,
 				A0BEB4E71E8D6EF20098FFA1 /* Icon-App-76x76@1x.png in Resources */,
 				A0BEB4E11E8D6EF20098FFA1 /* Icon-App-57x57@1x.png in Resources */,
 				A0BEB4E31E8D6EF20098FFA1 /* Icon-App-57x57@3x.png in Resources */,
@@ -320,7 +321,6 @@
 				A0BEB4DA1E8D6EF20098FFA1 /* Icon-App-20x20@3x.png in Resources */,
 				A0BEB4E41E8D6EF20098FFA1 /* Icon-App-60x60@1x.png in Resources */,
 				A0BEB4E61E8D6EF20098FFA1 /* Icon-App-60x60@3x.png in Resources */,
-				A0BF42D31E8476390046E2EC /* GoogleService-Info.plist in Resources */,
 				A030DD841E4FB45D0049539D /* Assets.xcassets in Resources */,
 				A0BEB4E91E8D6EF20098FFA1 /* Icon-App-76x76@3x.png in Resources */,
 				A030DD821E4FB45D0049539D /* Main.storyboard in Resources */,
