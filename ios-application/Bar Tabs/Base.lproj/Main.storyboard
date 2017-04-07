@@ -751,9 +751,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YMH-ns-Au8">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YMH-ns-Au8">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="vSe-YK-hHK">
@@ -773,6 +772,12 @@
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YMH-ns-Au8" firstAttribute="leading" secondItem="YjP-41-L4W" secondAttribute="leading" id="DD4-yn-FhX"/>
+                            <constraint firstAttribute="trailing" secondItem="YMH-ns-Au8" secondAttribute="trailing" id="E93-ME-cab"/>
+                            <constraint firstItem="YMH-ns-Au8" firstAttribute="top" secondItem="cEp-Co-nld" secondAttribute="bottom" id="PoD-Sz-NaC"/>
+                            <constraint firstItem="w4y-g7-rBC" firstAttribute="top" secondItem="YMH-ns-Au8" secondAttribute="bottom" id="cLU-zh-VFt"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="Smy-FC-QpR"/>
                     <connections>
@@ -784,7 +789,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oWH-xw-HmW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1492" y="-786.65667166416802"/>
+            <point key="canvasLocation" x="1492" y="-815.44227886056979"/>
         </scene>
         <!--Title-->
         <scene sceneID="YxO-0h-Cn6">
@@ -988,6 +993,7 @@
                         <outlet property="orderButtonItem" destination="Ksp-7M-52T" id="uKz-Vf-BXF"/>
                         <outlet property="tableView" destination="lFQ-6U-5bA" id="Q9y-bR-ONZ"/>
                         <outlet property="totalLabel" destination="yvf-9Y-aa4" id="boM-3A-bjX"/>
+                        <outlet property="totalPrice" destination="yvf-9Y-aa4" id="fme-7M-zLM"/>
                         <segue destination="1Kr-Ov-PZh" kind="show" identifier="paySegue" id="n5w-wW-2rk"/>
                         <segue destination="Y4h-3y-P9E" kind="show" identifier="openOrdersSegue" id="2hm-nv-vzV"/>
                     </connections>
@@ -1062,10 +1068,10 @@
         <image name="splash.png" width="1242" height="2208"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jBj-ef-Cyu"/>
-        <segue reference="1Mg-bi-6hh"/>
-        <segue reference="rt2-Ua-NAP"/>
         <segue reference="4QI-gD-nsZ"/>
+        <segue reference="bav-hc-kMO"/>
+        <segue reference="2hm-nv-vzV"/>
+        <segue reference="3gg-Ni-fkD"/>
         <segue reference="Yxv-Ye-vl9"/>
     </inferredMetricsTieBreakers>
 </document>

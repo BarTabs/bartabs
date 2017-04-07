@@ -77,7 +77,7 @@ class openOrdersViewController: UIViewController, UITableViewDataSource, UITable
             destSeg.orderID = selectedOrder?["objectID"].int64
             if selectedOrder?["total"] != JSON.null {
                 if let total = selectedOrder?["total"].doubleValue {
-                    destSeg.totalPrice.text = String(format:"%.02f", total)
+                    destSeg.total = String(format:"$%.02f", total)
                 }
             }
             

@@ -29,10 +29,12 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
     var fromOpenOrder = false
     var items = [JSON]()
     var orderID: Int64?
+    var total: String?
     
     @IBOutlet var tableView: UITableView!
     
     @IBOutlet var totalPrice: UILabel!
+    
     
     @IBAction func pay(_ sender: Any) {
         handleButtonPush()
@@ -42,7 +44,9 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
         super.viewDidLoad()
         
         if (fromOpenOrder) {
+            self.navigationItem.title = "Order #" + orderID!.description
             orderButtonItem.setTitle("Complete", for: UIControlState.normal)
+            totalPrice.text = total
         }
         
         tableView.delegate = self
@@ -134,6 +138,7 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
         let service = "order/placeorder"
         let userID = UserDefaults.standard.string(forKey: "userID")!
         _clientOrder.orderedBy = Int64(userID)
+        _clientOrder.total = Decimal(clientOrder.getTotal());
         _clientOrder.barID = 4
         
         let dataService = DataService(view: self)
@@ -168,7 +173,7 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func calculateOrderTotal() {
-        totalLabel.text = String(format:"%.02f", self.clientOrder.getTotal())
+        totalLabel.text = String(format:"$%.02f", self.clientOrder.getTotal())
     }
     
     override func didReceiveMemoryWarning() {
