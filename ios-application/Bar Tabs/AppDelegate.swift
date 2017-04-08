@@ -13,8 +13,8 @@ import Firebase
 import FirebaseInstanceID
 import FirebaseMessaging
 
-let _url = "http://127.0.0.1:8080/bartabs-server/"
-//let _url = "http://138.197.87.137:8080/bartabs-server/"
+//let _url = "http://127.0.0.1:8080/bartabs-server/"
+let _url = "http://138.197.87.137:8080/bartabs-server/"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
