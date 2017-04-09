@@ -22,6 +22,8 @@ class userLoginViewController: UIViewController {
         performSegue(withIdentifier: "loginSegue", sender: nil)
     }
     
+    @IBOutlet var scrollView: UIScrollView!
+    
     var condition: Bool = false
     
     @IBOutlet var welcomeLabel: UILabel!
@@ -31,6 +33,22 @@ class userLoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let qrcode = UIViewController(nibName: "qrcodeViewController", bundle: nil)
+        self.addChildViewController(qrcode)
+        self.scrollView.addSubview(qrcode.view)
+        qrcode.didMove(toParentViewController: self)
+        
+        var qrcodeFrame: CGRect = qrcode.view.frame
+        qrcodeFrame.origin.y = self.view.frame.height
+        
+        qrcode.view.frame = qrcodeFrame
+        
+        let screenSize: CGRect = UIScreen.main.bounds
+        let screenWidth = screenSize.width
+        let screenHeight = screenSize.height
+        
+        self.scrollView.contentSize = CGSize(width: screenWidth, height: screenHeight*2)
         
         let type = UserDefaults.standard.integer(forKey: "userType")
         
@@ -60,6 +78,7 @@ class userLoginViewController: UIViewController {
                 welcomeLabel.text = "Welcome \(username)!"
             }
         }
+        
     }
     
     override func didReceiveMemoryWarning() {

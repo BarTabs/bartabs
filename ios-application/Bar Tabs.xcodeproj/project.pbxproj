@@ -24,6 +24,8 @@
 		A030DD821E4FB45D0049539D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A030DD801E4FB45D0049539D /* Main.storyboard */; };
 		A030DD841E4FB45D0049539D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A030DD831E4FB45D0049539D /* Assets.xcassets */; };
 		A030DD871E4FB45D0049539D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A030DD851E4FB45D0049539D /* LaunchScreen.storyboard */; };
+		A04217CB1E9AC5E500F5324E /* qrcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04217C91E9AC5E500F5324E /* qrcodeViewController.swift */; };
+		A04217CC1E9AC5E500F5324E /* qrcodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A04217CA1E9AC5E500F5324E /* qrcodeViewController.xib */; };
 		A089A60C1E7DB64F00B07628 /* orderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A089A60B1E7DB64F00B07628 /* orderViewController.swift */; };
 		A09F16561E5A8C05003B2BB0 /* paymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09F16551E5A8C05003B2BB0 /* paymentViewController.swift */; };
 		A09F55F31E98023900DBE1D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A09F55F21E98023900DBE1D3 /* GoogleService-Info.plist */; };
@@ -77,6 +79,8 @@
 		A030DD831E4FB45D0049539D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A030DD861E4FB45D0049539D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A030DD881E4FB45D0049539D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A04217C91E9AC5E500F5324E /* qrcodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = qrcodeViewController.swift; sourceTree = "<group>"; };
+		A04217CA1E9AC5E500F5324E /* qrcodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = qrcodeViewController.xib; sourceTree = "<group>"; };
 		A089A60B1E7DB64F00B07628 /* orderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = orderViewController.swift; sourceTree = "<group>"; };
 		A09F16551E5A8C05003B2BB0 /* paymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = paymentViewController.swift; sourceTree = "<group>"; };
 		A09F55F21E98023900DBE1D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -197,6 +201,8 @@
 				BA4AF9481E96B88A0049F34D /* newEmployeeViewController.swift */,
 				7E2A77D31E9658D30055817A /* openOrdersViewController.swift */,
 				A030DD801E4FB45D0049539D /* Main.storyboard */,
+				A04217C91E9AC5E500F5324E /* qrcodeViewController.swift */,
+				A04217CA1E9AC5E500F5324E /* qrcodeViewController.xib */,
 				A030DD831E4FB45D0049539D /* Assets.xcassets */,
 				A0BEB4C21E8D6EF20098FFA1 /* AppIcon.appiconset */,
 				A030DD851E4FB45D0049539D /* LaunchScreen.storyboard */,
@@ -314,6 +320,7 @@
 				A0BEB4E31E8D6EF20098FFA1 /* Icon-App-57x57@3x.png in Resources */,
 				A0BEB4D91E8D6EF20098FFA1 /* Icon-App-20x20@2x.png in Resources */,
 				A030DD871E4FB45D0049539D /* LaunchScreen.storyboard in Resources */,
+				A04217CC1E9AC5E500F5324E /* qrcodeViewController.xib in Resources */,
 				A0BEB4DD1E8D6EF20098FFA1 /* Icon-App-29x29@3x.png in Resources */,
 				A0BEB4E21E8D6EF20098FFA1 /* Icon-App-57x57@2x.png in Resources */,
 				A01D4B911E8D7B740080A563 /* splash.png in Resources */,
@@ -405,6 +412,7 @@
 				A089A60C1E7DB64F00B07628 /* orderViewController.swift in Sources */,
 				A0D75AD91E79AFEF004F81E0 /* itemAddedViewController.swift in Sources */,
 				7E5D38CD1E88655A00C212D5 /* DataService.swift in Sources */,
+				A04217CB1E9AC5E500F5324E /* qrcodeViewController.swift in Sources */,
 				BAA78E1D1E952B41000A454D /* addEmployeeViewController.swift in Sources */,
 				A0C813641E68AF1800602023 /* categoryViewController.swift in Sources */,
 				7E2A77D41E9658D30055817A /* openOrdersViewController.swift in Sources */,
