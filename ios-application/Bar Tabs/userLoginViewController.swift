@@ -35,11 +35,15 @@ class userLoginViewController: UIViewController {
         let type = UserDefaults.standard.integer(forKey: "userType")
         
         if(type == 1) {
+            ordersMenuButton.isHidden = false
             employees.isHidden = false
         } else {
             employees.isHidden = true
         }
 
+        if (type == 4) {
+            ordersMenuButton.isHidden = true
+        }
         
         if(type == 4 || type == 2 || type == 3) {
             historyMenuButton.isHidden = false

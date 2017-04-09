@@ -14,6 +14,7 @@ class openOrdersViewController: UIViewController, UITableViewDataSource, UITable
 
     var orders : JSON?
     var selectedOrder: JSON?
+    var timer: Timer?
     
     @IBOutlet var tableView: UITableView!
     
@@ -25,8 +26,12 @@ class openOrdersViewController: UIViewController, UITableViewDataSource, UITable
         tableView.dataSource = self
         
         fetchData(showActivityIndicator: true)
-        Timer.scheduledTimer(timeInterval: 5, target:self, selector: #selector(self.reloadData), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 5, target:self, selector: #selector(self.reloadData), userInfo: nil, repeats: true)
         
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        timer?.invalidate()
     }
     
     override func didReceiveMemoryWarning() {
