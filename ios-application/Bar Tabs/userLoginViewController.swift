@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class userLoginViewController: UIViewController {
     
@@ -29,6 +31,7 @@ class userLoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let type = UserDefaults.standard.integer(forKey: "userType")
         
         if(type == 1) {
@@ -74,4 +77,5 @@ class userLoginViewController: UIViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.2157, green: 0.2157, blue: 0.2157, alpha: 1.0)
         self.navigationController?.navigationBar.tintColor = UIColor.white
     }
+    
 }

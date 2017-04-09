@@ -15,6 +15,7 @@ import FirebaseMessaging
 
 //let _url = "http://127.0.0.1:8080/bartabs-server/"
 let _url = "http://138.197.87.137:8080/bartabs-server/"
+var _fcmToken: String?
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -70,11 +71,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // TODO: Handle data of notification
         // Print message ID.
         if let messageID = userInfo[gcmMessageIDKey] {
-            print("Message ID: \(messageID)")
+            print("Message ID: \(messageID)\n")
         }
         
         // Print full message.
-        print(userInfo)
+        print("\(userInfo)\n")
         
     }
     
@@ -85,19 +86,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // TODO: Handle data of notification
         // Print message ID.
         if let messageID = userInfo[gcmMessageIDKey] {
-            print("Message ID: \(messageID)")
+            print("Message ID: \(messageID)\n")
         }
         
         // Print full message.
-        print(userInfo)
+        print("\(userInfo)\n")
         
         completionHandler(UIBackgroundFetchResult.newData)
     }
     // [END receive_message]
     // [START refresh_token]
     func tokenRefreshNotification(_ notification: Notification) {
-        if let refreshedToken = FIRInstanceID.instanceID().token() {
-            print("InstanceID token: \(refreshedToken)")
+        if let fcmToken = FIRInstanceID.instanceID().token() {
+            _fcmToken = fcmToken.description    // Firebase notification instance ID
+            print("InstanceID token: \(fcmToken)\n")
         }
         
         // Connect to FCM since connection may have failed when attempted before having a token.
@@ -116,22 +118,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FIRMessaging.messaging().connect { (error) in
             if error != nil {
-                print("Unable to connect with FCM. \(String(describing: error))")
+                print("Unable to connect with FCM. \(String(describing: error))\n")
             } else {
-                print("Connected to FCM.")
+                if let fcmToken = FIRInstanceID.instanceID().token() {
+                    _fcmToken = fcmToken.description // Firebase notification instance ID
+                }
+
+                print("Connected to FCM.\n")
             }
         }
     }
     // [END connect_to_fcm]
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("Unable to register for remote notifications: \(error.localizedDescription)")
+        print("Unable to register for remote notifications: \(error.localizedDescription)\n")
     }
     
     // This function is added here only for debugging purposes, and can be removed if swizzling is enabled.
     // If swizzling is disabled then this function must be implemented so that the APNs token can be paired to
     // the InstanceID token.
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        print("APNs token retrieved: \(deviceToken)")
+        print("APNs token retrieved: \(deviceToken)\n")
         
         // With swizzling disabled you must set the APNs token here.
         // FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.sandbox)
@@ -176,7 +182,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         
         // Print message ID.
         if let messageID = userInfo[gcmMessageIDKey] {
-            print("Message ID: \(messageID)")
+            print("Message ID: \(messageID)\n")
         }
     
         // Print full message.
@@ -194,7 +200,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         
         // Print message ID.
         if let messageID = userInfo[gcmMessageIDKey] {
-            print("Message ID: \(messageID)")
+            print("Message ID: \(messageID)\n")
         }
     
         // Print full message.

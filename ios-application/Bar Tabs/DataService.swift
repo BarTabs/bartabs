@@ -68,7 +68,7 @@ class DataService {
     }
     
     func fetchData(service: String, parameters: Parameters, completion: @escaping (_ callback:JSON) -> Void) {
-        self.fetchData(service: service, parameters: parameters, showActivityIndicator: true, completion: completion)
+        self.fetchData(service: service, parameters: parameters, showActivityIndicator: self.showActivityIndicator, completion: completion)
     }
 
     func post(service: String, parameters: Parameters, showActivityIndicator: Bool, completion: @escaping (_ callback:JSON) -> Void) {
@@ -109,7 +109,7 @@ class DataService {
     }
     
     func post(service: String, parameters: Parameters, completion: @escaping (_ callback:JSON) -> Void) {
-        post(service: service, parameters: parameters, showActivityIndicator: true, completion: completion)
+        post(service: service, parameters: parameters, showActivityIndicator: self.showActivityIndicator, completion: completion)
     }
 
     

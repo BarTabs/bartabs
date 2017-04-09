@@ -50,8 +50,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
         if let token = FIRInstanceID.instanceID().token() {
+            _fcmToken = token.description
             print("InstanceID token: \(token)")
         }
     }
@@ -87,6 +88,8 @@ class ViewController: UIViewController {
         let tokenStored = UserDefaults.standard.object(forKey: "token")
 
         if(tokenStored != nil) {
+            // Register device for notifications
+            registerDeviceForNotifications(fcmToken: _fcmToken ?? "")
             performSegue(withIdentifier: "userSegue", sender: nil)
         }
     }
@@ -112,7 +115,22 @@ class ViewController: UIViewController {
             UserDefaults.standard.set(String(describing: response["username"]), forKey: "username")
             UserDefaults.standard.set(response["userType"].int ?? -1, forKey: "userType")
             UserDefaults.standard.synchronize()
+            self.registerDeviceForNotifications(fcmToken: _fcmToken ?? "")
             self.performSegue(withIdentifier: "userSegue", sender: nil)
         })
     }
+    
+    func registerDeviceForNotifications(fcmToken: String) {
+        let service = "user/registerfornotifications"
+        let parameters : Parameters = [
+            "fcmToken" : fcmToken
+        ]
+        
+        let dataService = DataService(view: self, showActivityIndicator: false)
+        dataService.fetchData(service: service, parameters: parameters, completion: { (response: JSON) -> Void in
+            print("Device registered for notifications")
+            return
+        })
+    }
+
 }
