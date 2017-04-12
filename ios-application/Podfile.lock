@@ -25,6 +25,11 @@ PODS:
     - GoogleToolboxForMac/Logger (~> 2.1)
   - GoogleInterchangeUtilities (1.2.2):
     - GoogleSymbolUtilities (~> 1.1)
+  - GoogleMaps (2.1.1):
+    - GoogleMaps/Maps (= 2.1.1)
+  - GoogleMaps/Base (2.1.1)
+  - GoogleMaps/Maps (2.1.1):
+    - GoogleMaps/Base
   - GoogleSymbolUtilities (1.1.2)
   - GoogleToolboxForMac/Defines (2.1.1)
   - GoogleToolboxForMac/Logger (2.1.1):
@@ -37,6 +42,7 @@ DEPENDENCIES:
   - Alamofire
   - Firebase/Core
   - Firebase/Messaging
+  - GoogleMaps
   - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -47,10 +53,11 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
   FirebaseMessaging: acf66347e43c5637c697060c3001d25c809a4131
   GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
+  GoogleMaps: a5b5bbe47734e2443bde781a6aa64e69fdb6d785
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 68af79fa09413f893610255b1b7048495725d092
+PODFILE CHECKSUM: 4072d9ec96234c5cc07293d8e9000a6550e758bb
 
 COCOAPODS: 1.2.0

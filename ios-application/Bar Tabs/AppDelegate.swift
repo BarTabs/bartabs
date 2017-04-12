@@ -12,6 +12,7 @@ import SwiftyJSON
 import Firebase
 import FirebaseInstanceID
 import FirebaseMessaging
+import GoogleMaps
 
 //let _url = "http://127.0.0.1:8080/bartabs-server/"
 let _url = "http://138.197.87.137:8080/bartabs-server/"
@@ -28,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.shared.statusBarStyle = .lightContent
         
+        GMSServices.provideAPIKey("AIzaSyCtrUR1beIAMK3B57Q9WM60c51os3tqs20")
         // Register for remote notifications. This shows a permission dialog on first run, to
         // show the dialog at a more appropriate time move this registration accordingly.
         // [START register_for_notifications]
