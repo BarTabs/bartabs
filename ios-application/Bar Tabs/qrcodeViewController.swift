@@ -1,8 +1,9 @@
 //
-//  qrcodeViewController.swift
+//  qrCodeReaderViewController.swift
 //  Bar Tabs
 //
-//  Created by Dexstrum on 4/9/17.
+//  Created by Simon Ng on 11/23/14.
+//  Modified by Victor Lora on 4/9/17.
 //  Copyright © 2017 muhlenberg. All rights reserved.
 //
 
