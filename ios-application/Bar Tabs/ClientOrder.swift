@@ -21,6 +21,7 @@ struct ClientOrder {
     var completedByDisplay: String?
     var completedDate: Date?
     var completedDateDisplay: String?
+    var uuid: String?
     
     var orderItems = [ClientMenuItem]()
 
@@ -71,6 +72,10 @@ struct ClientOrder {
             dict["completedDateDisplay"] = completedDateDisplay
         }
         
+        if  let uuid = self.uuid {
+            dict["uuid"] = uuid
+        }
+        
         var items = [Any]()
         
         for clientMenuItem in self.orderItems {
@@ -96,6 +101,7 @@ struct ClientOrder {
         self.completedDate = nil
         self.completedDateDisplay = nil
         self.orderItems = [ClientMenuItem]()
+        self.uuid = nil
     }
     
     func getTotal() -> Double {

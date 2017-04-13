@@ -12,7 +12,7 @@ import SwiftyJSON
 
 var _clientOrder = ClientOrder()
 
-class orderViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class orderViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, QRCodeScanHandler {
     
     @IBAction func cancelOrder(_ sender: Any) {
         self.clearOrderItems()
@@ -20,6 +20,12 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     
     @IBOutlet var qrImage: UIButton!
+    @IBAction func qrCodeScanButtonClick(_ sender: Any) {
+        let qrCodeScanView = qrCodeReaderViewController()
+        qrCodeScanView.delegate = self
+        self.navigationController?.pushViewController(qrCodeScanView, animated: true)
+    }
+    
     @IBOutlet var orderButtonItem: UIButton!
     
     @IBOutlet var totalLabel: UILabel!
@@ -49,7 +55,7 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         qrImage.isHidden = true
         let type = UserDefaults.standard.integer(forKey: "userType")
-        if type == 2 {
+        if type == 2 && !fromOpenOrder {
             qrImage.isHidden = false
             orderButtonItem.isHidden = true
         } else {
@@ -162,6 +168,10 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
         })
     }
     
+    func placeOrderViaQrCode(uuid: String) {
+        print("order placed")
+    }
+    
     func completeOrder() {
         let service = "order/completeorder"
         let userID = UserDefaults.standard.string(forKey: "userID")!
@@ -177,7 +187,7 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
         let dataService = DataService(view: self)
         dataService.post(service: service, parameters: parameters, completion: {(response: JSON) -> Void in
             self.clearOrderItems()
-            self.performSegue(withIdentifier: "openOrdersSegue", sender: nil)
+            self.navigationController?.popViewController(animated: true)
         })
     }
     
@@ -195,5 +205,22 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
         // Dispose of any resources that can be recreated.
     }
 
+    func scannedQRCode(uuid: String) {
+        if !uuid.isEmpty {
+            let service = "order/placeorderviaqrcode"
+            let userID = UserDefaults.standard.string(forKey: "userID")!
+            _clientOrder.orderedBy = Int64(userID)
+            _clientOrder.total = Decimal(clientOrder.getTotal());
+            _clientOrder.barID = 4
+            _clientOrder.uuid = uuid
+            
+            let dataService = DataService(view: self)
+            dataService.post(service: service, parameters: clientOrder.dictionaryRepresentation, completion: {(response: JSON) -> Void in
+                self.clearOrderItems()
+                self.performSegue(withIdentifier: "paySegue", sender: nil)
+            })
+
+        }
+    }
     
 }

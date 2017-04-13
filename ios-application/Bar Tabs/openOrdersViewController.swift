@@ -25,13 +25,18 @@ class openOrdersViewController: UIViewController, UITableViewDataSource, UITable
         tableView.delegate = self
         tableView.dataSource = self
         
-        fetchData(showActivityIndicator: true)
-        timer = Timer.scheduledTimer(timeInterval: 5, target:self, selector: #selector(self.reloadData), userInfo: nil, repeats: true)
+//        fetchData(showActivityIndicator: true)
+//        timer = Timer.scheduledTimer(timeInterval: 5, target:self, selector: #selector(self.reloadData), userInfo: nil, repeats: true)
         
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         timer?.invalidate()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        fetchData(showActivityIndicator: true)
+        timer = Timer.scheduledTimer(timeInterval: 5, target:self, selector: #selector(self.reloadData), userInfo: nil, repeats: true)
     }
     
     override func didReceiveMemoryWarning() {

@@ -10,19 +10,22 @@
 import UIKit
 import AVFoundation
 
+protocol QRCodeScanHandler {
+    func scannedQRCode(uuid: String)
+}
 
 class qrCodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
-    
-    
+    var delegate: QRCodeScanHandler! = nil
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var qrCodeFrameView:UIView?
+
     
     // Added to support different barcodes
     let supportedBarCodes = [AVMetadataObjectTypeQRCode, AVMetadataObjectTypeCode128Code, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode93Code, AVMetadataObjectTypeUPCECode, AVMetadataObjectTypePDF417Code, AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeAztecCode]
     
-    @IBOutlet var messageLabel: UILabel!
+//    @IBOutlet var messageLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +63,7 @@ class qrCodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjec
             captureSession?.startRunning()
             
             // Move the message label to the top view
-            view.bringSubview(toFront: messageLabel)
+//            view.bringSubview(toFront: messageLabel)
             
             // Initialize QR Code Frame to highlight the QR code
             qrCodeFrameView = UIView()
@@ -90,7 +93,7 @@ class qrCodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjec
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects == nil || metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRect.zero
-            messageLabel.text = "No barcode/QR code is detected"
+//            messageLabel.text = "No barcode/QR code is detected"
             return
         }
         
@@ -107,15 +110,13 @@ class qrCodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjec
             qrCodeFrameView?.frame = barCodeObject!.bounds
             
             if metadataObj.stringValue != nil {
-                messageLabel.text = metadataObj.stringValue
-                placeOrderViaQRCode(uuid: metadataObj.stringValue)
+                captureSession?.stopRunning()
+//                messageLabel.text = metadataObj.stringValue
+                let userUuid =  metadataObj.stringValue
+                self.navigationController?.popViewController(animated: true)
+                delegate.scannedQRCode(uuid: userUuid ?? "")
             }
         }
-    }
-    
-    func placeOrderViaQRCode(uuid: String) {
-        
-        
     }
     
     
