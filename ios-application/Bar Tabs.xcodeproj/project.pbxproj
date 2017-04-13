@@ -11,6 +11,7 @@
 		7E256D631E82FA4900189D59 /* ClientOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E256D621E82FA4900189D59 /* ClientOrder.swift */; };
 		7E2A77D41E9658D30055817A /* openOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2A77D31E9658D30055817A /* openOrdersViewController.swift */; };
 		7E4029C11E9EA71C00054D6E /* qrCodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4029C01E9EA71C00054D6E /* qrCodeReaderViewController.swift */; };
+		7E4029C31E9F3DA600054D6E /* qrCodeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4029C21E9F3DA600054D6E /* qrCodeIcon.png */; };
 		7E5A19381E8D6E39004EE3D5 /* orderHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5A19371E8D6E39004EE3D5 /* orderHistoryViewController.swift */; };
 		7E5D38CD1E88655A00C212D5 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5D38CC1E88655A00C212D5 /* DataService.swift */; };
 		7EED520D1E637C6700669184 /* userTypeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EED520C1E637C6700669184 /* userTypeSelectionViewController.swift */; };
@@ -65,6 +66,7 @@
 		7E256D621E82FA4900189D59 /* ClientOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientOrder.swift; sourceTree = "<group>"; };
 		7E2A77D31E9658D30055817A /* openOrdersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = openOrdersViewController.swift; sourceTree = "<group>"; };
 		7E4029C01E9EA71C00054D6E /* qrCodeReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = qrCodeReaderViewController.swift; sourceTree = "<group>"; };
+		7E4029C21E9F3DA600054D6E /* qrCodeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qrCodeIcon.png; sourceTree = "<group>"; };
 		7E5A19371E8D6E39004EE3D5 /* orderHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = orderHistoryViewController.swift; sourceTree = "<group>"; };
 		7E5D38CC1E88655A00C212D5 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		7EED520C1E637C6700669184 /* userTypeSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userTypeSelectionViewController.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 		A0BEB4C21E8D6EF20098FFA1 /* AppIcon.appiconset */ = {
 			isa = PBXGroup;
 			children = (
+				7E4029C21E9F3DA600054D6E /* qrCodeIcon.png */,
 				A01D4B901E8D7B740080A563 /* splash.png */,
 				A0BEB4C31E8D6EF20098FFA1 /* Contents.json */,
 				A0BEB4C41E8D6EF20098FFA1 /* Icon-App-20x20@1x.png */,
@@ -328,6 +331,7 @@
 				A0BEB4E21E8D6EF20098FFA1 /* Icon-App-57x57@2x.png in Resources */,
 				A01D4B911E8D7B740080A563 /* splash.png in Resources */,
 				A0BEB4E51E8D6EF20098FFA1 /* Icon-App-60x60@2x.png in Resources */,
+				7E4029C31E9F3DA600054D6E /* qrCodeIcon.png in Resources */,
 				A0BEB4DA1E8D6EF20098FFA1 /* Icon-App-20x20@3x.png in Resources */,
 				A0BEB4E41E8D6EF20098FFA1 /* Icon-App-60x60@1x.png in Resources */,
 				A0BEB4E61E8D6EF20098FFA1 /* Icon-App-60x60@3x.png in Resources */,

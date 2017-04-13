@@ -18,6 +18,8 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.clearOrderItems()
     }
     
+    
+    @IBOutlet var qrImage: UIButton!
     @IBOutlet var orderButtonItem: UIButton!
     
     @IBOutlet var totalLabel: UILabel!
@@ -42,6 +44,18 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.title = "Order"
+        
+        qrImage.isHidden = true
+        let type = UserDefaults.standard.integer(forKey: "userType")
+        if type == 2 {
+            qrImage.isHidden = false
+            orderButtonItem.isHidden = true
+        } else {
+            qrImage.isHidden = true
+            orderButtonItem.isHidden = false
+        }
         
         if (fromOpenOrder) {
             self.navigationItem.title = "Order #" + orderID!.description
