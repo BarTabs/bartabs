@@ -141,12 +141,14 @@
 		7E21FC011E84E3FA00057A0B /* menu */ = {
 			isa = PBXGroup;
 			children = (
+				7E4029C41E9F5F5500054D6E /* orders */,
 				A0117A3B1E636C3B00A331CF /* menuViewController.swift */,
+				A0D75AD81E79AFEF004F81E0 /* itemAddedViewController.swift */,
 				A0C813631E68AF1800602023 /* categoryViewController.swift */,
 				A0C813651E68B3DE00602023 /* typeViewController.swift */,
-				A089A60B1E7DB64F00B07628 /* orderViewController.swift */,
 				A022CCDE1E823BB000384BB9 /* payViewController.swift */,
 				A09F16551E5A8C05003B2BB0 /* paymentViewController.swift */,
+				A011B5EF1E7724AC00446119 /* addMenuItemViewController.swift */,
 			);
 			name = menu;
 			sourceTree = "<group>";
@@ -158,6 +160,47 @@
 				7E256D621E82FA4900189D59 /* ClientOrder.swift */,
 			);
 			name = models;
+			sourceTree = "<group>";
+		};
+		7E4029C41E9F5F5500054D6E /* orders */ = {
+			isa = PBXGroup;
+			children = (
+				A089A60B1E7DB64F00B07628 /* orderViewController.swift */,
+				7E2A77D31E9658D30055817A /* openOrdersViewController.swift */,
+				7E5A19371E8D6E39004EE3D5 /* orderHistoryViewController.swift */,
+				7E4029C01E9EA71C00054D6E /* qrCodeReaderViewController.swift */,
+				A04217C91E9AC5E500F5324E /* qrCodeView.swift */,
+				A04217CA1E9AC5E500F5324E /* qrCodeView.xib */,
+			);
+			name = orders;
+			sourceTree = "<group>";
+		};
+		7E4029C51E9F5F7900054D6E /* employee */ = {
+			isa = PBXGroup;
+			children = (
+				BAA78E1C1E952B41000A454D /* addEmployeeViewController.swift */,
+				BA4AF9481E96B88A0049F34D /* newEmployeeViewController.swift */,
+			);
+			name = employee;
+			sourceTree = "<group>";
+		};
+		7E4029C61E9F5F9800054D6E /* map */ = {
+			isa = PBXGroup;
+			children = (
+				A00C8A181E95601800090A15 /* mapViewController.swift */,
+			);
+			name = map;
+			sourceTree = "<group>";
+		};
+		7E4029C71E9F5FD800054D6E /* login/setup */ = {
+			isa = PBXGroup;
+			children = (
+				A030DD7E1E4FB45D0049539D /* ViewController.swift */,
+				A0C14C381E5A0726003555D5 /* userLoginViewController.swift */,
+				A009C7901E5A44CF009095E8 /* customerViewController.swift */,
+				7EED520C1E637C6700669184 /* userTypeSelectionViewController.swift */,
+			);
+			name = login/setup;
 			sourceTree = "<group>";
 		};
 		96FDC85AA8B325D9B546BD74 /* Frameworks */ = {
@@ -189,25 +232,14 @@
 		A030DD7B1E4FB45D0049539D /* Bar Tabs */ = {
 			isa = PBXGroup;
 			children = (
+				7E4029C71E9F5FD800054D6E /* login/setup */,
+				7E4029C61E9F5F9800054D6E /* map */,
+				7E4029C51E9F5F7900054D6E /* employee */,
 				7E21FC011E84E3FA00057A0B /* menu */,
 				7E21FBFC1E84D6AC00057A0B /* services */,
 				7E256D611E82FA3600189D59 /* models */,
 				A030DD7C1E4FB45D0049539D /* AppDelegate.swift */,
-				A030DD7E1E4FB45D0049539D /* ViewController.swift */,
-				A0C14C381E5A0726003555D5 /* userLoginViewController.swift */,
-				A009C7901E5A44CF009095E8 /* customerViewController.swift */,
-				7EED520C1E637C6700669184 /* userTypeSelectionViewController.swift */,
-				A011B5EF1E7724AC00446119 /* addMenuItemViewController.swift */,
-				A0D75AD81E79AFEF004F81E0 /* itemAddedViewController.swift */,
-				7E5A19371E8D6E39004EE3D5 /* orderHistoryViewController.swift */,
-				A00C8A181E95601800090A15 /* mapViewController.swift */,
-				BAA78E1C1E952B41000A454D /* addEmployeeViewController.swift */,
-				BA4AF9481E96B88A0049F34D /* newEmployeeViewController.swift */,
-				7E2A77D31E9658D30055817A /* openOrdersViewController.swift */,
 				A030DD801E4FB45D0049539D /* Main.storyboard */,
-				A04217C91E9AC5E500F5324E /* qrCodeView.swift */,
-				A04217CA1E9AC5E500F5324E /* qrCodeView.xib */,
-				7E4029C01E9EA71C00054D6E /* qrCodeReaderViewController.swift */,
 				A030DD831E4FB45D0049539D /* Assets.xcassets */,
 				A0BEB4C21E8D6EF20098FFA1 /* AppIcon.appiconset */,
 				A030DD851E4FB45D0049539D /* LaunchScreen.storyboard */,
