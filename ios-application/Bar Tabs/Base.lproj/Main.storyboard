@@ -939,9 +939,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jpg-BH-G2j">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jpg-BH-G2j">
                                 <rect key="frame" x="132" y="537" width="110" height="110"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="qrCodeIcon.png"/>
                                 <connections>
                                     <segue destination="0QU-Hf-eu9" kind="show" id="zXK-qh-0vO"/>
@@ -950,17 +949,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="jpg-BH-G2j" firstAttribute="leading" secondItem="PmL-Ej-fUc" secondAttribute="leadingMargin" constant="116" id="7BG-NL-OEA"/>
                             <constraint firstItem="yvf-9Y-aa4" firstAttribute="leading" secondItem="Apj-zt-ec8" secondAttribute="trailing" constant="40" id="7n2-f4-ut5"/>
                             <constraint firstItem="Ksp-7M-52T" firstAttribute="leading" secondItem="PmL-Ej-fUc" secondAttribute="leading" id="91v-F4-XfI"/>
                             <constraint firstItem="lFQ-6U-5bA" firstAttribute="leading" secondItem="PmL-Ej-fUc" secondAttribute="leadingMargin" id="AWJ-G2-3AL"/>
                             <constraint firstItem="Ksp-7M-52T" firstAttribute="bottom" secondItem="XbZ-W6-HNK" secondAttribute="top" id="FBN-eQ-gZl"/>
+                            <constraint firstItem="jpg-BH-G2j" firstAttribute="top" secondItem="Apj-zt-ec8" secondAttribute="bottom" constant="30" id="Hly-W7-mVi"/>
                             <constraint firstItem="Ksp-7M-52T" firstAttribute="top" secondItem="Apj-zt-ec8" secondAttribute="bottom" constant="92" id="Hw4-qg-oaY"/>
                             <constraint firstAttribute="trailing" secondItem="Ksp-7M-52T" secondAttribute="trailing" id="J2A-fx-d4t"/>
                             <constraint firstItem="Ksp-7M-52T" firstAttribute="leading" secondItem="PmL-Ej-fUc" secondAttribute="leading" id="RLM-Xb-Nza"/>
+                            <constraint firstItem="XbZ-W6-HNK" firstAttribute="top" secondItem="jpg-BH-G2j" secondAttribute="bottom" constant="20" id="ROD-qF-Qp2"/>
                             <constraint firstItem="lFQ-6U-5bA" firstAttribute="trailing" secondItem="PmL-Ej-fUc" secondAttribute="trailingMargin" id="Xaa-cd-A1c"/>
                             <constraint firstItem="lFQ-6U-5bA" firstAttribute="top" secondItem="FwB-F6-RO0" secondAttribute="bottom" constant="51" id="Y8L-yE-06b"/>
                             <constraint firstItem="lFQ-6U-5bA" firstAttribute="centerX" secondItem="Ksp-7M-52T" secondAttribute="centerX" id="eCU-pg-DYf"/>
                             <constraint firstItem="yvf-9Y-aa4" firstAttribute="top" secondItem="lFQ-6U-5bA" secondAttribute="bottom" constant="74" id="jau-8W-ILT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jpg-BH-G2j" secondAttribute="trailing" constant="117" id="ppY-UH-dl6"/>
                             <constraint firstItem="lFQ-6U-5bA" firstAttribute="trailing" secondItem="yvf-9Y-aa4" secondAttribute="trailing" id="sU7-Ko-CNb"/>
                             <constraint firstItem="Apj-zt-ec8" firstAttribute="baseline" secondItem="yvf-9Y-aa4" secondAttribute="baseline" id="yhb-ju-b34"/>
                         </constraints>
@@ -1097,9 +1100,10 @@
         <image name="splash.png" width="1242" height="2208"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1Mg-bi-6hh"/>
-        <segue reference="h6c-tE-qbp"/>
+        <segue reference="3gg-Ni-fkD"/>
+        <segue reference="bav-hc-kMO"/>
         <segue reference="4QI-gD-nsZ"/>
+        <segue reference="2hm-nv-vzV"/>
         <segue reference="Q1d-Jq-CT0"/>
         <segue reference="rt2-Ua-NAP"/>
         <segue reference="JNB-Tp-yBN"/>

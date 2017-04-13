@@ -112,5 +112,10 @@ class qrCodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjec
         }
     }
     
+    func placeOrderViaQRCode(uuid: String) {
+        messageLabel.text = metadataObj.stringValue
+        
+    }
+    
     
 }
