@@ -11,38 +11,39 @@ import GoogleMaps
 
 class mapViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate{
     
-    @IBOutlet weak var mapView: GMSMapView!
-    
     var locationManager = CLLocationManager()
-    var currentLocation: CLLocation?
-    var zoomLevel: Float = 15.0
-    var latitude: CLLocationDegrees?
-    var longitude: CLLocationDegrees?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        locationManager = CLLocationManager()
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
-        locationManager.distanceFilter = 50
-        locationManager.startUpdatingLocation()
+        //Location Manager code to fetch current location
         locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
         
-        print(locationManager.location?.coordinate.longitude.description)
-
-//        drawGeoFence()
         
     }
-    func drawGeoFence() {
+    
+    override func loadView() {
+        
+        
+        let latitude = locationManager.location?.coordinate.latitude
+        let longitude = locationManager.location?.coordinate.longitude
+
+        print("Latitude: \(String(describing: latitude)) & longitude: \(String(describing: longitude))")
+        
+        let camera = GMSCameraPosition.camera(withLatitude: latitude!, longitude: longitude!, zoom: 18)
+        
+        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        view = mapView
         
         let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: self.latitude!, longitude: self.longitude!)
+        marker.position = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
         marker.title = "Muhlenberg College"
         marker.snippet = "Muhlenberg"
         marker.map = mapView
         
-        let circleCenter = CLLocationCoordinate2D(latitude: self.latitude!, longitude: self.longitude!)
+        let circleCenter = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
         let circ = GMSCircle(position: circleCenter, radius: 30)
         
         circ.fillColor = UIColor(red: 0.35, green: 0, blue: 0, alpha: 0.05)
@@ -51,18 +52,6 @@ class mapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
         circ.map = mapView
         circ.map = mapView
 
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        //Get Current Location
-        let location = locations.last! as CLLocation
-        print(location.coordinate.latitude.description)
-        let userLocation:CLLocation = locations[0] as CLLocation
-        
-        //Save current lat long
-        UserDefaults.standard.set(userLocation.coordinate.latitude, forKey: "LAT")
-        UserDefaults.standard.set(userLocation.coordinate.longitude, forKey: "LON")
-        UserDefaults().synchronize()
     }
     
     
@@ -81,4 +70,7 @@ class mapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
         self.navigationController?.navigationBar.isHidden = false
     }
     
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        locationManager.stopUpdatingLocation()
+    }
 }
