@@ -14,8 +14,8 @@ import FirebaseInstanceID
 import FirebaseMessaging
 import GoogleMaps
 
-//let _url = "http://127.0.0.1:8080/bartabs-server/"
-let _url = "http://138.197.87.137:8080/bartabs-server/"
+let _url = "http://127.0.0.1:8080/bartabs-server/"
+//let _url = "http://138.197.87.137:8080/bartabs-server/"
 var _fcmToken: String?
 
 @UIApplicationMain

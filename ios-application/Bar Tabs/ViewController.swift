@@ -114,6 +114,7 @@ class ViewController: UIViewController {
             UserDefaults.standard.set(String(describing: response["firstName"]), forKey: "firstName")
             UserDefaults.standard.set(String(describing: response["username"]), forKey: "username")
             UserDefaults.standard.set(response["userType"].int ?? -1, forKey: "userType")
+            UserDefaults.standard.set(String(describing: response["uuid"]), forKey: "uuid")
             UserDefaults.standard.synchronize()
             self.registerDeviceForNotifications(fcmToken: _fcmToken ?? "")
             self.performSegue(withIdentifier: "userSegue", sender: nil)

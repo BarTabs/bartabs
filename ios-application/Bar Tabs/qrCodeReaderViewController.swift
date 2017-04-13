@@ -10,9 +10,10 @@
 import UIKit
 import AVFoundation
 
-class qrCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+
+class qrCodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
-    @IBOutlet weak var messageLabel:UILabel!
+    
     
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
@@ -20,6 +21,8 @@ class qrCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     
     // Added to support different barcodes
     let supportedBarCodes = [AVMetadataObjectTypeQRCode, AVMetadataObjectTypeCode128Code, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode93Code, AVMetadataObjectTypeUPCECode, AVMetadataObjectTypePDF417Code, AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeAztecCode]
+    
+    @IBOutlet var messageLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,4 +111,6 @@ class qrCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             }
         }
     }
+    
+    
 }

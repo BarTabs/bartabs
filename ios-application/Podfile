@@ -11,5 +11,6 @@ target 'Bar Tabs' do
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
   pod 'GoogleMaps'
+  pod 'QRCode'
     
 end

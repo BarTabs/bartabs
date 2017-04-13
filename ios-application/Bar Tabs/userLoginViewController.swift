@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import QRCode
 
 class userLoginViewController: UIViewController {
     
@@ -18,6 +19,7 @@ class userLoginViewController: UIViewController {
         UserDefaults.standard.removeObject(forKey: "userType")
         UserDefaults.standard.removeObject(forKey: "firstName")
         UserDefaults.standard.removeObject(forKey: "token")
+        UserDefaults.standard.removeObject(forKey: "uuid")
         UserDefaults.standard.synchronize()
         performSegue(withIdentifier: "loginSegue", sender: nil)
     }
@@ -34,21 +36,35 @@ class userLoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let qrcode = UIViewController(nibName: "qrcodeViewController", bundle: nil)
-        self.addChildViewController(qrcode)
-        self.scrollView.addSubview(qrcode.view)
-        qrcode.didMove(toParentViewController: self)
         
-        var qrcodeFrame: CGRect = qrcode.view.frame
+        let qrCodeView = UIViewController(nibName: "qrCodeView", bundle: nil)
+        
+        self.addChildViewController(qrCodeView)
+        self.scrollView.addSubview(qrCodeView.view)
+        qrCodeView.didMove(toParentViewController: self)
+        
+        // QR Code integration
+        let uuid = UserDefaults.standard.string(forKey: "uuid")
+        var qrCode = QRCode(uuid ?? "")
+        qrCode?.size = CGSize(width: 200, height: 200)
+        
+        let imageView = UIImageView(image: qrCode?.image)
+        let superviewSize = qrCodeView.view.frame.size;
+        imageView.center = CGPoint(x:(superviewSize.width / 2), y:(superviewSize.height / 2));
+        
+        qrCodeView.view.addSubview(imageView)
+
+        
+        var qrcodeFrame: CGRect = qrCodeView.view.frame
         qrcodeFrame.origin.y = self.view.frame.height
         
-        qrcode.view.frame = qrcodeFrame
+        qrCodeView.view.frame = qrcodeFrame
         
         let screenSize: CGRect = UIScreen.main.bounds
         let screenWidth = screenSize.width
         let screenHeight = screenSize.height
         
-        self.scrollView.contentSize = CGSize(width: screenWidth, height: screenHeight*2)
+        self.scrollView.contentSize = CGSize(width: screenWidth, height: screenHeight + superviewSize.height - 50)
         
         let type = UserDefaults.standard.integer(forKey: "userType")
         
