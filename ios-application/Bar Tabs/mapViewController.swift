@@ -7,39 +7,57 @@
 //
 
 import UIKit
-import MapKit
 import GoogleMaps
 
-class mapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate{
+class mapViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate{
     
+    @IBOutlet weak var mapView: GMSMapView!
+    
+    var locationManager = CLLocationManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        //Location Manager code to fetch current location
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        
+        
     }
     
     override func loadView() {
-        let camera = GMSMutableCameraPosition.camera(withLatitude: 40.597498, longitude: -75.510077, zoom: 17)
-        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-        view = mapView
         
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: 40.597498, longitude: -75.510077)
-        marker.title = "Muhlenberg College"
-        marker.snippet = "Muhlenberg"
-        marker.map = mapView
         
-        let circleCenter = CLLocationCoordinate2D(latitude: 40.597498, longitude: -75.510077)
-        let circ = GMSCircle(position: circleCenter, radius: 50)
-        
-        circ.fillColor = UIColor(red: 0.35, green: 0, blue: 0, alpha: 0.05)
-        circ.strokeColor = .red
-        circ.strokeWidth = 1
-        circ.map = mapView
-        circ.map = mapView
-    }
+        let latitude = locationManager.location?.coordinate.latitude
+        let longitude = locationManager.location?.coordinate.longitude
 
+        print("Latitude: \(String(describing: latitude)) & longitude: \(String(describing: longitude))")
+        
+        let camera = GMSCameraPosition.camera(withLatitude: latitude!, longitude: longitude!, zoom: 10)
+        
+        mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        mapView.settings.myLocationButton = true
+        mapView.settings.myLocationButton = true
+        mapView.isMyLocationEnabled = true
+        
+//        let marker = GMSMarker()
+//        marker.position = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
+//        marker.title = "Muhlenberg College"
+//        marker.snippet = "Muhlenberg"
+//        marker.map = mapView
+//        
+//        let circleCenter = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
+//        let circ = GMSCircle(position: circleCenter, radius: 30)
+//        
+//        circ.fillColor = UIColor(red: 0.35, green: 0, blue: 0, alpha: 0.05)
+//        circ.strokeColor = .red
+//        circ.strokeWidth = 1
+//        circ.map = mapView
+//        circ.map = mapView
+
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -55,5 +73,4 @@ class mapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.navigationController?.navigationBar.isHidden = false
     }
     
-
 }
