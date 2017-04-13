@@ -16,6 +16,9 @@ class addEmployeeViewController: UIViewController, UITableViewDataSource, UITabl
     
     @IBOutlet var tableView: UITableView!
 
+    @IBAction func newUserButtonClick(_ sender: Any) {
+        performSegue(withIdentifier: "editEmployee", sender: nil)
+    }
     
     @IBOutlet var barName: UILabel!
     
@@ -38,12 +41,20 @@ class addEmployeeViewController: UIViewController, UITableViewDataSource, UITabl
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.fetchData()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.black]
         self.navigationController?.navigationBar.isHidden = false
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editEmployee" {
+            let destSeg = segue.destination as! newEmployeeViewController
+            destSeg.employee = sender as? JSON
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -79,7 +90,9 @@ class addEmployeeViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let jsonVar : JSON = self.employees!
+        let employee = jsonVar[indexPath.row]
+        performSegue(withIdentifier: "editEmployee", sender: employee)
     }
     
     func fetchData(){

@@ -19,6 +19,16 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
+		<key>Protobuf.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>QRCode.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -42,6 +52,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>96A398D4377E4372CD0249A5D63A5874</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B9782BE1F2035CD86883DB0D0E40E2B7</key>
 		<dict>
 			<key>primary</key>
@@ -52,7 +67,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>C21C322FDBFAF374185104C7C430C589</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C5B80060FE8C664DF08841000F41D515</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CCFADEA1C91D32612246CC3F1B7703D9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D239351A2A3AA583338CF1245FD5B1A5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
