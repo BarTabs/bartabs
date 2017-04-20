@@ -4,7 +4,10 @@
 //
 //  Created by Dexstrum on 3/13/17.
 //  Copyright © 2017 muhlenberg. All rights reserved.
-//
+/*
+    This view controller enables owners to add new items
+    to the bar's menu.
+*/
 
 import UIKit
 import Alamofire

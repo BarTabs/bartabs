@@ -143,12 +143,12 @@
 			children = (
 				7E4029C41E9F5F5500054D6E /* orders */,
 				A0117A3B1E636C3B00A331CF /* menuViewController.swift */,
-				A0D75AD81E79AFEF004F81E0 /* itemAddedViewController.swift */,
 				A0C813631E68AF1800602023 /* categoryViewController.swift */,
 				A0C813651E68B3DE00602023 /* typeViewController.swift */,
 				A022CCDE1E823BB000384BB9 /* payViewController.swift */,
 				A09F16551E5A8C05003B2BB0 /* paymentViewController.swift */,
 				A011B5EF1E7724AC00446119 /* addMenuItemViewController.swift */,
+				A0D75AD81E79AFEF004F81E0 /* itemAddedViewController.swift */,
 			);
 			name = menu;
 			sourceTree = "<group>";

@@ -4,7 +4,15 @@
 //
 //  Created by Dexstrum on 2/19/17.
 //  Copyright © 2017 muhlenberg. All rights reserved.
-//
+/*
+    This view controller is presented when the user successfully
+    logs into the application.  From this screen the user will be
+    able to view Bars in the area, view the Bar's menu, place orders,
+    view the order history, and pay for orders.
+ 
+    Employees can complete orders and place orders on behalf of the user.
+    Owners can manage employees by adding/removing them.
+*/
 
 import UIKit
 import Alamofire
@@ -33,6 +41,12 @@ class userLoginViewController: UIViewController {
     @IBOutlet var ordersMenuButton: UIButton!
     @IBOutlet var employees: UIButton!
     
+    
+    /*
+     This creats a QR Code which has a specific ID tied to the
+     user's account.  The QR code can be accessed by swiping up
+     from the bottom of the screen.
+    */
     override func viewDidLoad() {
         super.viewDidLoad()
         

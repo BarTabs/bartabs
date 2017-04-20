@@ -4,7 +4,12 @@
 //
 //  Created by Dexstrum on 2/11/17.
 //  Copyright © 2017 muhlenberg. All rights reserved.
-//
+//  
+/* 
+  This view controller is the home screen for when the app
+  loads for the first time.  The user can either log in or
+  register a new account.
+*/
 
 import UIKit
 import Alamofire
@@ -15,6 +20,7 @@ import FirebaseMessaging
 
 class ViewController: UIViewController {
     
+    //Start parameters
     let url = "http://138.197.87.137:8080/bartabs-server/authenticate"
     let container: UIView = UIView()
     let loadingView: UIView = UIView()
@@ -51,6 +57,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Gets the Firebase ID token tailored to the device
         if let token = FIRInstanceID.instanceID().token() {
             _fcmToken = token.description
             print("InstanceID token: \(token)")
@@ -104,6 +111,13 @@ class ViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
         
     }
+    
+    /*
+     This function will process the HTTP request for the user login.
+     Once the request is made it will store specific parameters tailored
+     to that user.  There parameters will enable them to place orders,
+     view history, and stay logged into the app.
+    */
     
     func login(parameters: Parameters) {
         let service = "authenticate"

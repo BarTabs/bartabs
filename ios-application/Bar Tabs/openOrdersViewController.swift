@@ -4,7 +4,13 @@
 //
 //  Created by Victor Lora on 4/6/17.
 //  Copyright © 2017 muhlenberg. All rights reserved.
-//
+/*
+    This view controller enables employees to view all
+    of the orders that need to be completed.  The employee
+    can see which user placed the order and complete the order.
+    A notification will be sent to the user once his/her order has
+    been completed.
+*/
 
 import UIKit
 import Alamofire

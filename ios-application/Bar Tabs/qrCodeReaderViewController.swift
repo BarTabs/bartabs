@@ -63,7 +63,7 @@ class qrCodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjec
             captureSession?.startRunning()
             
             // Move the message label to the top view
-//            view.bringSubview(toFront: messageLabel)
+            // view.bringSubview(toFront: messageLabel)
             
             // Initialize QR Code Frame to highlight the QR code
             qrCodeFrameView = UIView()

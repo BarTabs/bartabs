@@ -4,7 +4,10 @@
 //
 //  Created by Victor Lora on 3/30/17.
 //  Copyright © 2017 muhlenberg. All rights reserved.
-//
+/*
+    This view controller enables the user to see his/her
+    order history.  The orders are displayed in a table view.
+*/
 
 import UIKit
 import Alamofire

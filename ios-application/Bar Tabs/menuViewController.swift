@@ -4,7 +4,11 @@
 //
 //  Created by Dexstrum on 2/26/17.
 //  Copyright © 2017 muhlenberg. All rights reserved.
-//
+/*
+    This view controller gets all of the menu categories
+    (i.e. Food, Drinks) of the current Bar that the user 
+    is at and displays them into a table view.
+*/
 
 import UIKit
 import Alamofire

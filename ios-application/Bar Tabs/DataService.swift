@@ -4,13 +4,21 @@
 //
 //  Created by Victor Lora on 3/26/17.
 //  Copyright © 2017 muhlenberg. All rights reserved.
-//
+/*
+    This view controller handles all of the HTTP Requests
+    be it GET or POST. Rather than using Apple's standard
+    HTTP request methods, we implemented Alamofire to handle
+    of the requests, and SwiftJSON to handle all of the JSON
+    parsing.
+*/
 
 import Foundation
 import Alamofire
 import SwiftyJSON
 
 class DataService {
+    
+    //Define parameters
     
     let container: UIView = UIView()
     let loadingView: UIView = UIView()
@@ -72,6 +80,7 @@ class DataService {
         self.fetchData(service: service, parameters: parameters, showActivityIndicator: self.showActivityIndicator, completion: completion)
     }
 
+    //This function is for handling an HTTP POST request.
     func post(service: String, parameters: Parameters, showActivityIndicator: Bool, completion: @escaping (_ callback:JSON) -> Void) {
         self.showActivityIndicator = showActivityIndicator
         
@@ -109,11 +118,13 @@ class DataService {
         }
     }
     
+    
     func post(service: String, parameters: Parameters, completion: @escaping (_ callback:JSON) -> Void) {
         post(service: service, parameters: parameters, showActivityIndicator: self.showActivityIndicator, completion: completion)
     }
 
     
+    // Hides the activity indicator once the HTTP request has finished
     func hideActivityIndicatorCreateAlert(titleText: String, messageText: String) {
         if showActivityIndicator {
             self.hideActivityIndicator(uiView: self.parentView.view)

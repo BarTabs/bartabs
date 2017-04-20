@@ -4,7 +4,11 @@
 //
 //  Created by Dexstrum on 3/2/17.
 //  Copyright © 2017 muhlenberg. All rights reserved.
-//
+/*
+    This view controller gets all of the sub categories
+    (i.e. Beers, Cocktails, Spirits, Mixed Drinks)
+    and displays it in a table view.
+ */
 
 import UIKit
 import Alamofire

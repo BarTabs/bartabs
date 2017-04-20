@@ -4,7 +4,10 @@
 //
 //  Created by Dexstrum on 2/19/17.
 //  Copyright © 2017 muhlenberg. All rights reserved.
-//
+/*
+    This view controller is for the creation of a new
+    user be it an owner or a customer.
+*/
 
 import UIKit
 import Alamofire
@@ -71,6 +74,13 @@ class customerViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
         
     }
+    
+    /*
+     This function will process the HTTP request for the user login.
+     Once the request is made it will store specific parameters tailored
+     to that user.  There parameters will enable them to place orders,
+     view history, and stay logged into the app.
+     */
     
     func createUser(parameters: Parameters) {
         let service = "user/createuser"

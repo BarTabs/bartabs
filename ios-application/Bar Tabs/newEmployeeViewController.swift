@@ -4,7 +4,12 @@
 //
 //  Created by Ron Gerschel on 4/6/17.
 //  Copyright © 2017 muhlenberg. All rights reserved.
-//
+/*
+    This view controller gives owners the ability
+    to add new employees or edit current employees.
+    All employees are displayed in a table view allowing for
+    easier managing.
+*/
 
 import UIKit
 import Alamofire

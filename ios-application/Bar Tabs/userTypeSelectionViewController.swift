@@ -4,7 +4,12 @@
 //
 //  Created by Victor Lora on 2/26/17.
 //  Copyright © 2017 muhlenberg. All rights reserved.
-//
+/*
+    This view controller checks to see if the person
+    creating a new account chose owner or customer.
+    If the owner was selected a 1 is passed and if
+    customer is selected a 4 is passed.
+*/
 
 import UIKit
 

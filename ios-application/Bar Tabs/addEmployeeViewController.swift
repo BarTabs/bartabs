@@ -4,7 +4,12 @@
 //
 //  Created by Ron Gerschel on 4/5/17.
 //  Copyright © 2017 muhlenberg. All rights reserved.
-//
+/*
+    This view controller enables Owners to view/remove employees.
+    The employees are displayed in a table view which makes it
+    easier for the owner to manage employees.  To delete someone, an owner
+    may swipe to delete.
+*/
 
 import UIKit
 import Alamofire
@@ -88,6 +93,7 @@ class addEmployeeViewController: UIViewController, UITableViewDataSource, UITabl
             deleteRecord(employeeId: objectID)
         }
     }
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let jsonVar : JSON = self.employees!

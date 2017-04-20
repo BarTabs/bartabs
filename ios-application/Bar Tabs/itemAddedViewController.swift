@@ -4,7 +4,10 @@
 //
 //  Created by Dexstrum on 3/15/17.
 //  Copyright © 2017 muhlenberg. All rights reserved.
-//
+/*
+    This view controller displays the name of the 
+    menu item that was just added by the owner.
+*/
 
 import UIKit
 

@@ -4,7 +4,12 @@
 //
 //  Created by Dexstrum on 3/18/17.
 //  Copyright © 2017 muhlenberg. All rights reserved.
-//
+/*
+    This view controller enables users to place orders
+    for different items.  There is QR code tied to the user's
+    account which enables Employees to scan the code and place
+    the order for the user.
+*/
 
 import UIKit
 import Alamofire
