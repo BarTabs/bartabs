@@ -26,6 +26,15 @@ class ViewController: UIViewController {
     let loadingView: UIView = UIView()
     let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
+    @IBOutlet var visualEffect: UIVisualEffectView!
+    
+    var effect: UIVisualEffect!
+    
+    @IBOutlet var close: UIButton!
+    
+    
+    @IBOutlet var popUp: UIView!
+        
     @IBOutlet var userNameField: UITextField!
     
     @IBOutlet var loginButton: UIButton!
@@ -33,6 +42,18 @@ class ViewController: UIViewController {
     @IBOutlet var passwordField: UITextField!
     
     @IBOutlet var pregame: UIButton!
+    
+    @IBOutlet var login: UIButton!
+    
+    @IBAction func animate(_ sender: Any) {
+        animateIn()
+    }
+    
+    @IBAction func close(_ sender: Any) {
+        animateOut()
+    }
+    
+    
     
     @IBAction func login(_ sender: Any) {
     
@@ -57,6 +78,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        effect = visualEffect.effect
+        visualEffect.effect = nil
+        visualEffect.isUserInteractionEnabled = false
+        
         //Gets the Firebase ID token tailored to the device
         if let token = FIRInstanceID.instanceID().token() {
             _fcmToken = token.description
@@ -69,6 +94,11 @@ class ViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
         self.navigationItem.setHidesBackButton(true, animated:true)
+        
+        login.layer.cornerRadius = 5
+        login.layer.backgroundColor = UIColor(red: 0, green: 0.8392, blue: 0.0275, alpha: 1.0).cgColor
+        login.tintColor = UIColor.white
+        
         loginButton.layer.cornerRadius = 5
         loginButton.layer.backgroundColor = UIColor(red: 0, green: 0.8392, blue: 0.0275, alpha: 1.0).cgColor
         loginButton.tintColor = UIColor.white
@@ -143,6 +173,30 @@ class ViewController: UIViewController {
         dataService.fetchData(service: service, parameters: parameters, completion: { (response: JSON) -> Void in
             print("Device registered for notifications")
             return
+        })
+    }
+    
+    func animateIn() {
+        self.view.addSubview(popUp)
+        popUp.center = self.view.center
+        popUp.layer.cornerRadius = 5
+        popUp.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        popUp.alpha = 0
+        
+        UIView.animate(withDuration: 0.4) {
+            self.visualEffect.effect = self.effect
+            self.popUp.alpha = 1
+            self.popUp.transform = CGAffineTransform.identity
+        }
+        
+        
+    }
+    
+    func animateOut() {
+        UIView.animate(withDuration: 0.4, animations: {
+            self.popUp.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            self.popUp.alpha = 0
+            self.visualEffect.effect = nil
         })
     }
 
