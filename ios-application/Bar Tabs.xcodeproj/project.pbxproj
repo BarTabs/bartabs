@@ -15,6 +15,8 @@
 		7E5A19381E8D6E39004EE3D5 /* orderHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5A19371E8D6E39004EE3D5 /* orderHistoryViewController.swift */; };
 		7E5D38CD1E88655A00C212D5 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5D38CC1E88655A00C212D5 /* DataService.swift */; };
 		7EED520D1E637C6700669184 /* userTypeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EED520C1E637C6700669184 /* userTypeSelectionViewController.swift */; };
+		A009995C1EB0454300A829F3 /* beer.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A009995B1EB0454300A829F3 /* beer.jpg */; };
+		A009995E1EB04BBD00A829F3 /* pitcher.png in Resources */ = {isa = PBXBuildFile; fileRef = A009995D1EB04BBD00A829F3 /* pitcher.png */; };
 		A009C7911E5A44CF009095E8 /* customerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A009C7901E5A44CF009095E8 /* customerViewController.swift */; };
 		A00C8A191E95601800090A15 /* mapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00C8A181E95601800090A15 /* mapViewController.swift */; };
 		A0117A3C1E636C3B00A331CF /* menuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0117A3B1E636C3B00A331CF /* menuViewController.swift */; };
@@ -70,6 +72,8 @@
 		7E5A19371E8D6E39004EE3D5 /* orderHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = orderHistoryViewController.swift; sourceTree = "<group>"; };
 		7E5D38CC1E88655A00C212D5 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		7EED520C1E637C6700669184 /* userTypeSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userTypeSelectionViewController.swift; sourceTree = "<group>"; };
+		A009995B1EB0454300A829F3 /* beer.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = beer.jpg; sourceTree = "<group>"; };
+		A009995D1EB04BBD00A829F3 /* pitcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pitcher.png; sourceTree = "<group>"; };
 		A009C7901E5A44CF009095E8 /* customerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customerViewController.swift; sourceTree = "<group>"; };
 		A00C8A181E95601800090A15 /* mapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapViewController.swift; sourceTree = "<group>"; };
 		A0117A3B1E636C3B00A331CF /* menuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuViewController.swift; sourceTree = "<group>"; };
@@ -252,6 +256,8 @@
 		A0BEB4C21E8D6EF20098FFA1 /* AppIcon.appiconset */ = {
 			isa = PBXGroup;
 			children = (
+				A009995D1EB04BBD00A829F3 /* pitcher.png */,
+				A009995B1EB0454300A829F3 /* beer.jpg */,
 				7E4029C21E9F3DA600054D6E /* qrCodeIcon.png */,
 				A01D4B901E8D7B740080A563 /* splash.png */,
 				A0BEB4C31E8D6EF20098FFA1 /* Contents.json */,
@@ -360,6 +366,7 @@
 				A030DD871E4FB45D0049539D /* LaunchScreen.storyboard in Resources */,
 				A04217CC1E9AC5E500F5324E /* qrCodeView.xib in Resources */,
 				A0BEB4DD1E8D6EF20098FFA1 /* Icon-App-29x29@3x.png in Resources */,
+				A009995E1EB04BBD00A829F3 /* pitcher.png in Resources */,
 				A0BEB4E21E8D6EF20098FFA1 /* Icon-App-57x57@2x.png in Resources */,
 				A01D4B911E8D7B740080A563 /* splash.png in Resources */,
 				A0BEB4E51E8D6EF20098FFA1 /* Icon-App-60x60@2x.png in Resources */,
@@ -367,6 +374,7 @@
 				A0BEB4DA1E8D6EF20098FFA1 /* Icon-App-20x20@3x.png in Resources */,
 				A0BEB4E41E8D6EF20098FFA1 /* Icon-App-60x60@1x.png in Resources */,
 				A0BEB4E61E8D6EF20098FFA1 /* Icon-App-60x60@3x.png in Resources */,
+				A009995C1EB0454300A829F3 /* beer.jpg in Resources */,
 				A030DD841E4FB45D0049539D /* Assets.xcassets in Resources */,
 				A0BEB4E91E8D6EF20098FFA1 /* Icon-App-76x76@3x.png in Resources */,
 				A030DD821E4FB45D0049539D /* Main.storyboard in Resources */,

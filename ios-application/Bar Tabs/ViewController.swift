@@ -70,15 +70,12 @@ class ViewController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
         self.navigationItem.setHidesBackButton(true, animated:true)
         loginButton.layer.cornerRadius = 5
-        loginButton.layer.borderWidth = 1
-        loginButton.layer.borderColor = UIColor(red: 0, green: 0.4941, blue: 0.9647, alpha: 1.0).cgColor
+        loginButton.layer.backgroundColor = UIColor(red: 0, green: 0.8392, blue: 0.0275, alpha: 1.0).cgColor
+        loginButton.tintColor = UIColor.white
         
-        pregame.tintColor = UIColor.red
+        pregame.tintColor = UIColor.white
         pregame.layer.cornerRadius = 5
-        pregame.layer.borderColor = UIColor.red.cgColor
-        pregame.layer.borderWidth = 1
-        
-        self.view.backgroundColor = UIColor(red: 0.3725, green: 0.3647, blue: 0.3725, alpha: 1.0)
+        pregame.layer.backgroundColor = UIColor(red: 0, green: 0.4941, blue: 0.9647, alpha: 1.0).cgColor
     }
     
     override func didReceiveMemoryWarning() {
@@ -89,6 +86,7 @@ class ViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.black]
         self.navigationController?.navigationBar.isHidden = false
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
