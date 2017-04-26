@@ -1,16 +1,16 @@
 //
-//  GetService.swift
+//  DataService.swift
 //  Bar Tabs
 //
 //  Created by Victor Lora on 3/26/17.
 //  Copyright © 2017 muhlenberg. All rights reserved.
-/*
-    This view controller handles all of the HTTP Requests
-    be it GET or POST. Rather than using Apple's standard
-    HTTP request methods, we implemented Alamofire to handle
-    of the requests, and SwiftJSON to handle all of the JSON
-    parsing.
-*/
+//
+//  This view class handles all of the HTTP Requests
+//  be it GET or POST. Rather than using Apple's standard
+//  HTTP request methods, we implement Alamofire to handle
+//  of the requests and use SwiftJSON to handle all of the JSON
+//  parsing.
+//
 
 import Foundation
 import Alamofire
