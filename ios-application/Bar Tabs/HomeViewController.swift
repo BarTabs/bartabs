@@ -40,6 +40,7 @@ class HomeViewController: UIViewController {
     @IBOutlet var historyMenuButton: UIButton!
     @IBOutlet var ordersMenuButton: UIButton!
     @IBOutlet var employees: UIButton!
+    @IBOutlet var barsButton: UIButton!
     
     
     /*

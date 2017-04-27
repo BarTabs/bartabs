@@ -34,6 +34,12 @@ var _annotation: MKPointAnnotation?
 class GeotificationsViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet var addButton: UIBarButtonItem!
+    @IBAction func addButtonPressed(_ sender: Any) {
+        if !addButton.isEnabled {
+            showAlert(withTitle: "Warning", message: "Hold to drop a pin before attempting to add")
+        }
+    }
     
     var geotifications: [Geotification] = []
     
@@ -44,6 +50,8 @@ class GeotificationsViewController: UIViewController {
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(addAnnotationOnLongPress(gesture:)))
         longPressGesture.minimumPressDuration = 0.5
         self.mapView.addGestureRecognizer(longPressGesture)
+        self.addButton.isEnabled = false
+        
         
         loadAllGeotifications()
     }
@@ -52,6 +60,7 @@ class GeotificationsViewController: UIViewController {
         
         if _annotation != nil {
             self.mapView.removeAnnotation(_annotation!)
+            self.addButton.isEnabled = true
         }
         
         let point = gesture.location(in: self.mapView)
