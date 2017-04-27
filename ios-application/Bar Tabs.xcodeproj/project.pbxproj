@@ -55,8 +55,8 @@
 		A0BEB4EA1E8D6EF20098FFA1 /* Icon-App-83.5x83.5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0BEB4D61E8D6EF20098FFA1 /* Icon-App-83.5x83.5@2x.png */; };
 		A0C14C391E5A0726003555D5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C14C381E5A0726003555D5 /* HomeViewController.swift */; };
 		A0C813641E68AF1800602023 /* TypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C813631E68AF1800602023 /* TypeViewController.swift */; };
-		A0C813661E68B3DE00602023 /* MenuItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C813651E68B3DE00602023 /* MenuItemViewController.swift */; };
 		A0D75AD91E79AFEF004F81E0 /* ItemAddedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D75AD81E79AFEF004F81E0 /* ItemAddedViewController.swift */; };
+		A0F2F6CF1EB29300008F53ED /* MenuItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F2F6CE1EB29300008F53ED /* MenuItemViewController.swift */; };
 		BA4AF9491E96B88A0049F34D /* newEmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4AF9481E96B88A0049F34D /* newEmployeeViewController.swift */; };
 		BAA78E1D1E952B41000A454D /* addEmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA78E1C1E952B41000A454D /* addEmployeeViewController.swift */; };
 		CA30E256831FA78057A1E448 /* Pods_Bar_Tabs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4F3D1E041A64E6CC99904B5 /* Pods_Bar_Tabs.framework */; };
@@ -114,8 +114,8 @@
 		A0BEB4D61E8D6EF20098FFA1 /* Icon-App-83.5x83.5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-83.5x83.5@2x.png"; sourceTree = "<group>"; };
 		A0C14C381E5A0726003555D5 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A0C813631E68AF1800602023 /* TypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeViewController.swift; sourceTree = "<group>"; };
-		A0C813651E68B3DE00602023 /* MenuItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemViewController.swift; sourceTree = "<group>"; };
 		A0D75AD81E79AFEF004F81E0 /* ItemAddedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemAddedViewController.swift; sourceTree = "<group>"; };
+		A0F2F6CE1EB29300008F53ED /* MenuItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemViewController.swift; sourceTree = "<group>"; };
 		A4F3D1E041A64E6CC99904B5 /* Pods_Bar_Tabs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bar_Tabs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9B886795B43E4489287E26A /* Pods-Bar Tabs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bar Tabs.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bar Tabs/Pods-Bar Tabs.release.xcconfig"; sourceTree = "<group>"; };
 		BA4AF9481E96B88A0049F34D /* newEmployeeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newEmployeeViewController.swift; sourceTree = "<group>"; };
@@ -149,7 +149,7 @@
 				A0117A3B1E636C3B00A331CF /* CategoryViewController.swift */,
 				7E6984891EB17DCE00F2E509 /* MenuItemTableViewCell.swift */,
 				A0C813631E68AF1800602023 /* TypeViewController.swift */,
-				A0C813651E68B3DE00602023 /* MenuItemViewController.swift */,
+				A0F2F6CE1EB29300008F53ED /* MenuItemViewController.swift */,
 				A022CCDE1E823BB000384BB9 /* PaymentMadeViewController.swift */,
 				A011B5EF1E7724AC00446119 /* AddMenuItemViewController.swift */,
 				A0D75AD81E79AFEF004F81E0 /* ItemAddedViewController.swift */,
@@ -446,6 +446,7 @@
 				7E69848A1EB17DCE00F2E509 /* MenuItemTableViewCell.swift in Sources */,
 				A00C8A191E95601800090A15 /* mapViewController.swift in Sources */,
 				7E4029C11E9EA71C00054D6E /* QqrCodeReaderViewController.swift in Sources */,
+				A0F2F6CF1EB29300008F53ED /* MenuItemViewController.swift in Sources */,
 				7E5A19381E8D6E39004EE3D5 /* OrderHistoryViewController.swift in Sources */,
 				A022CCDF1E823BB000384BB9 /* PaymentMadeViewController.swift in Sources */,
 				BA4AF9491E96B88A0049F34D /* newEmployeeViewController.swift in Sources */,
@@ -465,7 +466,6 @@
 				A0C813641E68AF1800602023 /* TypeViewController.swift in Sources */,
 				7E2A77D41E9658D30055817A /* OpenOrdersViewController.swift in Sources */,
 				A011B5F01E7724AC00446119 /* AddMenuItemViewController.swift in Sources */,
-				A0C813661E68B3DE00602023 /* MenuItemViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
