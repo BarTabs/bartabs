@@ -55,15 +55,22 @@ class openOrdersViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! OpenOrdersTableViewCell
         
         if (self.orders != nil) {
             
             let jsonVar : JSON = self.orders!
             let orderID = jsonVar[indexPath.row]["objectID"].int64
-            cell.textLabel?.textAlignment = .center
-            cell.textLabel?.text = "Order #" + orderID!.description
+            
+            cell.column1.text = "Order #" + orderID!.description;
+            cell.column1.textAlignment = .left
+            
+            cell.column2.text = "Order #" + orderID!.description;
+            cell.column2.textAlignment = .right
+            
         }
+
+        
         return cell
     }
     

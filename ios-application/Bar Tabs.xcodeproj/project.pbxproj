@@ -12,8 +12,10 @@
 		7E2A77D41E9658D30055817A /* openOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2A77D31E9658D30055817A /* openOrdersViewController.swift */; };
 		7E4029C11E9EA71C00054D6E /* qrCodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4029C01E9EA71C00054D6E /* qrCodeReaderViewController.swift */; };
 		7E4029C31E9F3DA600054D6E /* qrCodeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E4029C21E9F3DA600054D6E /* qrCodeIcon.png */; };
+		7E4C18E51EB0459B001C9578 /* openOrdersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4C18E41EB0459B001C9578 /* openOrdersTableViewCell.swift */; };
 		7E5A19381E8D6E39004EE3D5 /* orderHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5A19371E8D6E39004EE3D5 /* orderHistoryViewController.swift */; };
 		7E5D38CD1E88655A00C212D5 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5D38CC1E88655A00C212D5 /* DataService.swift */; };
+		7E69848A1EB17DCE00F2E509 /* menuItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6984891EB17DCE00F2E509 /* menuItemTableViewCell.swift */; };
 		7EED520D1E637C6700669184 /* userTypeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EED520C1E637C6700669184 /* userTypeSelectionViewController.swift */; };
 		A009C7911E5A44CF009095E8 /* customerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A009C7901E5A44CF009095E8 /* customerViewController.swift */; };
 		A00C8A191E95601800090A15 /* mapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00C8A181E95601800090A15 /* mapViewController.swift */; };
@@ -67,8 +69,10 @@
 		7E2A77D31E9658D30055817A /* openOrdersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = openOrdersViewController.swift; sourceTree = "<group>"; };
 		7E4029C01E9EA71C00054D6E /* qrCodeReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = qrCodeReaderViewController.swift; sourceTree = "<group>"; };
 		7E4029C21E9F3DA600054D6E /* qrCodeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qrCodeIcon.png; sourceTree = "<group>"; };
+		7E4C18E41EB0459B001C9578 /* openOrdersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = openOrdersTableViewCell.swift; sourceTree = "<group>"; };
 		7E5A19371E8D6E39004EE3D5 /* orderHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = orderHistoryViewController.swift; sourceTree = "<group>"; };
 		7E5D38CC1E88655A00C212D5 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		7E6984891EB17DCE00F2E509 /* menuItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuItemTableViewCell.swift; sourceTree = "<group>"; };
 		7EED520C1E637C6700669184 /* userTypeSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userTypeSelectionViewController.swift; sourceTree = "<group>"; };
 		A009C7901E5A44CF009095E8 /* customerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customerViewController.swift; sourceTree = "<group>"; };
 		A00C8A181E95601800090A15 /* mapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 			children = (
 				7E4029C41E9F5F5500054D6E /* orders */,
 				A0117A3B1E636C3B00A331CF /* menuViewController.swift */,
+				7E6984891EB17DCE00F2E509 /* menuItemTableViewCell.swift */,
 				A0C813631E68AF1800602023 /* categoryViewController.swift */,
 				A0C813651E68B3DE00602023 /* typeViewController.swift */,
 				A022CCDE1E823BB000384BB9 /* payViewController.swift */,
@@ -171,6 +176,7 @@
 				7E4029C01E9EA71C00054D6E /* qrCodeReaderViewController.swift */,
 				A04217C91E9AC5E500F5324E /* qrCodeView.swift */,
 				A04217CA1E9AC5E500F5324E /* qrCodeView.xib */,
+				7E4C18E41EB0459B001C9578 /* openOrdersTableViewCell.swift */,
 			);
 			name = orders;
 			sourceTree = "<group>";
@@ -435,6 +441,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E69848A1EB17DCE00F2E509 /* menuItemTableViewCell.swift in Sources */,
 				A00C8A191E95601800090A15 /* mapViewController.swift in Sources */,
 				7E4029C11E9EA71C00054D6E /* qrCodeReaderViewController.swift in Sources */,
 				7E5A19381E8D6E39004EE3D5 /* orderHistoryViewController.swift in Sources */,
@@ -457,6 +464,7 @@
 				A0C813641E68AF1800602023 /* categoryViewController.swift in Sources */,
 				7E2A77D41E9658D30055817A /* openOrdersViewController.swift in Sources */,
 				A011B5F01E7724AC00446119 /* addMenuItemViewController.swift in Sources */,
+				7E4C18E51EB0459B001C9578 /* openOrdersTableViewCell.swift in Sources */,
 				A0C813661E68B3DE00602023 /* typeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -72,7 +72,6 @@ class menuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if (self.menu != nil) {
             let jsonVar : JSON = self.menu!
             let categories = jsonVar[indexPath.row].string
-            cell.textLabel?.textAlignment = .center
             cell.textLabel?.text = categories
         }
         return cell

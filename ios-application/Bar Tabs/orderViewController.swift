@@ -122,16 +122,20 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         var name = ""
+        var price = 0.0
         
         if items.count > 0 {
             name = items[indexPath.row]["name"].stringValue
+            price = items[indexPath.row]["price"].doubleValue
         } else if clientOrder.orderItems.count > 0 {
             let menuItem : ClientMenuItem = clientOrder.orderItems[indexPath.row]
             name = menuItem.name ?? ""
+            price = menuItem.price ?? 0.0
         }
         
-        cell.textLabel?.textAlignment = .center
         cell.textLabel?.text = name
+        cell.detailTextLabel?.text = String(format:"$%.02f", price)
+        
         return cell
     }
     

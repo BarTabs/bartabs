@@ -65,14 +65,21 @@ class typeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MenuItemTableViewCell
         
         if (self.menu != nil) {
             let jsonVar : JSON = self.menu!
-            let categories = jsonVar["menuItems"][indexPath.row]["name"].string
-            cell.textLabel?.textAlignment = .center
-            cell.textLabel?.text = categories
+            let name = jsonVar["menuItems"][indexPath.row]["name"].stringValue
+            let description = jsonVar["menuitems"][indexPath.row]["description"].stringValue
+            let price = jsonVar["menuItems"][indexPath.row]["price"].doubleValue
+            
+            cell.title.text = name
+            cell.subtitle.text = "test"
+            cell.price.text = String(format:"$%.02f", price)
+            
+            
         }
+        
         return cell
     }
     

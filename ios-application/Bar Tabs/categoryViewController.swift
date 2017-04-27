@@ -65,9 +65,8 @@ class categoryViewController: UIViewController, UITableViewDataSource, UITableVi
         if (self.menu != nil) {
         
             let jsonVar : JSON = self.menu!
-            let categories = jsonVar[indexPath.row].string
-            cell.textLabel?.textAlignment = .center
-            cell.textLabel?.text = categories
+            let type = jsonVar[indexPath.row].string
+            cell.textLabel?.text = type
         }
         return cell
     }
