@@ -23,7 +23,23 @@ class customerViewController: UIViewController {
     
     @IBOutlet var confirmPasswordField: UITextField!
     
+    @IBOutlet var firstName: UITextField!
+    
+    
+    @IBOutlet var lastName: UITextField!
+    
+    @IBOutlet var address: UITextField!
+    
+    
+    @IBOutlet var city: UITextField!
+    
+    @IBOutlet var state: UITextField!
+    
+    @IBOutlet var zip: UITextField!
+    
     @IBOutlet var phoneNumberField: UITextField!
+    
+    @IBOutlet var account: UIButton!
     
     @IBAction func createAccount(_ sender: Any) {
         
@@ -57,6 +73,24 @@ class customerViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.view.backgroundColor = UIColor.black
+        userNameField.layer.cornerRadius = 5
+        passwordField.layer.cornerRadius = 5
+        confirmPasswordField.layer.cornerRadius = 5
+        phoneNumberField.layer.cornerRadius = 5
+        firstName.layer.cornerRadius = 5
+        lastName.layer.cornerRadius = 5
+        address.layer.cornerRadius = 5
+        city.layer.cornerRadius = 5
+        state.layer.cornerRadius = 5
+        zip.layer.cornerRadius = 5
+        account.layer.backgroundColor = UIColor(red: 0, green: 0.8392, blue: 0.0275, alpha: 1.0).cgColor
+        account.tintColor = UIColor.white
+        account.layer.cornerRadius = 5
     }
     
     override func didReceiveMemoryWarning() {

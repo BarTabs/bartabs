@@ -15,6 +15,10 @@ import UIKit
 
 class userTypeSelectionViewController: UIViewController {
 
+    @IBOutlet var customer: UIButton!
+    
+    @IBOutlet var owner: UIButton!
+    
     @IBAction func customerSelected(_ sender: Any) {
         performSegue(withIdentifier: "customerViewController", sender: 4)
     }
@@ -25,6 +29,7 @@ class userTypeSelectionViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.title = "Create Account"
         // Do any additional setup after loading the view.
+        self.view.backgroundColor = UIColor.black
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,5 +43,25 @@ class userTypeSelectionViewController: UIViewController {
             customerViewController.userType = sender as? Int
         }
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        customer.layer.backgroundColor = UIColor(red: 0, green: 0.8392, blue: 0.0275, alpha: 1.0).cgColor
+        customer.tintColor = UIColor.white
+        customer.layer.cornerRadius = 5
+        
+        owner.layer.backgroundColor = UIColor(red: 0, green: 0.4941, blue: 0.9647, alpha: 1.0).cgColor
+        owner.tintColor = UIColor.white
+        owner.layer.cornerRadius = 5
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
+        self.navigationController?.navigationBar.barTintColor = UIColor.black
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.black]
+        
+    }
 }
