@@ -50,6 +50,7 @@ class userLoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = "Home"
         
         let qrCodeView = UIViewController(nibName: "qrCodeView", bundle: nil)
         

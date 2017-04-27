@@ -78,6 +78,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = "Login"
+        
         effect = visualEffect.effect
         visualEffect.effect = nil
         visualEffect.isUserInteractionEnabled = false
