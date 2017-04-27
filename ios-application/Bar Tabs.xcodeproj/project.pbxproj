@@ -59,6 +59,11 @@
 		A0D75AD91E79AFEF004F81E0 /* ItemAddedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D75AD81E79AFEF004F81E0 /* ItemAddedViewController.swift */; };
 		BA4AF9491E96B88A0049F34D /* newEmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4AF9481E96B88A0049F34D /* newEmployeeViewController.swift */; };
 		BAA78E1D1E952B41000A454D /* addEmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA78E1C1E952B41000A454D /* addEmployeeViewController.swift */; };
+		BAFDA19E1EB291D1006A323C /* AddGeotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFDA1991EB291D1006A323C /* AddGeotificationViewController.swift */; };
+		BAFDA19F1EB291D1006A323C /* Geotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFDA19A1EB291D1006A323C /* Geotification.swift */; };
+		BAFDA1A01EB291D1006A323C /* GeotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFDA19B1EB291D1006A323C /* GeotificationsViewController.swift */; };
+		BAFDA1A11EB291D1006A323C /* TestLocations.gpx in Resources */ = {isa = PBXBuildFile; fileRef = BAFDA19C1EB291D1006A323C /* TestLocations.gpx */; };
+		BAFDA1A21EB291D1006A323C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFDA19D1EB291D1006A323C /* Utilities.swift */; };
 		CA30E256831FA78057A1E448 /* Pods_Bar_Tabs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4F3D1E041A64E6CC99904B5 /* Pods_Bar_Tabs.framework */; };
 /* End PBXBuildFile section */
 
@@ -120,6 +125,11 @@
 		B9B886795B43E4489287E26A /* Pods-Bar Tabs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bar Tabs.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bar Tabs/Pods-Bar Tabs.release.xcconfig"; sourceTree = "<group>"; };
 		BA4AF9481E96B88A0049F34D /* newEmployeeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newEmployeeViewController.swift; sourceTree = "<group>"; };
 		BAA78E1C1E952B41000A454D /* addEmployeeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addEmployeeViewController.swift; sourceTree = "<group>"; };
+		BAFDA1991EB291D1006A323C /* AddGeotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGeotificationViewController.swift; sourceTree = "<group>"; };
+		BAFDA19A1EB291D1006A323C /* Geotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geotification.swift; sourceTree = "<group>"; };
+		BAFDA19B1EB291D1006A323C /* GeotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeotificationsViewController.swift; sourceTree = "<group>"; };
+		BAFDA19C1EB291D1006A323C /* TestLocations.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestLocations.gpx; sourceTree = "<group>"; };
+		BAFDA19D1EB291D1006A323C /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +246,7 @@
 		A030DD7B1E4FB45D0049539D /* Bar Tabs */ = {
 			isa = PBXGroup;
 			children = (
+				BAFDA1981EB291A7006A323C /* geotify */,
 				7E4029C71E9F5FD800054D6E /* login/setup */,
 				7E4029C61E9F5F9800054D6E /* map */,
 				7E4029C51E9F5F7900054D6E /* employee */,
@@ -282,6 +293,18 @@
 				A0BEB4D61E8D6EF20098FFA1 /* Icon-App-83.5x83.5@2x.png */,
 			);
 			path = AppIcon.appiconset;
+			sourceTree = "<group>";
+		};
+		BAFDA1981EB291A7006A323C /* geotify */ = {
+			isa = PBXGroup;
+			children = (
+				BAFDA1991EB291D1006A323C /* AddGeotificationViewController.swift */,
+				BAFDA19A1EB291D1006A323C /* Geotification.swift */,
+				BAFDA19B1EB291D1006A323C /* GeotificationsViewController.swift */,
+				BAFDA19C1EB291D1006A323C /* TestLocations.gpx */,
+				BAFDA19D1EB291D1006A323C /* Utilities.swift */,
+			);
+			name = geotify;
 			sourceTree = "<group>";
 		};
 		F54383F60B1B127D2E644CF6 /* Pods */ = {
@@ -384,6 +407,7 @@
 				A0BEB4E01E8D6EF20098FFA1 /* Icon-App-40x40@3x.png in Resources */,
 				A0BEB4DF1E8D6EF20098FFA1 /* Icon-App-40x40@2x.png in Resources */,
 				A0BEB4EA1E8D6EF20098FFA1 /* Icon-App-83.5x83.5@2x.png in Resources */,
+				BAFDA1A11EB291D1006A323C /* TestLocations.gpx in Resources */,
 				A0BEB4DB1E8D6EF20098FFA1 /* Icon-App-29x29@1x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,6 +469,7 @@
 			files = (
 				7E69848A1EB17DCE00F2E509 /* MenuItemTableViewCell.swift in Sources */,
 				A00C8A191E95601800090A15 /* mapViewController.swift in Sources */,
+				BAFDA1A01EB291D1006A323C /* GeotificationsViewController.swift in Sources */,
 				7E4029C11E9EA71C00054D6E /* QqrCodeReaderViewController.swift in Sources */,
 				7E5A19381E8D6E39004EE3D5 /* OrderHistoryViewController.swift in Sources */,
 				A022CCDF1E823BB000384BB9 /* PaymentMadeViewController.swift in Sources */,
@@ -455,11 +480,14 @@
 				A0117A3C1E636C3B00A331CF /* CategoryViewController.swift in Sources */,
 				7EED520D1E637C6700669184 /* UserTypeSelectionViewController.swift in Sources */,
 				7E256D631E82FA4900189D59 /* ClientOrder.swift in Sources */,
+				BAFDA19E1EB291D1006A323C /* AddGeotificationViewController.swift in Sources */,
 				7E256D601E82F99D00189D59 /* ClientMenuItem.swift in Sources */,
+				BAFDA1A21EB291D1006A323C /* Utilities.swift in Sources */,
 				A030DD7D1E4FB45D0049539D /* AppDelegate.swift in Sources */,
 				A089A60C1E7DB64F00B07628 /* OrderViewController.swift in Sources */,
 				A0D75AD91E79AFEF004F81E0 /* ItemAddedViewController.swift in Sources */,
 				7E5D38CD1E88655A00C212D5 /* DataService.swift in Sources */,
+				BAFDA19F1EB291D1006A323C /* Geotification.swift in Sources */,
 				A04217CB1E9AC5E500F5324E /* QrCodeView.swift in Sources */,
 				BAA78E1D1E952B41000A454D /* addEmployeeViewController.swift in Sources */,
 				A0C813641E68AF1800602023 /* TypeViewController.swift in Sources */,
