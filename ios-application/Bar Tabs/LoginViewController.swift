@@ -18,7 +18,7 @@ import Firebase
 import FirebaseInstanceID
 import FirebaseMessaging
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
     
     //Start parameters
     let url = "http://138.197.87.137:8080/bartabs-server/authenticate"

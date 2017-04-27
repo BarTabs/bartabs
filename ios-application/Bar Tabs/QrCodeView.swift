@@ -12,7 +12,7 @@ import AVFoundation
 import QRCode
 
 
-class qrcodeViewController: UIViewController {
+class QrcodeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

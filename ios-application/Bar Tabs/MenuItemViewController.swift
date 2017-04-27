@@ -16,7 +16,7 @@ import SwiftyJSON
 
 var _type: String?
 
-class typeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MenuItemViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var menu : JSON?
     var type: String {
@@ -54,7 +54,7 @@ class typeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "orderSegue" {
-            let destSeg = segue.destination as! orderViewController
+            let destSeg = segue.destination as! OrderViewController
             destSeg.item = sender as? JSON
         }
     }

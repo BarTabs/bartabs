@@ -19,7 +19,7 @@ import Alamofire
 import SwiftyJSON
 import QRCode
 
-class userLoginViewController: UIViewController {
+class HomeViewController: UIViewController {
     
     @IBAction func logout(_ sender: Any) {
         UserDefaults.standard.set(false, forKey: "userLoggedIn")
@@ -52,7 +52,7 @@ class userLoginViewController: UIViewController {
         
         navigationItem.title = "Home"
         
-        let qrCodeView = UIViewController(nibName: "qrCodeView", bundle: nil)
+        let qrCodeView = UIViewController(nibName: "QrCodeView", bundle: nil)
         
         self.addChildViewController(qrCodeView)
         self.scrollView.addSubview(qrCodeView.view)

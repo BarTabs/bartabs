@@ -13,7 +13,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class addMenuItemViewController: UIViewController {
+class AddMenuItemViewController: UIViewController {
     
     let container: UIView = UIView()
     let loadingView: UIView = UIView()
@@ -76,7 +76,7 @@ class addMenuItemViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "addItemSegue") {
             let name = itemName.text
-            let destView = segue.destination as! itemAddedViewController
+            let destView = segue.destination as! ItemAddedViewController
             destView.name = name!
         }
     }

@@ -13,7 +13,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class customerViewController: UIViewController {
+class UserCreateViewController: UIViewController {
     
     var userType:Int?
     

@@ -16,7 +16,7 @@ import SwiftyJSON
 
 var _category: String?
 
-class categoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TypeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var menu : JSON?
     var category: String {

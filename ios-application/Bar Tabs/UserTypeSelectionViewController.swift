@@ -13,7 +13,7 @@
 
 import UIKit
 
-class userTypeSelectionViewController: UIViewController {
+class UserTypeSelectionViewController: UIViewController {
 
     @IBOutlet var customer: UIButton!
     
@@ -39,8 +39,8 @@ class userTypeSelectionViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "customerViewController") {
-            let customerViewController = segue.destination as! customerViewController
-            customerViewController.userType = sender as? Int
+            let userCreateViewController = segue.destination as! UserCreateViewController
+            userCreateViewController.userType = sender as? Int
         }
     }
     

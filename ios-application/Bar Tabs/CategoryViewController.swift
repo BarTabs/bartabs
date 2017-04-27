@@ -14,7 +14,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class menuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class CategoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var menu : JSON?
     var bar = ""
@@ -30,7 +30,7 @@ class menuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if(type == 4) {
             var items = [UIBarButtonItem]()
             items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
-            items.append(UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(menuViewController.addMenuItem)))
+            items.append(UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(CategoryViewController.addMenuItem)))
             toolbar.items = items
         }
         

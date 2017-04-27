@@ -16,7 +16,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class openOrdersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class OpenOrdersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var orders : JSON?
     var selectedOrder: JSON?
@@ -55,18 +55,14 @@ class openOrdersViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! OpenOrdersTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         if (self.orders != nil) {
             
             let jsonVar : JSON = self.orders!
             let orderID = jsonVar[indexPath.row]["objectID"].int64
             
-            cell.column1.text = "Order #" + orderID!.description;
-            cell.column1.textAlignment = .left
-            
-            cell.column2.text = "Order #" + orderID!.description;
-            cell.column2.textAlignment = .right
+            cell.textLabel?.text = "Order #" + orderID!.description;
             
         }
 
@@ -94,7 +90,7 @@ class openOrdersViewController: UIViewController, UITableViewDataSource, UITable
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "orderSegue" {
-            let destSeg = segue.destination as! orderViewController
+            let destSeg = segue.destination as! OrderViewController
             destSeg.items = (sender as? [JSON])!
             destSeg.fromOpenOrder = true
             destSeg.orderID = selectedOrder?["objectID"].int64

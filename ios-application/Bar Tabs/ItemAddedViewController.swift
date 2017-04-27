@@ -11,7 +11,7 @@
 
 import UIKit
 
-class itemAddedViewController: UIViewController {
+class ItemAddedViewController: UIViewController {
     
     var name = ""
 

@@ -13,7 +13,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class orderHistoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class OrderHistoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var orders : JSON?
     @IBOutlet var tableView: UITableView!

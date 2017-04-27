@@ -14,7 +14,7 @@ protocol QRCodeScanHandler {
     func scannedQRCode(uuid: String)
 }
 
-class qrCodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+class QrCodeReaderViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     var delegate: QRCodeScanHandler! = nil
     var captureSession:AVCaptureSession?

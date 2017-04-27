@@ -2,7 +2,7 @@
 //  orderViewController.swift
 //  Bar Tabs
 //
-//  Created by Dexstrum on 3/18/17.
+//  Created by Victor on 3/18/17.
 //  Copyright © 2017 muhlenberg. All rights reserved.
 /*
     This view controller enables users to place orders
@@ -17,7 +17,7 @@ import SwiftyJSON
 
 var _clientOrder = ClientOrder()
 
-class orderViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, QRCodeScanHandler {
+class OrderViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, QRCodeScanHandler {
     
     @IBAction func cancelOrder(_ sender: Any) {
         self.clearOrderItems()
@@ -26,7 +26,7 @@ class orderViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     @IBOutlet var qrImage: UIButton!
     @IBAction func qrCodeScanButtonClick(_ sender: Any) {
-        let qrCodeScanView = qrCodeReaderViewController()
+        let qrCodeScanView = QrCodeReaderViewController()
         qrCodeScanView.delegate = self
         self.navigationController?.pushViewController(qrCodeScanView, animated: true)
     }
