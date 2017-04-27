@@ -71,6 +71,7 @@ class MenuItemViewController: UIViewController, UITableViewDataSource, UITableVi
             let jsonVar : JSON = self.menu!
             let name = jsonVar["menuItems"][indexPath.row]["name"].stringValue
             let description = jsonVar["menuitems"][indexPath.row]["description"].stringValue
+            print(description)
             let price = jsonVar["menuItems"][indexPath.row]["price"].doubleValue
             
             cell.title.text = name
