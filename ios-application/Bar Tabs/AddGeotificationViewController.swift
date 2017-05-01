@@ -39,7 +39,7 @@ class AddGeotificationViewController: UITableViewController, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
     
     var delegate: AddGeotificationsViewControllerDelegate?
-    var currentRadius = 100.0
+    var locationManager : CLLocationManager!
     var currentOverlay: MKCircle = MKCircle()
     
     override func viewDidLoad() {
@@ -50,7 +50,6 @@ class AddGeotificationViewController: UITableViewController, MKMapViewDelegate {
         self.mapView.addAnnotation(_annotation!)
         self.mapView.showAnnotations(self.mapView.annotations, animated: true)
         self.addRadiusOverlay(annotation: _annotation!, radius: 100.0)
-        currentRadius = 100.0
     }
     
     // MARK: Map overlay functions
@@ -84,11 +83,9 @@ class AddGeotificationViewController: UITableViewController, MKMapViewDelegate {
         addButton.isEnabled = !radiusTextField.text!.isEmpty && !noteTextField.text!.isEmpty
     }
     
-    
     @IBAction func radiusTextDidChange(_ sender: Any) {
         removeRadiusOverlay()
-        currentRadius = Double(radiusTextField.text!) ?? 100.0
-        addRadiusOverlay(annotation: _annotation!, radius: currentRadius)
+        addRadiusOverlay(annotation: _annotation!, radius: Double(radiusTextField.text!) ?? 0.0)
     }
     
     @IBAction func onCancel(sender: AnyObject) {
@@ -104,7 +101,7 @@ class AddGeotificationViewController: UITableViewController, MKMapViewDelegate {
         delegate?.addGeotificationViewController(controller: self, didAddCoordinate: coordinate, radius: radius, identifier: identifier, note: note!, eventType: eventType)
     }
     
-    @IBAction private func onZoomToCurrentLocation(sender: AnyObject) {
+    @IBAction func onZoomToCurrentLocation(_ sender: Any) {
         mapView.zoomToUserLocation()
     }
 }

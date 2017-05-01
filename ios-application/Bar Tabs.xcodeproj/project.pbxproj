@@ -16,6 +16,9 @@
 		7E5D38CD1E88655A00C212D5 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5D38CC1E88655A00C212D5 /* DataService.swift */; };
 		7E69848A1EB17DCE00F2E509 /* MenuItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6984891EB17DCE00F2E509 /* MenuItemTableViewCell.swift */; };
 		7EED520D1E637C6700669184 /* UserTypeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EED520C1E637C6700669184 /* UserTypeSelectionViewController.swift */; };
+		84FFFEE31EB6AE71009AC0AE /* AddPin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FFFEE21EB6AE71009AC0AE /* AddPin@2x.png */; };
+		84FFFEE51EB6AE7D009AC0AE /* CurrentLocation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FFFEE41EB6AE7D009AC0AE /* CurrentLocation@2x.png */; };
+		84FFFEE71EB6AE87009AC0AE /* DeleteGeotification@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FFFEE61EB6AE87009AC0AE /* DeleteGeotification@2x.png */; };
 		A009995C1EB0454300A829F3 /* beer.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A009995B1EB0454300A829F3 /* beer.jpg */; };
 		A009995E1EB04BBD00A829F3 /* pitcher.png in Resources */ = {isa = PBXBuildFile; fileRef = A009995D1EB04BBD00A829F3 /* pitcher.png */; };
 		A009C7911E5A44CF009095E8 /* UserCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A009C7901E5A44CF009095E8 /* UserCreateViewController.swift */; };
@@ -78,6 +81,9 @@
 		7E5D38CC1E88655A00C212D5 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		7E6984891EB17DCE00F2E509 /* MenuItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemTableViewCell.swift; sourceTree = "<group>"; };
 		7EED520C1E637C6700669184 /* UserTypeSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTypeSelectionViewController.swift; sourceTree = "<group>"; };
+		84FFFEE21EB6AE71009AC0AE /* AddPin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AddPin@2x.png"; path = "../../../../../Downloads/Geotify-Final/Geotify/Images.xcassets/AddPin.imageset/AddPin@2x.png"; sourceTree = "<group>"; };
+		84FFFEE41EB6AE7D009AC0AE /* CurrentLocation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "CurrentLocation@2x.png"; path = "../../../../../Downloads/Geotify-Final/Geotify/Images.xcassets/CurrentLocation.imageset/CurrentLocation@2x.png"; sourceTree = "<group>"; };
+		84FFFEE61EB6AE87009AC0AE /* DeleteGeotification@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "DeleteGeotification@2x.png"; path = "../../../../../Downloads/Geotify-Final/Geotify/Images.xcassets/DeleteGeotification.imageset/DeleteGeotification@2x.png"; sourceTree = "<group>"; };
 		A009995B1EB0454300A829F3 /* beer.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = beer.jpg; sourceTree = "<group>"; };
 		A009995D1EB04BBD00A829F3 /* pitcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pitcher.png; sourceTree = "<group>"; };
 		A009C7901E5A44CF009095E8 /* UserCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCreateViewController.swift; sourceTree = "<group>"; };
@@ -274,6 +280,9 @@
 				A0BEB4C31E8D6EF20098FFA1 /* Contents.json */,
 				A0BEB4C41E8D6EF20098FFA1 /* Icon-App-20x20@1x.png */,
 				A0BEB4C51E8D6EF20098FFA1 /* Icon-App-20x20@2x.png */,
+				84FFFEE61EB6AE87009AC0AE /* DeleteGeotification@2x.png */,
+				84FFFEE21EB6AE71009AC0AE /* AddPin@2x.png */,
+				84FFFEE41EB6AE7D009AC0AE /* CurrentLocation@2x.png */,
 				A0BEB4C61E8D6EF20098FFA1 /* Icon-App-20x20@3x.png */,
 				A0BEB4C71E8D6EF20098FFA1 /* Icon-App-29x29@1x.png */,
 				A0BEB4C81E8D6EF20098FFA1 /* Icon-App-29x29@2x.png */,
@@ -394,6 +403,7 @@
 				A01D4B911E8D7B740080A563 /* splash.png in Resources */,
 				A0BEB4E51E8D6EF20098FFA1 /* Icon-App-60x60@2x.png in Resources */,
 				7E4029C31E9F3DA600054D6E /* qrCodeIcon.png in Resources */,
+				84FFFEE51EB6AE7D009AC0AE /* CurrentLocation@2x.png in Resources */,
 				A0BEB4DA1E8D6EF20098FFA1 /* Icon-App-20x20@3x.png in Resources */,
 				A0BEB4E41E8D6EF20098FFA1 /* Icon-App-60x60@1x.png in Resources */,
 				A0BEB4E61E8D6EF20098FFA1 /* Icon-App-60x60@3x.png in Resources */,
@@ -401,12 +411,14 @@
 				A030DD841E4FB45D0049539D /* Assets.xcassets in Resources */,
 				A0BEB4E91E8D6EF20098FFA1 /* Icon-App-76x76@3x.png in Resources */,
 				A030DD821E4FB45D0049539D /* Main.storyboard in Resources */,
+				84FFFEE31EB6AE71009AC0AE /* AddPin@2x.png in Resources */,
 				A0BEB4E81E8D6EF20098FFA1 /* Icon-App-76x76@2x.png in Resources */,
 				A0BEB4DE1E8D6EF20098FFA1 /* Icon-App-40x40@1x.png in Resources */,
 				A0BEB4D81E8D6EF20098FFA1 /* Icon-App-20x20@1x.png in Resources */,
 				A0BEB4E01E8D6EF20098FFA1 /* Icon-App-40x40@3x.png in Resources */,
 				A0BEB4DF1E8D6EF20098FFA1 /* Icon-App-40x40@2x.png in Resources */,
 				A0BEB4EA1E8D6EF20098FFA1 /* Icon-App-83.5x83.5@2x.png in Resources */,
+				84FFFEE71EB6AE87009AC0AE /* DeleteGeotification@2x.png in Resources */,
 				BAFDA1A11EB291D1006A323C /* TestLocations.gpx in Resources */,
 				A0BEB4DB1E8D6EF20098FFA1 /* Icon-App-29x29@1x.png in Resources */,
 			);
