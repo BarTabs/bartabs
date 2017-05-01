@@ -24,6 +24,7 @@
 		A011B5F01E7724AC00446119 /* AddMenuItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A011B5EF1E7724AC00446119 /* AddMenuItemViewController.swift */; };
 		A01D4B911E8D7B740080A563 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = A01D4B901E8D7B740080A563 /* splash.png */; };
 		A022CCDF1E823BB000384BB9 /* PaymentMadeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A022CCDE1E823BB000384BB9 /* PaymentMadeViewController.swift */; };
+		A02676801EB7B29400DEA129 /* popUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A026767F1EB7B29400DEA129 /* popUpViewController.swift */; };
 		A030DD7D1E4FB45D0049539D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A030DD7C1E4FB45D0049539D /* AppDelegate.swift */; };
 		A030DD7F1E4FB45D0049539D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A030DD7E1E4FB45D0049539D /* LoginViewController.swift */; };
 		A030DD821E4FB45D0049539D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A030DD801E4FB45D0049539D /* Main.storyboard */; };
@@ -81,6 +82,7 @@
 		A011B5EF1E7724AC00446119 /* AddMenuItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMenuItemViewController.swift; sourceTree = "<group>"; };
 		A01D4B901E8D7B740080A563 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
 		A022CCDE1E823BB000384BB9 /* PaymentMadeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMadeViewController.swift; sourceTree = "<group>"; };
+		A026767F1EB7B29400DEA129 /* popUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = popUpViewController.swift; sourceTree = "<group>"; };
 		A030DD791E4FB45D0049539D /* Bar Tabs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bar Tabs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A030DD7C1E4FB45D0049539D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A030DD7E1E4FB45D0049539D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				7E6984891EB17DCE00F2E509 /* MenuItemTableViewCell.swift */,
 				A0C813631E68AF1800602023 /* TypeViewController.swift */,
 				A0F2F6CE1EB29300008F53ED /* MenuItemViewController.swift */,
+				A026767F1EB7B29400DEA129 /* popUpViewController.swift */,
 				A022CCDE1E823BB000384BB9 /* PaymentMadeViewController.swift */,
 				A011B5EF1E7724AC00446119 /* AddMenuItemViewController.swift */,
 				A0D75AD81E79AFEF004F81E0 /* ItemAddedViewController.swift */,
@@ -458,6 +461,7 @@
 				7E256D631E82FA4900189D59 /* ClientOrder.swift in Sources */,
 				7E256D601E82F99D00189D59 /* ClientMenuItem.swift in Sources */,
 				A030DD7D1E4FB45D0049539D /* AppDelegate.swift in Sources */,
+				A02676801EB7B29400DEA129 /* popUpViewController.swift in Sources */,
 				A089A60C1E7DB64F00B07628 /* OrderViewController.swift in Sources */,
 				A0D75AD91E79AFEF004F81E0 /* ItemAddedViewController.swift in Sources */,
 				7E5D38CD1E88655A00C212D5 /* DataService.swift in Sources */,

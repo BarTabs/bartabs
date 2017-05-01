@@ -25,10 +25,8 @@ class MenuItemViewController: UIViewController, UITableViewDataSource, UITableVi
     
     var effect: UIVisualEffect!
     
-    @IBOutlet var itemName: UILabel!
     @IBOutlet var tableView: UITableView!
     
-    @IBOutlet var popUp: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,12 +41,6 @@ class MenuItemViewController: UIViewController, UITableViewDataSource, UITableVi
         fetchData()
     }
     
-    @IBAction func closePopUp(_ sender: Any) {
-        UIView.animate(withDuration: 0.4, animations: {
-            self.popUp.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
-            self.popUp.alpha = 0
-        })
-    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
@@ -67,6 +59,9 @@ class MenuItemViewController: UIViewController, UITableViewDataSource, UITableVi
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "orderSegue" {
             let destSeg = segue.destination as! OrderViewController
+            destSeg.item = sender as? JSON
+        } else if segue.identifier == "popUpSegue" {
+            let destSeg = segue.destination as! popUpViewController
             destSeg.item = sender as? JSON
         }
     }
@@ -117,18 +112,7 @@ class MenuItemViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        let jsonVar : JSON = self.menu!
-        let item = jsonVar["menuItems"][indexPath.row]
-        self.view.addSubview(popUp)
-        popUp.center = self.view.center
-        popUp.layer.cornerRadius = 5
-        popUp.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
-        popUp.alpha = 0
-        UIView.animate(withDuration: 0.4) {
-            self.popUp.alpha = 1
-            self.popUp.transform = CGAffineTransform.identity
-        }
-        itemName.text = item["name"].string ?? ""
+        performSegue(withIdentifier: "popUpSegue", sender: nil)
     }
     
     func fetchData() {
