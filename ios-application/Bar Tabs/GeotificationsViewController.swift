@@ -31,7 +31,7 @@ struct PreferencesKeys {
 var _annotation: MKPointAnnotation?
 
 
-class GeotificationsViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class GeotificationsViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet var addButton: UIBarButtonItem!
@@ -50,29 +50,19 @@ class GeotificationsViewController: UIViewController, MKMapViewDelegate, CLLocat
         // Long press to drop pin
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(addAnnotationOnLongPress(gesture:)))
         longPressGesture.minimumPressDuration = 0.5
-        self.mapView.addGestureRecognizer(longPressGesture)
-        self.mapView.delegate = self
-        self.addButton.isEnabled = false
+        mapView.addGestureRecognizer(longPressGesture)
+        mapView.delegate = self
+        addButton.isEnabled = false
         
-        locationManager = CLLocationManager()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
-        
-        if CLLocationManager.locationServicesEnabled() {
-            //locationManager.startUpdatingHeading()
-            locationManager.startUpdatingLocation()
-        }
-        
-        setCurrentLocation()
+        mapView.zoomToUserLocation()
         loadAllGeotifications()
     }
     
     func addAnnotationOnLongPress(gesture: UILongPressGestureRecognizer) {
         
         if _annotation != nil {
-            self.mapView.removeAnnotation(_annotation!)
-            self.addButton.isEnabled = true
+            mapView.removeAnnotation(_annotation!)
+            addButton.isEnabled = true
         }
         
         let point = gesture.location(in: self.mapView)
@@ -81,10 +71,11 @@ class GeotificationsViewController: UIViewController, MKMapViewDelegate, CLLocat
         //Now use this coordinate to add annotation on map.
         _annotation = MKPointAnnotation()
         _annotation?.coordinate = coordinate
-        //Set title and subtitle if you want
+        //Set title and subtitle
         _annotation?.title = "New Bar"
         _annotation?.subtitle = "Click + to add geofence"
-        self.mapView.addAnnotation(_annotation!)
+        
+        mapView.addAnnotation(_annotation!)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -153,14 +144,33 @@ class GeotificationsViewController: UIViewController, MKMapViewDelegate, CLLocat
         }
     }
     
-    func setCurrentLocation() {
-        let userLocation = locationManager.location
-        let center = CLLocationCoordinate2D(latitude: (userLocation?.coordinate.latitude)!, longitude: (userLocation?.coordinate.longitude)!)
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-        
-        mapView.setRegion(region, animated: true)
+    @IBAction func zoomToCurrentLocation(_ sender: Any) {
         mapView.zoomToUserLocation()
     }
+    
+    
+    
+}
+
+// MARK: AddGeotificationViewControllerDelegate
+extension GeotificationsViewController: AddGeotificationsViewControllerDelegate {
+    
+    func addGeotificationViewController(controller: AddGeotificationViewController, didAddCoordinate coordinate: CLLocationCoordinate2D, radius: Double, identifier: String, note: String, eventType: EventType) {
+        controller.dismiss(animated: true, completion: nil)
+        let geotification = Geotification(coordinate: coordinate, radius: radius, identifier: identifier, note: note, eventType: eventType)
+        add(geotification: geotification)
+        saveAllGeotifications()
+    }
+    
+}
+
+// MARK: - Location Manager Delegate
+extension GeotificationsViewController: CLLocationManagerDelegate {
+    
+}
+
+// MARK: - MapView Delegate
+extension GeotificationsViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let identifier = "myGeotification"
@@ -197,43 +207,6 @@ class GeotificationsViewController: UIViewController, MKMapViewDelegate, CLLocat
         // Delete geotification
         let geotification = view.annotation as! Geotification
         remove(geotification: geotification)
-        saveAllGeotifications()
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let userLocation:CLLocation = locations[0] as CLLocation
-        
-        // Call stopUpdatingLocation() to stop listening for location updates,
-        // other wise this function will be called every time when user location changes.
-        //manager.stopUpdatingLocation()
-        
-        let center = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-        
-        mapView.setRegion(region, animated: true)
-        
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
-    {
-        print("Error \(error)")
-    }
-    
-    @IBAction func zoomToCurrentLocation(_ sender: Any) {
-        self.setCurrentLocation()
-    }
-    
-    
-    
-}
-
-// MARK: AddGeotificationViewControllerDelegate
-extension GeotificationsViewController: AddGeotificationsViewControllerDelegate {
-    
-    func addGeotificationViewController(controller: AddGeotificationViewController, didAddCoordinate coordinate: CLLocationCoordinate2D, radius: Double, identifier: String, note: String, eventType: EventType) {
-        controller.dismiss(animated: true, completion: nil)
-        let geotification = Geotification(coordinate: coordinate, radius: radius, identifier: identifier, note: note, eventType: eventType)
-        add(geotification: geotification)
         saveAllGeotifications()
     }
     
