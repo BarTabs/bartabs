@@ -1196,7 +1196,6 @@
                                             <outlet property="price" destination="7aB-rW-EN4" id="Q1k-oB-eh7"/>
                                             <outlet property="subtitle" destination="cdS-5L-mvr" id="3j6-yA-QEL"/>
                                             <outlet property="title" destination="Zuk-s8-udf" id="BXz-xk-lcX"/>
-                                            <segue destination="dNy-GL-K1c" kind="presentation" identifier="popUpSegue" id="bwf-vP-jb1"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1225,6 +1224,7 @@
                     <connections>
                         <outlet property="tableView" destination="8bR-Gt-UM8" id="9mY-pV-EQZ"/>
                         <segue destination="zqw-FT-gEI" kind="show" identifier="orderSegue" id="4QI-gD-nsZ"/>
+                        <segue destination="dNy-GL-K1c" kind="presentation" identifier="popUpSegue" id="Elr-pi-YhD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WHz-Ed-Y63" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1407,7 +1407,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NRb-vL-Pat" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="a4O-PH-Cd4">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="a4O-PH-Cd4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

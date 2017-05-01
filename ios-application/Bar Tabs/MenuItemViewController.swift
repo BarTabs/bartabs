@@ -112,7 +112,9 @@ class MenuItemViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        performSegue(withIdentifier: "popUpSegue", sender: nil)
+        let jsonVar : JSON = self.menu!
+        let item = jsonVar["menuItems"][indexPath.row]
+        performSegue(withIdentifier: "popUpSegue", sender: item)
     }
     
     func fetchData() {
