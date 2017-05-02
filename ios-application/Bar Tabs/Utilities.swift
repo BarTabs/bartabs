@@ -22,15 +22,43 @@
 
 import UIKit
 import MapKit
+import Alamofire
+import SwiftyJSON
 
 // MARK: Helper Extensions
 extension UIViewController {
-  func showAlert(withTitle title: String?, message: String?) {
-    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-    alert.addAction(action)
-    present(alert, animated: true, completion: nil)
-  }
+    func showAlert(withTitle title: String?, message: String?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func loadAllBars() {
+        _geotifications.removeAll()
+        
+        let service = "bar/getbars"
+        let parameters : Parameters = [:]
+        
+        let dataService = DataService(view: self, showActivityIndicator: false)
+        dataService.fetchData(service: service, parameters: parameters, completion: {(response: JSON) -> Void in
+            
+            for bar in response.arrayValue {
+                let objectID = bar.dictionaryValue["objectID"]?.int64Value
+                let name = bar.dictionaryValue["name"]?.stringValue
+                let latitude = bar.dictionaryValue["location"]?["latitude"].doubleValue
+                let longitude = bar.dictionaryValue["location"]?["longitude"].doubleValue
+                let radius = bar.dictionaryValue["location"]?["radius"].doubleValue
+                
+                let coordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
+                let geotification = Geotification(objectID: objectID!, name: name!, coordinate: coordinate, radius: radius!)
+                
+                _geotifications.append(geotification)
+                self.startMonitoring(geotification: geotification)
+            }
+        })
+        
+    }
     
     func startMonitoring(geotification: Geotification) {
         // 1
@@ -64,13 +92,13 @@ extension UIViewController {
             _locationManager.stopMonitoring(for: circularRegion)
         }
     }
-
+    
 }
 
 extension MKMapView {
-  func zoomToUserLocation() {
-    guard let coordinate = userLocation.location?.coordinate else { return }
-    let region = MKCoordinateRegionMakeWithDistance(coordinate, 1000, 1000)
-    setRegion(region, animated: true)
-  }
+    func zoomToUserLocation() {
+        guard let coordinate = userLocation.location?.coordinate else { return }
+        let region = MKCoordinateRegionMakeWithDistance(coordinate, 1000, 1000)
+        setRegion(region, animated: true)
+    }
 }

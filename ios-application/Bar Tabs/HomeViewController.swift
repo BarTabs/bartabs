@@ -111,6 +111,8 @@ class HomeViewController: UIViewController {
             }
         }
         
+        self.loadAllBars()
+        
     }
     
     override func didReceiveMemoryWarning() {

@@ -44,16 +44,25 @@ class GeotificationsViewController: UIViewController {
     }
     
     var locationManager: CLLocationManager!
+    var geotifications: [Geotification] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Long press to drop pin
-        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(addAnnotationOnLongPress(gesture:)))
-        longPressGesture.minimumPressDuration = 0.5
-        mapView.addGestureRecognizer(longPressGesture)
         mapView.delegate = self
         addButton.isEnabled = false
+        
+        let type = UserDefaults.standard.integer(forKey: "userType")
+        if type == 1 {
+            navigationItem.rightBarButtonItems = [addButton]
+            
+            // Long press to drop pin
+            let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(addAnnotationOnLongPress(gesture:)))
+            longPressGesture.minimumPressDuration = 0.5
+            mapView.addGestureRecognizer(longPressGesture)
+        } else {
+            navigationItem.rightBarButtonItems = []
+        }
         
         locationManager = CLLocationManager()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -95,12 +104,13 @@ class GeotificationsViewController: UIViewController {
     
     // MARK: Loading and saving functions
     func loadAllGeotifications() {
-        _geotifications.removeAll()
+        geotifications.removeAll()
         
         let service = "bar/getbars"
-        let parameters : Parameters = [
-            
-        :]
+        let type = UserDefaults.standard.integer(forKey: "userType")
+        let userID = UserDefaults.standard.string(forKey: "userID")!
+        
+        let parameters : Parameters = ["ownerID": type == 1 ? userID : ""]
         
         let dataService = DataService(view: self)
         dataService.fetchData(service: service, parameters: parameters, completion: {(response: JSON) -> Void in
@@ -121,36 +131,37 @@ class GeotificationsViewController: UIViewController {
         
     }
     
-    func saveAllGeotifications() {
-        var items: [Data] = []
-        for geotification in _geotifications {
-            let item = NSKeyedArchiver.archivedData(withRootObject: geotification)
-            items.append(item)
-        }
-        UserDefaults.standard.set(items, forKey: PreferencesKeys.savedItems)
-    }
-    
     // MARK: Functions that update the model/associated views with geotification changes
     func add(geotification: Geotification) {
-        _geotifications.append(geotification)
+        geotifications.append(geotification)
         mapView.addAnnotation(geotification)
         addRadiusOverlay(forGeotification: geotification)
-        startMonitoring(geotification: geotification)
         updateGeotificationsCount()
     }
     
     func remove(geotification: Geotification) {
-        if let indexInArray = _geotifications.index(of: geotification) {
-            _geotifications.remove(at: indexInArray)
-        }
-        mapView.removeAnnotation(geotification)
-        removeRadiusOverlay(forGeotification: geotification)
-        stopMonitoring(geotification: geotification)
-        updateGeotificationsCount()
+        let service = "bar/deletebar"
+        let parameters: Parameters = ["objectID": geotification.objectID]
+        
+        let dataService = DataService(view: self)
+        dataService.post(service: service, parameters: parameters, completion: {(response: JSON) -> Void in
+            if let indexInArray = _geotifications.index(of: geotification) {
+                _geotifications.remove(at: indexInArray)
+            }
+            
+            if let indexInArray = self.geotifications.index(of: geotification) {
+                self.geotifications.remove(at: indexInArray)
+            }
+            
+            self.mapView.removeAnnotation(geotification)
+            self.removeRadiusOverlay(forGeotification: geotification)
+            self.stopMonitoring(geotification: geotification)
+            self.updateGeotificationsCount()
+        })
     }
     
     func updateGeotificationsCount() {
-        title = "Geotifications (\(_geotifications.count))"
+        title = "Geotifications (\(geotifications.count))"
     }
     
     // MARK: Map overlay functions
@@ -206,6 +217,7 @@ extension GeotificationsViewController: AddGeotificationsViewControllerDelegate 
             print("Bar added successfully")
             self.add(geotification: geotification)
             self.mapView.removeAnnotation(_annotation!)
+            self.startMonitoring(geotification: geotification)
         })
         
     }
@@ -227,10 +239,14 @@ extension GeotificationsViewController: MKMapViewDelegate {
             if annotationView == nil {
                 annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 annotationView?.canShowCallout = true
-                let removeButton = UIButton(type: .custom)
-                removeButton.frame = CGRect(x: 0, y: 0, width: 23, height: 23)
-                removeButton.setImage(UIImage(named: "DeleteGeotification")!, for: .normal)
-                annotationView?.leftCalloutAccessoryView = removeButton
+                
+                let type = UserDefaults.standard.integer(forKey: "userType")
+                if type == 1 {
+                    let removeButton = UIButton(type: .custom)
+                    removeButton.frame = CGRect(x: 0, y: 0, width: 23, height: 23)
+                    removeButton.setImage(UIImage(named: "DeleteGeotification")!, for: .normal)
+                    annotationView?.leftCalloutAccessoryView = removeButton
+                }
             } else {
                 annotationView?.annotation = annotation
             }

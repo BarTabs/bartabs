@@ -9,6 +9,7 @@
 import UIKit
 import UserNotifications
 import SwiftyJSON
+import Alamofire
 import Firebase
 import FirebaseInstanceID
 import FirebaseMessaging
@@ -19,6 +20,7 @@ let _url = "http://127.0.0.1:8080/bartabs-server/"
 let _locationManager = CLLocationManager()
 var _geotifications: [Geotification] = []
 var _fcmToken: String?
+var _barID: Int64?
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -178,10 +180,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
-    func note(fromRegionIdentifier identifier: String) -> String? {
+    func getGeotification(fromRegionIdentifier identifier: String) -> Geotification? {
         for geotification in _geotifications {
             if (geotification.objectID.description == identifier) {
-                return geotification.name
+                return geotification
             }
         }
         
@@ -250,13 +252,16 @@ extension AppDelegate: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         if region is CLCircularRegion {
+            // TODO: Add checkin behavior
+            guard let bar = self.getGeotification(fromRegionIdentifier: region.identifier) else { return }
+            let name = bar.name
+            _barID = bar.objectID
             if UIApplication.shared.applicationState == .active {
-                guard let message = note(fromRegionIdentifier: region.identifier) else { return }
-                window?.rootViewController?.showAlert(withTitle: nil, message: "Welcome to " + message)
+                window?.rootViewController?.showAlert(withTitle: nil, message: "Welcome to " + name)
             } else {
                 // Otherwise present a local notification
                 let notification = UILocalNotification()
-                notification.alertBody = note(fromRegionIdentifier: region.identifier)
+                notification.alertBody = "Entering " + name + "."
                 notification.soundName = "Default"
                 UIApplication.shared.presentLocalNotificationNow(notification)
             }
@@ -266,13 +271,17 @@ extension AppDelegate: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
         if region is CLCircularRegion {
+            // TODO: Add checkout behavior
+            guard let bar = self.getGeotification(fromRegionIdentifier: region.identifier) else { return }
+            let name = bar.name
+            _barID = nil
             if UIApplication.shared.applicationState == .active {
-                guard let message = self.note(fromRegionIdentifier: region.identifier) else { return }
-                window?.rootViewController?.showAlert(withTitle: nil, message: "You are now leaving " + message + ". Thank you for your business!")
+                window?.rootViewController?.showAlert(withTitle: nil, message: "You are now leaving " + name + ". Thank you for your business!")
+                
             } else {
                 // Otherwise present a local notification
                 let notification = UILocalNotification()
-                notification.alertBody = note(fromRegionIdentifier: region.identifier)
+                notification.alertBody = "Leaving " + name + "."
                 notification.soundName = "Default"
                 UIApplication.shared.presentLocalNotificationNow(notification)
             }

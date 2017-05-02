@@ -24,7 +24,6 @@
 		A009995C1EB0454300A829F3 /* beer.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A009995B1EB0454300A829F3 /* beer.jpg */; };
 		A009995E1EB04BBD00A829F3 /* pitcher.png in Resources */ = {isa = PBXBuildFile; fileRef = A009995D1EB04BBD00A829F3 /* pitcher.png */; };
 		A009C7911E5A44CF009095E8 /* UserCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A009C7901E5A44CF009095E8 /* UserCreateViewController.swift */; };
-		A00C8A191E95601800090A15 /* mapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00C8A181E95601800090A15 /* mapViewController.swift */; };
 		A0117A3C1E636C3B00A331CF /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0117A3B1E636C3B00A331CF /* CategoryViewController.swift */; };
 		A011B5F01E7724AC00446119 /* AddMenuItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A011B5EF1E7724AC00446119 /* AddMenuItemViewController.swift */; };
 		A01D4B911E8D7B740080A563 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = A01D4B901E8D7B740080A563 /* splash.png */; };
@@ -90,7 +89,6 @@
 		A009995B1EB0454300A829F3 /* beer.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = beer.jpg; sourceTree = "<group>"; };
 		A009995D1EB04BBD00A829F3 /* pitcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pitcher.png; sourceTree = "<group>"; };
 		A009C7901E5A44CF009095E8 /* UserCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCreateViewController.swift; sourceTree = "<group>"; };
-		A00C8A181E95601800090A15 /* mapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapViewController.swift; sourceTree = "<group>"; };
 		A0117A3B1E636C3B00A331CF /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		A011B5EF1E7724AC00446119 /* AddMenuItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMenuItemViewController.swift; sourceTree = "<group>"; };
 		A01D4B901E8D7B740080A563 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
@@ -208,14 +206,6 @@
 			name = employee;
 			sourceTree = "<group>";
 		};
-		7E4029C61E9F5F9800054D6E /* map */ = {
-			isa = PBXGroup;
-			children = (
-				A00C8A181E95601800090A15 /* mapViewController.swift */,
-			);
-			name = map;
-			sourceTree = "<group>";
-		};
 		7E4029C71E9F5FD800054D6E /* login/setup */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,7 +248,6 @@
 			children = (
 				BAFDA1981EB291A7006A323C /* geotify */,
 				7E4029C71E9F5FD800054D6E /* login/setup */,
-				7E4029C61E9F5F9800054D6E /* map */,
 				7E4029C51E9F5F7900054D6E /* employee */,
 				7E21FC011E84E3FA00057A0B /* menu */,
 				7E21FBFC1E84D6AC00057A0B /* services */,
@@ -482,7 +471,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E69848A1EB17DCE00F2E509 /* MenuItemTableViewCell.swift in Sources */,
-				A00C8A191E95601800090A15 /* mapViewController.swift in Sources */,
 				BAFDA1A01EB291D1006A323C /* GeotificationsViewController.swift in Sources */,
 				7E4029C11E9EA71C00054D6E /* QqrCodeReaderViewController.swift in Sources */,
 				7E5A19381E8D6E39004EE3D5 /* OrderHistoryViewController.swift in Sources */,
