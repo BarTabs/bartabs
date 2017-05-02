@@ -75,7 +75,6 @@ class GeotificationsViewController: UIViewController {
         
         let point = gesture.location(in: self.mapView)
         let coordinate = self.mapView.convert(point, toCoordinateFrom: self.mapView)
-        print(coordinate)
         //Now use this coordinate to add annotation on map.
         _annotation = MKPointAnnotation()
         _annotation?.coordinate = coordinate

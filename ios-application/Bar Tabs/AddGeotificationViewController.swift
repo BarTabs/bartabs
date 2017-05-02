@@ -36,7 +36,6 @@ class AddGeotificationViewController: UITableViewController, MKMapViewDelegate {
     @IBOutlet weak var eventTypeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var radiusTextField: UITextField!
-    @IBOutlet weak var noteTextField: UITextField!
     @IBOutlet weak var mapView: MKMapView!
     
     var delegate: AddGeotificationsViewControllerDelegate?
@@ -79,10 +78,11 @@ class AddGeotificationViewController: UITableViewController, MKMapViewDelegate {
         }
     }
     
-    
-    @IBAction func textFieldEditingChanged(sender: UITextField) {
-        addButton.isEnabled = !radiusTextField.text!.isEmpty && !noteTextField.text!.isEmpty
+    @IBAction func nameTextFieldEditingChanged(_ sender: Any) {
+        addButton.isEnabled = !radiusTextField.text!.isEmpty && !nameTextField.text!.isEmpty
     }
+    
+    
     
     @IBAction func radiusTextDidChange(_ sender: Any) {
         removeRadiusOverlay()

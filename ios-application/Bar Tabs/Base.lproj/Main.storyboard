@@ -1513,7 +1513,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="1EI-WR-rJB">
-                            <rect key="frame" x="0.0" y="432" width="375" height="0.0"/>
+                            <rect key="frame" x="0.0" y="388" width="375" height="0.0"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
@@ -1528,37 +1528,20 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r6L-j2-5l9">
-                                                    <rect key="frame" x="0.0" y="44.5" width="375" height="255"/>
+                                                    <rect key="frame" x="0.0" y="8" width="375" height="292"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="255" id="Joz-pW-hDr"/>
+                                                        <constraint firstAttribute="height" constant="292" id="Joz-pW-hDr"/>
                                                     </constraints>
                                                     <connections>
                                                         <outlet property="delegate" destination="OH2-HV-oUw" id="0ee-FY-tM8"/>
                                                     </connections>
                                                 </mapView>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="yLf-n1-eau">
-                                                    <rect key="frame" x="8" y="8" width="359" height="29.5"/>
-                                                    <segments>
-                                                        <segment title="Upon Entry"/>
-                                                        <segment title="Upon Exit"/>
-                                                    </segments>
-                                                </segmentedControl>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="yLf-n1-eau" firstAttribute="leading" secondItem="LPa-kq-8gx" secondAttribute="leadingMargin" id="0oi-wy-1MU"/>
-                                                <constraint firstItem="r6L-j2-5l9" firstAttribute="top" secondItem="yLf-n1-eau" secondAttribute="bottom" constant="8" id="267-Rk-Jg2"/>
-                                                <constraint firstItem="yLf-n1-eau" firstAttribute="top" secondItem="LPa-kq-8gx" secondAttribute="topMargin" constant="2" id="82d-RP-Fnh"/>
                                                 <constraint firstAttribute="bottom" secondItem="r6L-j2-5l9" secondAttribute="bottom" id="Ihn-ko-Eqe"/>
-                                                <constraint firstAttribute="topMargin" secondItem="yLf-n1-eau" secondAttribute="top" id="SWb-eS-O0Y"/>
                                                 <constraint firstAttribute="trailing" secondItem="r6L-j2-5l9" secondAttribute="trailing" id="oX0-An-8Yu"/>
-                                                <constraint firstItem="yLf-n1-eau" firstAttribute="trailing" secondItem="LPa-kq-8gx" secondAttribute="trailingMargin" id="qxG-rp-CUI"/>
                                                 <constraint firstItem="r6L-j2-5l9" firstAttribute="leading" secondItem="LPa-kq-8gx" secondAttribute="leading" id="veh-6n-4Bt"/>
                                             </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="82d-RP-Fnh"/>
-                                                </mask>
-                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="EQ5-F6-D99">
@@ -1573,7 +1556,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     <connections>
-                                                        <action selector="textFieldEditingChangedWithSender:" destination="Nvt-wm-Wev" eventType="editingChanged" id="wNS-Hs-aqw"/>
+                                                        <action selector="nameTextFieldEditingChanged:" destination="Nvt-wm-Wev" eventType="editingChanged" id="Sts-Oi-IfK"/>
                                                     </connections>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="641-bm-AZa">
@@ -1626,38 +1609,6 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="wW8-6z-3S4">
-                                        <rect key="frame" x="0.0" y="388" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wW8-6z-3S4" id="oNW-ME-ZNJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Reminder note to be shown" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qfm-pD-gZm">
-                                                    <rect key="frame" x="74.5" y="13" width="277.5" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    <connections>
-                                                        <action selector="textFieldEditingChangedWithSender:" destination="Nvt-wm-Wev" eventType="editingChanged" id="n3J-aw-cpG"/>
-                                                    </connections>
-                                                </textField>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6L-Lp-swR">
-                                                    <rect key="frame" x="14" y="13" width="35.5" height="18.5"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="qfm-pD-gZm" firstAttribute="leading" secondItem="O6L-Lp-swR" secondAttribute="trailing" constant="25" id="R5m-4S-HJa"/>
-                                                <constraint firstItem="O6L-Lp-swR" firstAttribute="leading" secondItem="oNW-ME-ZNJ" secondAttribute="leadingMargin" constant="6" id="RLC-Oa-G7C"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="qfm-pD-gZm" secondAttribute="trailing" constant="15" id="Yag-Cd-LiD"/>
-                                                <constraint firstItem="O6L-Lp-swR" firstAttribute="top" secondItem="oNW-ME-ZNJ" secondAttribute="topMargin" constant="5" id="Yow-es-TAe"/>
-                                                <constraint firstItem="qfm-pD-gZm" firstAttribute="top" secondItem="oNW-ME-ZNJ" secondAttribute="topMargin" constant="5" id="wg3-gd-Kql"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="O6L-Lp-swR" secondAttribute="bottom" constant="4" id="y3M-Xz-mnG"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -1687,17 +1638,15 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="kEe-NK-h5e" id="3cC-4a-fzX"/>
-                        <outlet property="eventTypeSegmentedControl" destination="yLf-n1-eau" id="gP2-bb-qpE"/>
                         <outlet property="mapView" destination="r6L-j2-5l9" id="4Sl-Bk-8DG"/>
                         <outlet property="nameTextField" destination="G0h-lO-wiN" id="w59-hZ-3hA"/>
-                        <outlet property="noteTextField" destination="qfm-pD-gZm" id="Loc-zI-5HH"/>
                         <outlet property="radiusTextField" destination="QiO-Mt-ZrV" id="1fB-92-b9y"/>
                         <outlet property="zoomButton" destination="L4B-NE-dJ3" id="5gf-9Z-Lfz"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Sa-KV-UTk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2228" y="-1513"/>
+            <point key="canvasLocation" x="2228" y="-1513.4932533733136"/>
         </scene>
     </scenes>
     <resources>

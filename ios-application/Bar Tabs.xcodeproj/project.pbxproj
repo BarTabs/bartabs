@@ -67,7 +67,6 @@
 		BAFDA19E1EB291D1006A323C /* AddGeotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFDA1991EB291D1006A323C /* AddGeotificationViewController.swift */; };
 		BAFDA19F1EB291D1006A323C /* Geotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFDA19A1EB291D1006A323C /* Geotification.swift */; };
 		BAFDA1A01EB291D1006A323C /* GeotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFDA19B1EB291D1006A323C /* GeotificationsViewController.swift */; };
-		BAFDA1A11EB291D1006A323C /* TestLocations.gpx in Resources */ = {isa = PBXBuildFile; fileRef = BAFDA19C1EB291D1006A323C /* TestLocations.gpx */; };
 		BAFDA1A21EB291D1006A323C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFDA19D1EB291D1006A323C /* Utilities.swift */; };
 		CA30E256831FA78057A1E448 /* Pods_Bar_Tabs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4F3D1E041A64E6CC99904B5 /* Pods_Bar_Tabs.framework */; };
 /* End PBXBuildFile section */
@@ -138,7 +137,6 @@
 		BAFDA1991EB291D1006A323C /* AddGeotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGeotificationViewController.swift; sourceTree = "<group>"; };
 		BAFDA19A1EB291D1006A323C /* Geotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geotification.swift; sourceTree = "<group>"; };
 		BAFDA19B1EB291D1006A323C /* GeotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeotificationsViewController.swift; sourceTree = "<group>"; };
-		BAFDA19C1EB291D1006A323C /* TestLocations.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestLocations.gpx; sourceTree = "<group>"; };
 		BAFDA19D1EB291D1006A323C /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -316,7 +314,6 @@
 				BAFDA1991EB291D1006A323C /* AddGeotificationViewController.swift */,
 				BAFDA19A1EB291D1006A323C /* Geotification.swift */,
 				BAFDA19B1EB291D1006A323C /* GeotificationsViewController.swift */,
-				BAFDA19C1EB291D1006A323C /* TestLocations.gpx */,
 				BAFDA19D1EB291D1006A323C /* Utilities.swift */,
 			);
 			name = geotify;
@@ -425,7 +422,6 @@
 				A0BEB4DF1E8D6EF20098FFA1 /* Icon-App-40x40@2x.png in Resources */,
 				A0BEB4EA1E8D6EF20098FFA1 /* Icon-App-83.5x83.5@2x.png in Resources */,
 				84FFFEE71EB6AE87009AC0AE /* DeleteGeotification@2x.png in Resources */,
-				BAFDA1A11EB291D1006A323C /* TestLocations.gpx in Resources */,
 				A0BEB4DB1E8D6EF20098FFA1 /* Icon-App-29x29@1x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
