@@ -31,12 +31,46 @@ extension UIViewController {
     alert.addAction(action)
     present(alert, animated: true, completion: nil)
   }
+    
+    func startMonitoring(geotification: Geotification) {
+        // 1
+        if !CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self) {
+            showAlert(withTitle:"Error", message: "Geofencing is not supported on this device!")
+            return
+        }
+        // 2
+        if CLLocationManager.authorizationStatus() != .authorizedAlways {
+            showAlert(withTitle:"Warning", message: "Your geotification is saved but will only be activated once you grant Geotify permission to access the device location.")
+        }
+        // 3
+        let region = self.region(withGeotification: geotification)
+        // 4
+        _locationManager.startMonitoring(for: region)
+    }
+    
+    
+    func region(withGeotification geotification: Geotification) -> CLCircularRegion {
+        // 1
+        let region = CLCircularRegion(center: geotification.coordinate, radius: geotification.radius, identifier: geotification.objectID.description)
+        // 2
+        region.notifyOnEntry = true
+        region.notifyOnExit = true
+        return region
+    }
+    
+    func stopMonitoring(geotification: Geotification) {
+        for region in _locationManager.monitoredRegions {
+            guard let circularRegion = region as? CLCircularRegion, circularRegion.identifier == geotification.identifier else { continue }
+            _locationManager.stopMonitoring(for: circularRegion)
+        }
+    }
+
 }
 
 extension MKMapView {
   func zoomToUserLocation() {
     guard let coordinate = userLocation.location?.coordinate else { return }
-    let region = MKCoordinateRegionMakeWithDistance(coordinate, 10000, 10000)
+    let region = MKCoordinateRegionMakeWithDistance(coordinate, 1000, 1000)
     setRegion(region, animated: true)
   }
 }

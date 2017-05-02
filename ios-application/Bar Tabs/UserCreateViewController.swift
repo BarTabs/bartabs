@@ -18,25 +18,15 @@ class UserCreateViewController: UIViewController {
     var userType:Int?
     
     @IBOutlet var userNameField: UITextField!
-    
     @IBOutlet var passwordField: UITextField!
-    
     @IBOutlet var confirmPasswordField: UITextField!
     
     @IBOutlet var firstName: UITextField!
-    
-    
     @IBOutlet var lastName: UITextField!
-    
     @IBOutlet var address: UITextField!
-    
-    
     @IBOutlet var city: UITextField!
-    
     @IBOutlet var state: UITextField!
-    
     @IBOutlet var zip: UITextField!
-    
     @IBOutlet var phoneNumberField: UITextField!
     
     @IBOutlet var account: UIButton!

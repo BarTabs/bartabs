@@ -26,7 +26,7 @@ import CoreLocation
 
 protocol AddGeotificationsViewControllerDelegate {
     func addGeotificationViewController(controller: AddGeotificationViewController, didAddCoordinate coordinate: CLLocationCoordinate2D,
-                                        radius: Double, identifier: String, note: String, eventType: EventType)
+                                        name: String, radius: Double)
 }
 
 class AddGeotificationViewController: UITableViewController, MKMapViewDelegate {
@@ -34,6 +34,7 @@ class AddGeotificationViewController: UITableViewController, MKMapViewDelegate {
     @IBOutlet var addButton: UIBarButtonItem!
     @IBOutlet var zoomButton: UIBarButtonItem!
     @IBOutlet weak var eventTypeSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var radiusTextField: UITextField!
     @IBOutlet weak var noteTextField: UITextField!
     @IBOutlet weak var mapView: MKMapView!
@@ -93,12 +94,10 @@ class AddGeotificationViewController: UITableViewController, MKMapViewDelegate {
     }
     
     @IBAction private func onAdd(sender: AnyObject) {
+        let name = nameTextField.text ?? ""
         let coordinate = _annotation!.coordinate
         let radius = Double(radiusTextField.text!) ?? 0
-        let identifier = NSUUID().uuidString
-        let note = noteTextField.text
-        let eventType: EventType = (eventTypeSegmentedControl.selectedSegmentIndex == 0) ? .onEntry : .onExit
-        delegate?.addGeotificationViewController(controller: self, didAddCoordinate: coordinate, radius: radius, identifier: identifier, note: note!, eventType: eventType)
+        delegate?.addGeotificationViewController(controller: self, didAddCoordinate: coordinate, name: name, radius: radius)
     }
     
     @IBAction func onZoomToCurrentLocation(_ sender: Any) {

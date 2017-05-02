@@ -23,6 +23,8 @@
 import UIKit
 import MapKit
 import CoreLocation
+import SwiftyJSON
+import Alamofire
 
 struct PreferencesKeys {
     static let savedItems = "savedItems"
@@ -41,7 +43,6 @@ class GeotificationsViewController: UIViewController {
         }
     }
     
-    var geotifications: [Geotification] = []
     var locationManager: CLLocationManager!
     
     override func viewDidLoad() {
@@ -54,8 +55,15 @@ class GeotificationsViewController: UIViewController {
         mapView.delegate = self
         addButton.isEnabled = false
         
-        mapView.zoomToUserLocation()
+        locationManager = CLLocationManager()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+
+        
         loadAllGeotifications()
+        mapView.zoomToUserLocation()
     }
     
     func addAnnotationOnLongPress(gesture: UILongPressGestureRecognizer) {
@@ -88,17 +96,35 @@ class GeotificationsViewController: UIViewController {
     
     // MARK: Loading and saving functions
     func loadAllGeotifications() {
-        geotifications = []
-        guard let savedItems = UserDefaults.standard.array(forKey: PreferencesKeys.savedItems) else { return }
-        for savedItem in savedItems {
-            guard let geotification = NSKeyedUnarchiver.unarchiveObject(with: savedItem as! Data) as? Geotification else { continue }
-            add(geotification: geotification)
-        }
+        _geotifications.removeAll()
+        
+        let service = "bar/getbars"
+        let parameters : Parameters = [
+            
+        :]
+        
+        let dataService = DataService(view: self)
+        dataService.fetchData(service: service, parameters: parameters, completion: {(response: JSON) -> Void in
+            
+            for bar in response.arrayValue {
+                let objectID = bar.dictionaryValue["objectID"]?.int64Value
+                let name = bar.dictionaryValue["name"]?.stringValue
+                let latitude = bar.dictionaryValue["location"]?["latitude"].doubleValue
+                let longitude = bar.dictionaryValue["location"]?["longitude"].doubleValue
+                let radius = bar.dictionaryValue["location"]?["radius"].doubleValue
+                
+                let coordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
+                let geotification = Geotification(objectID: objectID!, name: name!, coordinate: coordinate, radius: radius!)
+                
+                self.add(geotification: geotification)
+            }
+        })
+        
     }
     
     func saveAllGeotifications() {
         var items: [Data] = []
-        for geotification in geotifications {
+        for geotification in _geotifications {
             let item = NSKeyedArchiver.archivedData(withRootObject: geotification)
             items.append(item)
         }
@@ -107,23 +133,25 @@ class GeotificationsViewController: UIViewController {
     
     // MARK: Functions that update the model/associated views with geotification changes
     func add(geotification: Geotification) {
-        geotifications.append(geotification)
+        _geotifications.append(geotification)
         mapView.addAnnotation(geotification)
         addRadiusOverlay(forGeotification: geotification)
+        startMonitoring(geotification: geotification)
         updateGeotificationsCount()
     }
     
     func remove(geotification: Geotification) {
-        if let indexInArray = geotifications.index(of: geotification) {
-            geotifications.remove(at: indexInArray)
+        if let indexInArray = _geotifications.index(of: geotification) {
+            _geotifications.remove(at: indexInArray)
         }
         mapView.removeAnnotation(geotification)
         removeRadiusOverlay(forGeotification: geotification)
+        stopMonitoring(geotification: geotification)
         updateGeotificationsCount()
     }
     
     func updateGeotificationsCount() {
-        title = "Geotifications (\(geotifications.count))"
+        title = "Geotifications (\(_geotifications.count))"
     }
     
     // MARK: Map overlay functions
@@ -144,22 +172,43 @@ class GeotificationsViewController: UIViewController {
         }
     }
     
+    func createBar(bar: ClientBar) {
+        let service = "bar/createbar"
+
+        let dataService = DataService(view: self)        
+        dataService.post(service: service, parameters: bar.dictionaryRepresentation, completion: {(response: JSON) -> Void in
+            print("Bar added successfully")
+        })
+    }
+    
     @IBAction func zoomToCurrentLocation(_ sender: Any) {
         mapView.zoomToUserLocation()
     }
     
-    
+    @IBAction func onBackButtonPressed(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
 }
 
 // MARK: AddGeotificationViewControllerDelegate
 extension GeotificationsViewController: AddGeotificationsViewControllerDelegate {
     
-    func addGeotificationViewController(controller: AddGeotificationViewController, didAddCoordinate coordinate: CLLocationCoordinate2D, radius: Double, identifier: String, note: String, eventType: EventType) {
+    func addGeotificationViewController(controller: AddGeotificationViewController, didAddCoordinate coordinate: CLLocationCoordinate2D, name: String, radius: Double) {
         controller.dismiss(animated: true, completion: nil)
-        let geotification = Geotification(coordinate: coordinate, radius: radius, identifier: identifier, note: note, eventType: eventType)
-        add(geotification: geotification)
-        saveAllGeotifications()
+        let geotification = Geotification(objectID: -1, name: name, coordinate: coordinate, radius: radius)
+        var bar = ClientBar(geotification: geotification)
+        bar.ownerID = Int64(UserDefaults.standard.string(forKey: "userID")!)
+        
+        let service = "bar/createbar"
+        
+        let dataService = DataService(view: self)
+        dataService.post(service: service, parameters: bar.dictionaryRepresentation, completion: {(response: JSON) -> Void in
+            print("Bar added successfully")
+            self.add(geotification: geotification)
+            self.mapView.removeAnnotation(_annotation!)
+        })
+        
     }
     
 }
@@ -207,7 +256,6 @@ extension GeotificationsViewController: MKMapViewDelegate {
         // Delete geotification
         let geotification = view.annotation as! Geotification
         remove(geotification: geotification)
-        saveAllGeotifications()
     }
     
 }

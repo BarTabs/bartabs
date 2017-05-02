@@ -14,8 +14,10 @@ import FirebaseInstanceID
 import FirebaseMessaging
 import GoogleMaps
 
-//let _url = "http://127.0.0.1:8080/bartabs-server/"
-let _url = "http://138.197.87.137:8080/bartabs-server/"
+let _url = "http://127.0.0.1:8080/bartabs-server/"
+//let _url = "http://138.197.87.137:8080/bartabs-server/"
+let _locationManager = CLLocationManager()
+var _geotifications: [Geotification] = []
 var _fcmToken: String?
 
 @UIApplicationMain
@@ -23,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     let gcmMessageIDKey = "gcm.message_id"
+    
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -63,6 +66,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                name: .firInstanceIDTokenRefresh,
                                                object: nil)
         // [END add_token_refresh_observer]
+        
+        _locationManager.delegate = self
+        _locationManager.requestAlwaysAuthorization()
+        application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.sound, .alert, .badge], categories: nil))
+        UIApplication.shared.cancelAllLocalNotifications()
+
+        
         return true
     }
     
@@ -167,6 +177,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController?.present(alert, animated: true, completion: nil)
         
     }
+    
+    func note(fromRegionIdentifier identifier: String) -> String? {
+        for geotification in _geotifications {
+            if (geotification.objectID.description == identifier) {
+                return geotification.name
+            }
+        }
+        
+        return nil
+    }
+
 }
 
 // [START ios_10_message_handling]
@@ -224,3 +245,38 @@ extension AppDelegate : FIRMessagingDelegate {
     }
 }
 // [END ios_10_data_message_handling]
+
+extension AppDelegate: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        if region is CLCircularRegion {
+            if UIApplication.shared.applicationState == .active {
+                guard let message = note(fromRegionIdentifier: region.identifier) else { return }
+                window?.rootViewController?.showAlert(withTitle: nil, message: "Welcome to " + message)
+            } else {
+                // Otherwise present a local notification
+                let notification = UILocalNotification()
+                notification.alertBody = note(fromRegionIdentifier: region.identifier)
+                notification.soundName = "Default"
+                UIApplication.shared.presentLocalNotificationNow(notification)
+            }
+
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+        if region is CLCircularRegion {
+            if UIApplication.shared.applicationState == .active {
+                guard let message = self.note(fromRegionIdentifier: region.identifier) else { return }
+                window?.rootViewController?.showAlert(withTitle: nil, message: "You are now leaving " + message + ". Thank you for your business!")
+            } else {
+                // Otherwise present a local notification
+                let notification = UILocalNotification()
+                notification.alertBody = note(fromRegionIdentifier: region.identifier)
+                notification.soundName = "Default"
+                UIApplication.shared.presentLocalNotificationNow(notification)
+            }
+        }
+    }
+}
+
