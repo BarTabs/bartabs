@@ -18,6 +18,10 @@ class popUpViewController: UIViewController {
     
     @IBOutlet var itemName: UILabel!
 
+    @IBOutlet var quantity: UILabel!
+    
+    @IBOutlet var quantityType: UILabel!
+    
     @IBAction func close(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -28,9 +32,23 @@ class popUpViewController: UIViewController {
         
         popUp.layer.cornerRadius = 5
         
-        let menuItem = item?["name"].string
-        itemName.text = menuItem
-        
+        if item != nil {
+            if let ingredients = item?["ingredients"][0]["name"].string {
+                itemName.text = ingredients
+            } else {
+                itemName.text = "No ingredients available"
+            }
+            if let ingredQuantity = item?["ingredients"][0]["quantity"].string {
+                quantity.text = "Quantity: \(ingredQuantity)"
+            } else {
+                quantity.text = "No quantity available"
+            }
+            if let quanType = item?["ingredients"][0]["quantityType"].string {
+                 quantityType.text = "Quantity Type: \(quanType)"
+            } else {
+                quantityType.text = "No quantity type available"
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
