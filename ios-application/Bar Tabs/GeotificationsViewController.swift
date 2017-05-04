@@ -50,6 +50,8 @@ class GeotificationsViewController: UIViewController {
         super.viewDidLoad()
         
         mapView.delegate = self
+        mapView.showsCompass = true
+    
         addButton.isEnabled = false
         
         let type = UserDefaults.standard.integer(forKey: "userType")
@@ -70,7 +72,6 @@ class GeotificationsViewController: UIViewController {
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
 
-        
         loadAllGeotifications()
         mapView.zoomToUserLocation()
     }
@@ -272,5 +273,4 @@ extension GeotificationsViewController: MKMapViewDelegate {
         let geotification = view.annotation as! Geotification
         remove(geotification: geotification)
     }
-    
 }
