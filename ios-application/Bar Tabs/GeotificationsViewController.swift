@@ -142,10 +142,10 @@ class GeotificationsViewController: UIViewController {
     
     func remove(geotification: Geotification) {
         let service = "bar/deletebar"
-        let parameters: Parameters = ["objectID": geotification.objectID]
+        let parameters: Parameters = ["barID": geotification.objectID]
         
         let dataService = DataService(view: self)
-        dataService.post(service: service, parameters: parameters, completion: {(response: JSON) -> Void in
+        dataService.fetchData(service: service, parameters: parameters, completion: {(response: JSON) -> Void in
             if let indexInArray = _geotifications.index(of: geotification) {
                 _geotifications.remove(at: indexInArray)
             }
