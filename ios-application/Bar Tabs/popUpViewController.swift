@@ -19,6 +19,8 @@ class popUpViewController: UIViewController {
     
     @IBOutlet var popUp: UIView!
     
+    @IBOutlet var noIngredients: UILabel!
+    
     @IBAction func close(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -28,29 +30,20 @@ class popUpViewController: UIViewController {
         super.viewDidLoad()
         popUp.layer.cornerRadius = 5
         
-        print(item!["ingredients"].string)
-        
-        if(item!["ingredients"] != nil) {
-        
-            for (_, items) in item!["ingredients"] {
-                if let ingredients = items["name"].string {
-                    let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 21))
-                    label.center = CGPoint(x: 190, y: 205+i)
-                    label.textAlignment = .center
-                    label.textColor = UIColor.white
-                    label.text = ingredients
-                    i += 40
-                    self.view.addSubview(label)
-                }
+        for (_, items) in item!["ingredients"] {
+            if let ingredients = items["name"].string {
+                let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 21))
+                label.center = CGPoint(x: 190, y: 205+i)
+                label.textAlignment = .center
+                label.textColor = UIColor.white
+                label.text = ingredients
+                i += 40
+                noIngredients.isHidden = true
+                self.view.addSubview(label)
             }
-        } else {
-            let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 21))
-            label.center = CGPoint(x: 190, y: 205+i)
-            label.textAlignment = .center
-            label.textColor = UIColor.white
-            label.text = "No ingredients found"
-            self.view.addSubview(label)
         }
+        
+        noIngredients.text = "No ingredients available"
     }
 
     override func didReceiveMemoryWarning() {
