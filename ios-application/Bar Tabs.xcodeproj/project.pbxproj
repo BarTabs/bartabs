@@ -28,6 +28,7 @@
 		A0117A3C1E636C3B00A331CF /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0117A3B1E636C3B00A331CF /* CategoryViewController.swift */; };
 		A011B5F01E7724AC00446119 /* AddMenuItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A011B5EF1E7724AC00446119 /* AddMenuItemViewController.swift */; };
 		A022CCDF1E823BB000384BB9 /* PaymentMadeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A022CCDE1E823BB000384BB9 /* PaymentMadeViewController.swift */; };
+		A02676801EB7B29400DEA129 /* popUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A026767F1EB7B29400DEA129 /* popUpViewController.swift */; };
 		A030DD7D1E4FB45D0049539D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A030DD7C1E4FB45D0049539D /* AppDelegate.swift */; };
 		A030DD7F1E4FB45D0049539D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A030DD7E1E4FB45D0049539D /* LoginViewController.swift */; };
 		A030DD821E4FB45D0049539D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A030DD801E4FB45D0049539D /* Main.storyboard */; };
@@ -59,8 +60,8 @@
 		A0BEB4EA1E8D6EF20098FFA1 /* Icon-App-83.5x83.5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0BEB4D61E8D6EF20098FFA1 /* Icon-App-83.5x83.5@2x.png */; };
 		A0C14C391E5A0726003555D5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C14C381E5A0726003555D5 /* HomeViewController.swift */; };
 		A0C813641E68AF1800602023 /* TypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C813631E68AF1800602023 /* TypeViewController.swift */; };
-		A0C813661E68B3DE00602023 /* MenuItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C813651E68B3DE00602023 /* MenuItemViewController.swift */; };
 		A0D75AD91E79AFEF004F81E0 /* ItemAddedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D75AD81E79AFEF004F81E0 /* ItemAddedViewController.swift */; };
+		A0F2F6CF1EB29300008F53ED /* MenuItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F2F6CE1EB29300008F53ED /* MenuItemViewController.swift */; };
 		BA4AF9491E96B88A0049F34D /* newEmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4AF9481E96B88A0049F34D /* newEmployeeViewController.swift */; };
 		BAA78E1D1E952B41000A454D /* addEmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA78E1C1E952B41000A454D /* addEmployeeViewController.swift */; };
 		BAFDA19E1EB291D1006A323C /* AddGeotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFDA1991EB291D1006A323C /* AddGeotificationViewController.swift */; };
@@ -93,6 +94,7 @@
 		A0117A3B1E636C3B00A331CF /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		A011B5EF1E7724AC00446119 /* AddMenuItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMenuItemViewController.swift; sourceTree = "<group>"; };
 		A022CCDE1E823BB000384BB9 /* PaymentMadeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMadeViewController.swift; sourceTree = "<group>"; };
+		A026767F1EB7B29400DEA129 /* popUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = popUpViewController.swift; sourceTree = "<group>"; };
 		A030DD791E4FB45D0049539D /* Bar Tabs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bar Tabs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A030DD7C1E4FB45D0049539D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A030DD7E1E4FB45D0049539D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -126,8 +128,8 @@
 		A0BEB4D61E8D6EF20098FFA1 /* Icon-App-83.5x83.5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-83.5x83.5@2x.png"; sourceTree = "<group>"; };
 		A0C14C381E5A0726003555D5 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A0C813631E68AF1800602023 /* TypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeViewController.swift; sourceTree = "<group>"; };
-		A0C813651E68B3DE00602023 /* MenuItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemViewController.swift; sourceTree = "<group>"; };
 		A0D75AD81E79AFEF004F81E0 /* ItemAddedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemAddedViewController.swift; sourceTree = "<group>"; };
+		A0F2F6CE1EB29300008F53ED /* MenuItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemViewController.swift; sourceTree = "<group>"; };
 		A4F3D1E041A64E6CC99904B5 /* Pods_Bar_Tabs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bar_Tabs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9B886795B43E4489287E26A /* Pods-Bar Tabs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bar Tabs.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bar Tabs/Pods-Bar Tabs.release.xcconfig"; sourceTree = "<group>"; };
 		BA4AF9481E96B88A0049F34D /* newEmployeeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newEmployeeViewController.swift; sourceTree = "<group>"; };
@@ -165,7 +167,8 @@
 				A0117A3B1E636C3B00A331CF /* CategoryViewController.swift */,
 				7E6984891EB17DCE00F2E509 /* MenuItemTableViewCell.swift */,
 				A0C813631E68AF1800602023 /* TypeViewController.swift */,
-				A0C813651E68B3DE00602023 /* MenuItemViewController.swift */,
+				A0F2F6CE1EB29300008F53ED /* MenuItemViewController.swift */,
+				A026767F1EB7B29400DEA129 /* popUpViewController.swift */,
 				A022CCDE1E823BB000384BB9 /* PaymentMadeViewController.swift */,
 				A011B5EF1E7724AC00446119 /* AddMenuItemViewController.swift */,
 				A0D75AD81E79AFEF004F81E0 /* ItemAddedViewController.swift */,
@@ -473,6 +476,7 @@
 				7E69848A1EB17DCE00F2E509 /* MenuItemTableViewCell.swift in Sources */,
 				BAFDA1A01EB291D1006A323C /* GeotificationsViewController.swift in Sources */,
 				7E4029C11E9EA71C00054D6E /* QqrCodeReaderViewController.swift in Sources */,
+				A0F2F6CF1EB29300008F53ED /* MenuItemViewController.swift in Sources */,
 				7E5A19381E8D6E39004EE3D5 /* OrderHistoryViewController.swift in Sources */,
 				A022CCDF1E823BB000384BB9 /* PaymentMadeViewController.swift in Sources */,
 				BA4AF9491E96B88A0049F34D /* newEmployeeViewController.swift in Sources */,
@@ -487,6 +491,7 @@
 				7E256D601E82F99D00189D59 /* ClientMenuItem.swift in Sources */,
 				BAFDA1A21EB291D1006A323C /* Utilities.swift in Sources */,
 				A030DD7D1E4FB45D0049539D /* AppDelegate.swift in Sources */,
+				A02676801EB7B29400DEA129 /* popUpViewController.swift in Sources */,
 				A089A60C1E7DB64F00B07628 /* OrderViewController.swift in Sources */,
 				A0D75AD91E79AFEF004F81E0 /* ItemAddedViewController.swift in Sources */,
 				7E5D38CD1E88655A00C212D5 /* DataService.swift in Sources */,
@@ -497,7 +502,6 @@
 				A0C813641E68AF1800602023 /* TypeViewController.swift in Sources */,
 				7E2A77D41E9658D30055817A /* OpenOrdersViewController.swift in Sources */,
 				A011B5F01E7724AC00446119 /* AddMenuItemViewController.swift in Sources */,
-				A0C813661E68B3DE00602023 /* MenuItemViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

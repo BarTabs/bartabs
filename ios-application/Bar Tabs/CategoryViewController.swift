@@ -34,7 +34,7 @@ class CategoryViewController: UIViewController, UITableViewDataSource, UITableVi
             toolbar.items = items
         }
         
-        self.navigationItem.title = "Amnesia"
+        self.navigationItem.title = "Categories"
         self.automaticallyAdjustsScrollViewInsets = false
 
         tableView.delegate = self

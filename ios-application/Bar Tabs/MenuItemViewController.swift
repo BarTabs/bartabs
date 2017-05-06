@@ -23,11 +23,15 @@ class MenuItemViewController: UIViewController, UITableViewDataSource, UITableVi
         return _type ?? ""
     }
     
+    var effect: UIVisualEffect!
+    
     @IBOutlet var tableView: UITableView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
+        
         self.navigationItem.title = type
         self.automaticallyAdjustsScrollViewInsets = false
         
@@ -56,6 +60,9 @@ class MenuItemViewController: UIViewController, UITableViewDataSource, UITableVi
         if segue.identifier == "orderSegue" {
             let destSeg = segue.destination as! OrderViewController
             destSeg.item = sender as? JSON
+        } else if segue.identifier == "popUpSegue" {
+            let destSeg = segue.destination as! popUpViewController
+            destSeg.item = sender as? JSON
         }
     }
     
@@ -70,14 +77,13 @@ class MenuItemViewController: UIViewController, UITableViewDataSource, UITableVi
         if (self.menu != nil) {
             let jsonVar : JSON = self.menu!
             let name = jsonVar["menuItems"][indexPath.row]["name"].stringValue
-            let description = jsonVar["menuItems"][indexPath.row]["description"].stringValue
+            let description = jsonVar["menuitems"][indexPath.row]["description"].stringValue
+            print(description)
             let price = jsonVar["menuItems"][indexPath.row]["price"].doubleValue
             
             cell.title.text = name
             cell.subtitle.text = description
-            cell.price.text = String(format:"$%.02f", price)
-            
-            
+            cell.price.text = String(format:"$%.02f", price)    
         }
         
         return cell
@@ -101,6 +107,12 @@ class MenuItemViewController: UIViewController, UITableViewDataSource, UITableVi
             let objectID = jsonVar["menuItems"][indexPath.row]["objectID"].int64Value
             deleteRecord(objectID: objectID)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        let jsonVar : JSON = self.menu!
+        let item = jsonVar["menuItems"][indexPath.row]
+        performSegue(withIdentifier: "popUpSegue", sender: item)
     }
     
     func fetchData() {

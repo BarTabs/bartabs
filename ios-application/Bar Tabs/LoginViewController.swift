@@ -190,8 +190,6 @@ class LoginViewController: UIViewController {
             self.popUp.alpha = 1
             self.popUp.transform = CGAffineTransform.identity
         }
-        
-        
     }
     
     func animateOut() {
