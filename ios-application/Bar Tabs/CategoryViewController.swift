@@ -27,7 +27,7 @@ class CategoryViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
         
         let type = UserDefaults.standard.integer(forKey: "userType")
-        if(type == 4) {
+        if(type == 1 || type == 2) {
             var items = [UIBarButtonItem]()
             items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
             items.append(UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(CategoryViewController.addMenuItem)))

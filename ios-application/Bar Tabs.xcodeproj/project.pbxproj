@@ -16,13 +16,17 @@
 		7E5D38CD1E88655A00C212D5 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5D38CC1E88655A00C212D5 /* DataService.swift */; };
 		7E69848A1EB17DCE00F2E509 /* MenuItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6984891EB17DCE00F2E509 /* MenuItemTableViewCell.swift */; };
 		7EED520D1E637C6700669184 /* UserTypeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EED520C1E637C6700669184 /* UserTypeSelectionViewController.swift */; };
+		8453881C1EBACD5000F37D72 /* AddPin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8453881B1EBACD5000F37D72 /* AddPin@2x.png */; };
+		8453881E1EBACDBD00F37D72 /* CurrentLocation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8453881D1EBACDBD00F37D72 /* CurrentLocation@2x.png */; };
+		845388201EBACDC400F37D72 /* DeleteGeotification@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8453881F1EBACDC400F37D72 /* DeleteGeotification@2x.png */; };
+		845388221EBAD58A00F37D72 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 845388211EBAD58A00F37D72 /* splash.png */; };
+		8455EF8C1EB7E11E001AF77B /* ClientBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8455EF8B1EB7E11E001AF77B /* ClientBar.swift */; };
+		8455EF8E1EB7E12A001AF77B /* ClientLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8455EF8D1EB7E12A001AF77B /* ClientLocation.swift */; };
 		A009995C1EB0454300A829F3 /* beer.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A009995B1EB0454300A829F3 /* beer.jpg */; };
 		A009995E1EB04BBD00A829F3 /* pitcher.png in Resources */ = {isa = PBXBuildFile; fileRef = A009995D1EB04BBD00A829F3 /* pitcher.png */; };
 		A009C7911E5A44CF009095E8 /* UserCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A009C7901E5A44CF009095E8 /* UserCreateViewController.swift */; };
-		A00C8A191E95601800090A15 /* mapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00C8A181E95601800090A15 /* mapViewController.swift */; };
 		A0117A3C1E636C3B00A331CF /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0117A3B1E636C3B00A331CF /* CategoryViewController.swift */; };
 		A011B5F01E7724AC00446119 /* AddMenuItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A011B5EF1E7724AC00446119 /* AddMenuItemViewController.swift */; };
-		A01D4B911E8D7B740080A563 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = A01D4B901E8D7B740080A563 /* splash.png */; };
 		A022CCDF1E823BB000384BB9 /* PaymentMadeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A022CCDE1E823BB000384BB9 /* PaymentMadeViewController.swift */; };
 		A02676801EB7B29400DEA129 /* popUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A026767F1EB7B29400DEA129 /* popUpViewController.swift */; };
 		A030DD7D1E4FB45D0049539D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A030DD7C1E4FB45D0049539D /* AppDelegate.swift */; };
@@ -60,6 +64,10 @@
 		A0F2F6CF1EB29300008F53ED /* MenuItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F2F6CE1EB29300008F53ED /* MenuItemViewController.swift */; };
 		BA4AF9491E96B88A0049F34D /* newEmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4AF9481E96B88A0049F34D /* newEmployeeViewController.swift */; };
 		BAA78E1D1E952B41000A454D /* addEmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA78E1C1E952B41000A454D /* addEmployeeViewController.swift */; };
+		BAFDA19E1EB291D1006A323C /* AddGeotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFDA1991EB291D1006A323C /* AddGeotificationViewController.swift */; };
+		BAFDA19F1EB291D1006A323C /* Geotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFDA19A1EB291D1006A323C /* Geotification.swift */; };
+		BAFDA1A01EB291D1006A323C /* GeotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFDA19B1EB291D1006A323C /* GeotificationsViewController.swift */; };
+		BAFDA1A21EB291D1006A323C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFDA19D1EB291D1006A323C /* Utilities.swift */; };
 		CA30E256831FA78057A1E448 /* Pods_Bar_Tabs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4F3D1E041A64E6CC99904B5 /* Pods_Bar_Tabs.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,13 +82,17 @@
 		7E5D38CC1E88655A00C212D5 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		7E6984891EB17DCE00F2E509 /* MenuItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemTableViewCell.swift; sourceTree = "<group>"; };
 		7EED520C1E637C6700669184 /* UserTypeSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTypeSelectionViewController.swift; sourceTree = "<group>"; };
+		8453881B1EBACD5000F37D72 /* AddPin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AddPin@2x.png"; sourceTree = "<group>"; };
+		8453881D1EBACDBD00F37D72 /* CurrentLocation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CurrentLocation@2x.png"; sourceTree = "<group>"; };
+		8453881F1EBACDC400F37D72 /* DeleteGeotification@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DeleteGeotification@2x.png"; sourceTree = "<group>"; };
+		845388211EBAD58A00F37D72 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
+		8455EF8B1EB7E11E001AF77B /* ClientBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientBar.swift; sourceTree = "<group>"; };
+		8455EF8D1EB7E12A001AF77B /* ClientLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientLocation.swift; sourceTree = "<group>"; };
 		A009995B1EB0454300A829F3 /* beer.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = beer.jpg; sourceTree = "<group>"; };
 		A009995D1EB04BBD00A829F3 /* pitcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pitcher.png; sourceTree = "<group>"; };
 		A009C7901E5A44CF009095E8 /* UserCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCreateViewController.swift; sourceTree = "<group>"; };
-		A00C8A181E95601800090A15 /* mapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapViewController.swift; sourceTree = "<group>"; };
 		A0117A3B1E636C3B00A331CF /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		A011B5EF1E7724AC00446119 /* AddMenuItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMenuItemViewController.swift; sourceTree = "<group>"; };
-		A01D4B901E8D7B740080A563 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
 		A022CCDE1E823BB000384BB9 /* PaymentMadeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMadeViewController.swift; sourceTree = "<group>"; };
 		A026767F1EB7B29400DEA129 /* popUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = popUpViewController.swift; sourceTree = "<group>"; };
 		A030DD791E4FB45D0049539D /* Bar Tabs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bar Tabs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,6 +134,10 @@
 		B9B886795B43E4489287E26A /* Pods-Bar Tabs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bar Tabs.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bar Tabs/Pods-Bar Tabs.release.xcconfig"; sourceTree = "<group>"; };
 		BA4AF9481E96B88A0049F34D /* newEmployeeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newEmployeeViewController.swift; sourceTree = "<group>"; };
 		BAA78E1C1E952B41000A454D /* addEmployeeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addEmployeeViewController.swift; sourceTree = "<group>"; };
+		BAFDA1991EB291D1006A323C /* AddGeotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGeotificationViewController.swift; sourceTree = "<group>"; };
+		BAFDA19A1EB291D1006A323C /* Geotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geotification.swift; sourceTree = "<group>"; };
+		BAFDA19B1EB291D1006A323C /* GeotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeotificationsViewController.swift; sourceTree = "<group>"; };
+		BAFDA19D1EB291D1006A323C /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +181,8 @@
 			children = (
 				7E256D5F1E82F99D00189D59 /* ClientMenuItem.swift */,
 				7E256D621E82FA4900189D59 /* ClientOrder.swift */,
+				8455EF8B1EB7E11E001AF77B /* ClientBar.swift */,
+				8455EF8D1EB7E12A001AF77B /* ClientLocation.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -189,14 +207,6 @@
 				BA4AF9481E96B88A0049F34D /* newEmployeeViewController.swift */,
 			);
 			name = employee;
-			sourceTree = "<group>";
-		};
-		7E4029C61E9F5F9800054D6E /* map */ = {
-			isa = PBXGroup;
-			children = (
-				A00C8A181E95601800090A15 /* mapViewController.swift */,
-			);
-			name = map;
 			sourceTree = "<group>";
 		};
 		7E4029C71E9F5FD800054D6E /* login/setup */ = {
@@ -239,8 +249,8 @@
 		A030DD7B1E4FB45D0049539D /* Bar Tabs */ = {
 			isa = PBXGroup;
 			children = (
+				BAFDA1981EB291A7006A323C /* geotify */,
 				7E4029C71E9F5FD800054D6E /* login/setup */,
-				7E4029C61E9F5F9800054D6E /* map */,
 				7E4029C51E9F5F7900054D6E /* employee */,
 				7E21FC011E84E3FA00057A0B /* menu */,
 				7E21FBFC1E84D6AC00057A0B /* services */,
@@ -262,10 +272,13 @@
 				A009995D1EB04BBD00A829F3 /* pitcher.png */,
 				A009995B1EB0454300A829F3 /* beer.jpg */,
 				7E4029C21E9F3DA600054D6E /* qrCodeIcon.png */,
-				A01D4B901E8D7B740080A563 /* splash.png */,
 				A0BEB4C31E8D6EF20098FFA1 /* Contents.json */,
 				A0BEB4C41E8D6EF20098FFA1 /* Icon-App-20x20@1x.png */,
+				845388211EBAD58A00F37D72 /* splash.png */,
+				8453881F1EBACDC400F37D72 /* DeleteGeotification@2x.png */,
 				A0BEB4C51E8D6EF20098FFA1 /* Icon-App-20x20@2x.png */,
+				8453881B1EBACD5000F37D72 /* AddPin@2x.png */,
+				8453881D1EBACDBD00F37D72 /* CurrentLocation@2x.png */,
 				A0BEB4C61E8D6EF20098FFA1 /* Icon-App-20x20@3x.png */,
 				A0BEB4C71E8D6EF20098FFA1 /* Icon-App-29x29@1x.png */,
 				A0BEB4C81E8D6EF20098FFA1 /* Icon-App-29x29@2x.png */,
@@ -285,6 +298,17 @@
 				A0BEB4D61E8D6EF20098FFA1 /* Icon-App-83.5x83.5@2x.png */,
 			);
 			path = AppIcon.appiconset;
+			sourceTree = "<group>";
+		};
+		BAFDA1981EB291A7006A323C /* geotify */ = {
+			isa = PBXGroup;
+			children = (
+				BAFDA1991EB291D1006A323C /* AddGeotificationViewController.swift */,
+				BAFDA19A1EB291D1006A323C /* Geotification.swift */,
+				BAFDA19B1EB291D1006A323C /* GeotificationsViewController.swift */,
+				BAFDA19D1EB291D1006A323C /* Utilities.swift */,
+			);
+			name = geotify;
 			sourceTree = "<group>";
 		};
 		F54383F60B1B127D2E644CF6 /* Pods */ = {
@@ -371,12 +395,13 @@
 				A0BEB4DD1E8D6EF20098FFA1 /* Icon-App-29x29@3x.png in Resources */,
 				A009995E1EB04BBD00A829F3 /* pitcher.png in Resources */,
 				A0BEB4E21E8D6EF20098FFA1 /* Icon-App-57x57@2x.png in Resources */,
-				A01D4B911E8D7B740080A563 /* splash.png in Resources */,
 				A0BEB4E51E8D6EF20098FFA1 /* Icon-App-60x60@2x.png in Resources */,
 				7E4029C31E9F3DA600054D6E /* qrCodeIcon.png in Resources */,
+				845388201EBACDC400F37D72 /* DeleteGeotification@2x.png in Resources */,
 				A0BEB4DA1E8D6EF20098FFA1 /* Icon-App-20x20@3x.png in Resources */,
 				A0BEB4E41E8D6EF20098FFA1 /* Icon-App-60x60@1x.png in Resources */,
 				A0BEB4E61E8D6EF20098FFA1 /* Icon-App-60x60@3x.png in Resources */,
+				845388221EBAD58A00F37D72 /* splash.png in Resources */,
 				A009995C1EB0454300A829F3 /* beer.jpg in Resources */,
 				A030DD841E4FB45D0049539D /* Assets.xcassets in Resources */,
 				A0BEB4E91E8D6EF20098FFA1 /* Icon-App-76x76@3x.png in Resources */,
@@ -387,6 +412,8 @@
 				A0BEB4E01E8D6EF20098FFA1 /* Icon-App-40x40@3x.png in Resources */,
 				A0BEB4DF1E8D6EF20098FFA1 /* Icon-App-40x40@2x.png in Resources */,
 				A0BEB4EA1E8D6EF20098FFA1 /* Icon-App-83.5x83.5@2x.png in Resources */,
+				8453881E1EBACDBD00F37D72 /* CurrentLocation@2x.png in Resources */,
+				8453881C1EBACD5000F37D72 /* AddPin@2x.png in Resources */,
 				A0BEB4DB1E8D6EF20098FFA1 /* Icon-App-29x29@1x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,7 +474,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E69848A1EB17DCE00F2E509 /* MenuItemTableViewCell.swift in Sources */,
-				A00C8A191E95601800090A15 /* mapViewController.swift in Sources */,
+				BAFDA1A01EB291D1006A323C /* GeotificationsViewController.swift in Sources */,
 				7E4029C11E9EA71C00054D6E /* QqrCodeReaderViewController.swift in Sources */,
 				A0F2F6CF1EB29300008F53ED /* MenuItemViewController.swift in Sources */,
 				7E5A19381E8D6E39004EE3D5 /* OrderHistoryViewController.swift in Sources */,
@@ -456,16 +483,21 @@
 				A009C7911E5A44CF009095E8 /* UserCreateViewController.swift in Sources */,
 				A0C14C391E5A0726003555D5 /* HomeViewController.swift in Sources */,
 				A030DD7F1E4FB45D0049539D /* LoginViewController.swift in Sources */,
+				8455EF8E1EB7E12A001AF77B /* ClientLocation.swift in Sources */,
 				A0117A3C1E636C3B00A331CF /* CategoryViewController.swift in Sources */,
 				7EED520D1E637C6700669184 /* UserTypeSelectionViewController.swift in Sources */,
 				7E256D631E82FA4900189D59 /* ClientOrder.swift in Sources */,
+				BAFDA19E1EB291D1006A323C /* AddGeotificationViewController.swift in Sources */,
 				7E256D601E82F99D00189D59 /* ClientMenuItem.swift in Sources */,
+				BAFDA1A21EB291D1006A323C /* Utilities.swift in Sources */,
 				A030DD7D1E4FB45D0049539D /* AppDelegate.swift in Sources */,
 				A02676801EB7B29400DEA129 /* popUpViewController.swift in Sources */,
 				A089A60C1E7DB64F00B07628 /* OrderViewController.swift in Sources */,
 				A0D75AD91E79AFEF004F81E0 /* ItemAddedViewController.swift in Sources */,
 				7E5D38CD1E88655A00C212D5 /* DataService.swift in Sources */,
+				BAFDA19F1EB291D1006A323C /* Geotification.swift in Sources */,
 				A04217CB1E9AC5E500F5324E /* QrCodeView.swift in Sources */,
+				8455EF8C1EB7E11E001AF77B /* ClientBar.swift in Sources */,
 				BAA78E1D1E952B41000A454D /* addEmployeeViewController.swift in Sources */,
 				A0C813641E68AF1800602023 /* TypeViewController.swift in Sources */,
 				7E2A77D41E9658D30055817A /* OpenOrdersViewController.swift in Sources */,

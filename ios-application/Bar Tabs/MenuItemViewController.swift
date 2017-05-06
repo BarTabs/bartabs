@@ -82,10 +82,8 @@ class MenuItemViewController: UIViewController, UITableViewDataSource, UITableVi
             let price = jsonVar["menuItems"][indexPath.row]["price"].doubleValue
             
             cell.title.text = name
-            cell.subtitle.text = "test"
-            cell.price.text = String(format:"$%.02f", price)
-            
-            
+            cell.subtitle.text = description
+            cell.price.text = String(format:"$%.02f", price)    
         }
         
         return cell
