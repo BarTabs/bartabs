@@ -36,6 +36,7 @@ extension UIViewController {
     
     func loadAllBars() {
         _geotifications.removeAll()
+        stopMonitoringAll()
         
         let service = "bar/getbars"
         let parameters : Parameters = [:]
@@ -89,6 +90,13 @@ extension UIViewController {
     func stopMonitoring(geotification: Geotification) {
         for region in _locationManager.monitoredRegions {
             guard let circularRegion = region as? CLCircularRegion, circularRegion.identifier == geotification.identifier else { continue }
+            _locationManager.stopMonitoring(for: circularRegion)
+        }
+    }
+    
+    func stopMonitoringAll() {
+        for region in _locationManager.monitoredRegions {
+            guard let circularRegion = region as? CLCircularRegion else { continue }
             _locationManager.stopMonitoring(for: circularRegion)
         }
     }

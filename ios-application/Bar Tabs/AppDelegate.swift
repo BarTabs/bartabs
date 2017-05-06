@@ -71,8 +71,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         _locationManager.delegate = self
         _locationManager.requestAlwaysAuthorization()
-        application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.sound, .alert, .badge], categories: nil))
-        UIApplication.shared.cancelAllLocalNotifications()
 
         
         return true
@@ -176,7 +174,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (action) in alert.dismiss(animated: true, completion: nil)
         }))
-        self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+        
+        if UIApplication.shared.applicationState == .active {
+            self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+        } else {
+            let content = UNMutableNotificationContent()
+            content.title = titleText
+            content.body = messageText
+            content.categoryIdentifier = "message"
+            
+            //Set the trigger of the notification -- here a timer.
+            let trigger = UNTimeIntervalNotificationTrigger(
+                timeInterval: 10.0,
+                repeats: false)
+            
+            //Set the request for the notification from the above
+            let request = UNNotificationRequest(
+                identifier: "10.second.message",
+                content: content,
+                trigger: trigger
+            )
+            
+            //Add the notification to the currnet notification center
+            UNUserNotificationCenter.current().add(
+                request, withCompletionHandler: nil)
+        }
         
     }
     
@@ -256,15 +278,8 @@ extension AppDelegate: CLLocationManagerDelegate {
             guard let bar = self.getGeotification(fromRegionIdentifier: region.identifier) else { return }
             let name = bar.name
             _barID = bar.objectID
-            if UIApplication.shared.applicationState == .active {
-                window?.rootViewController?.showAlert(withTitle: nil, message: "Welcome to " + name)
-            } else {
-                // Otherwise present a local notification
-                let notification = UILocalNotification()
-                notification.alertBody = "Entering " + name + "."
-                notification.soundName = "Default"
-                UIApplication.shared.presentLocalNotificationNow(notification)
-            }
+            
+            createAlert(titleText: "Location Update", messageText: "Welcome to " + name)
 
         }
     }
@@ -275,16 +290,8 @@ extension AppDelegate: CLLocationManagerDelegate {
             guard let bar = self.getGeotification(fromRegionIdentifier: region.identifier) else { return }
             let name = bar.name
             _barID = nil
-            if UIApplication.shared.applicationState == .active {
-                window?.rootViewController?.showAlert(withTitle: nil, message: "You are now leaving " + name + ". Thank you for your business!")
-                
-            } else {
-                // Otherwise present a local notification
-                let notification = UILocalNotification()
-                notification.alertBody = "Leaving " + name + "."
-                notification.soundName = "Default"
-                UIApplication.shared.presentLocalNotificationNow(notification)
-            }
+            
+            createAlert(titleText: "Location Update", messageText: "You are now leaving " + name + ". Thank you for your business!")
         }
     }
 }

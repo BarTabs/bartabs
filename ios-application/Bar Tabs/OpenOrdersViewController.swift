@@ -31,9 +31,6 @@ class OpenOrdersViewController: UIViewController, UITableViewDataSource, UITable
         tableView.delegate = self
         tableView.dataSource = self
         
-//        fetchData(showActivityIndicator: true)
-//        timer = Timer.scheduledTimer(timeInterval: 5, target:self, selector: #selector(self.reloadData), userInfo: nil, repeats: true)
-        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -47,7 +44,6 @@ class OpenOrdersViewController: UIViewController, UITableViewDataSource, UITable
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,12 +57,11 @@ class OpenOrdersViewController: UIViewController, UITableViewDataSource, UITable
             
             let jsonVar : JSON = self.orders!
             let orderID = jsonVar[indexPath.row]["objectID"].int64
-            
+            let orderedDate = jsonVar[indexPath.row]["orderedDateDisplay"].stringValue
             cell.textLabel?.text = "Order #" + orderID!.description;
-            
+            cell.detailTextLabel?.text = orderedDate
         }
 
-        
         return cell
     }
     

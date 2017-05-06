@@ -73,7 +73,6 @@ class GeotificationsViewController: UIViewController {
         locationManager.startUpdatingLocation()
 
         loadAllGeotifications()
-        mapView.zoomToUserLocation()
     }
     
     func addAnnotationOnLongPress(gesture: UILongPressGestureRecognizer) {
@@ -130,6 +129,7 @@ class GeotificationsViewController: UIViewController {
             }
         })
         
+        self.mapView.zoomToUserLocation()
     }
     
     // MARK: Functions that update the model/associated views with geotification changes
