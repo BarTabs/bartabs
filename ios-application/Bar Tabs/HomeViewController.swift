@@ -84,18 +84,23 @@ class HomeViewController: UIViewController {
         
         let type = UserDefaults.standard.integer(forKey: "userType")
         
-        if(type == 1) {
-            ordersMenuButton.isHidden = false
+        if (type == 1) {
             employees.isHidden = false
         } else {
             employees.isHidden = true
+        }
+        
+        if(type == 1 || type == 2) {
+            ordersMenuButton.isHidden = false
+        } else {
+            ordersMenuButton.isHidden = true
         }
 
         if (type == 4) {
             ordersMenuButton.isHidden = true
         }
         
-        if(type == 4 || type == 2 || type == 3) {
+        if(type == 4) {
             historyMenuButton.isHidden = false
         } else {
             historyMenuButton.isHidden = true
